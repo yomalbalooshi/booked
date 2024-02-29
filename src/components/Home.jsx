@@ -1,4 +1,19 @@
+import { useNavigate } from 'react-router-dom'
+
 const Home = () => {
-  return <div> Home</div>
+  let navigate = useNavigate()
+  return (
+    <div>
+      {' '}
+      Home
+      <button
+        onClick={() => {
+          navigate('/companylogin')
+        }}
+      >
+        company login
+      </button>
+    </div>
+  )
 }
 export default Home
