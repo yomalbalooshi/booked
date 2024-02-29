@@ -1,9 +1,10 @@
 import './App.css'
+import Nav from './components/Nav'
 
 const App = () => {
   return (
     <div>
-      <h1>booking :|</h1>
+      <Nav />
     </div>
   )
 }
