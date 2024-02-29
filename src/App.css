@@ -1,3 +1,25 @@
 body {
   margin: 0;
 }
+.navbar {
+  padding: 1%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6em;
+  background-color: #b16750;
+}
+
+.nav-links a {
+  margin: 10px;
+  color: #ecfee8;
+  text-decoration: none;
+}
+.nav-links {
+  padding-top: 1%;
+}
+.active {
+  color: #70cbba !important;
+}
+nav img {
+  width: 250px;
+}
