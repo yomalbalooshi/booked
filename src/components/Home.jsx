@@ -1,18 +1,20 @@
 import { useNavigate } from 'react-router-dom'
 
-const Home = () => {
+const Home = ({ user }) => {
   let navigate = useNavigate()
   return (
     <div>
       {' '}
       Home
-      <button
-        onClick={() => {
-          navigate('/companylogin')
-        }}
-      >
-        company login
-      </button>
+      {!user && (
+        <button
+          onClick={() => {
+            navigate('/companylogin')
+          }}
+        >
+          company login
+        </button>
+      )}
     </div>
   )
 }
