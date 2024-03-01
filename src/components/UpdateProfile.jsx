@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const SignIn = ({ setUser, signin }) => {
+const UpdateProfile = ({ setUser, updateProfile }) => {
   let navigate = useNavigate()
-  const [formValues, setFormValues] = useState({ email: '', password: '' })
+  const [formValues, setFormValues] = useState({
+    oldPassword: '',
+    newPassword: ''
+  })
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -11,8 +14,8 @@ const SignIn = ({ setUser, signin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await signin(formValues)
-    setFormValues({ email: '', password: '' })
+    const payload = await updateProfile(formValues)
+    setFormValues({ oldPassword: '', newPassword: '' })
     setUser(payload)
     navigate('/')
   }
@@ -22,32 +25,33 @@ const SignIn = ({ setUser, signin }) => {
       <div>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="oldPassword">Old Password</label>
             <input
               onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="Email"
-              value={formValues.email}
+              name="oldPassword"
+              type="password"
+              placeholder="Old Password"
+              value={formValues.oldPassword}
               required
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="newPassword">Password</label>
             <input
               onChange={handleChange}
               type="password"
-              name="password"
-              value={formValues.password}
+              name="newPassword"
+              value={formValues.newPassword}
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
-            Sign In
+          <button disabled={!formValues.oldPassword || !formValues.newPassword}>
+            Update
           </button>
         </form>
       </div>
     </div>
   )
 }
-export default SignIn
+
+export default UpdateProfile
