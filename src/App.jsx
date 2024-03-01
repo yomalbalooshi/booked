@@ -7,10 +7,16 @@ import About from './components/About'
 import Home from './components/Home'
 import Hotels from './components/Hotels'
 import Profile from './components/Profile'
-import CustomerSignIn from './components/CustomerSignIn'
-import CompanySignIn from './components/CompanySignIn'
 import CustomerRegistation from './components/CustomerRegistration'
-import { CheckSession } from './services/Auth'
+import {
+  CheckSession,
+  SignInCustomer,
+  SignInCompany,
+  UpdateCustomerProfile,
+  UpdateCompanyProfile
+} from './services/Auth'
+import SignIn from './components/SignIn'
+import UpdateProfile from './components/UpdateProfile'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -43,11 +49,32 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/profile" element={<Profile user={user} />} />
-          <Route path="/login" element={<CustomerSignIn setUser={setUser} />} />
           <Route path="/register" element={<CustomerRegistation />} />
           <Route
+            path="/login"
+            element={<SignIn setUser={setUser} signin={SignInCustomer} />}
+          />
+          <Route
             path="/companylogin"
-            element={<CompanySignIn setUser={setUser} />}
+            element={<SignIn setUser={setUser} signin={SignInCompany} />}
+          />
+          <Route
+            path="/updateprofile"
+            element={
+              <UpdateProfile
+                setUser={setUser}
+                updateProfile={UpdateCustomerProfile}
+              />
+            }
+          />
+          <Route
+            path="/updatecompanyprofile"
+            element={
+              <UpdateProfile
+                setUser={setUser}
+                updateProfile={UpdateCompanyProfile}
+              />
+            }
           />
         </Routes>
       </main>
