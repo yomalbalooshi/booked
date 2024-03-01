@@ -5,6 +5,7 @@ body {
   padding: 1%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 1.6em;
   background-color: #b16750;
 }
@@ -16,6 +17,11 @@ body {
 }
 .nav-links {
   padding-top: 1%;
+  display: flex;
+  align-items: center;
+}
+.nav-links h6 {
+  margin: 0;
 }
 .active {
   color: #70cbba !important;
