@@ -17,6 +17,7 @@ import {
 } from './services/Auth'
 import SignIn from './components/SignIn'
 import UpdateProfile from './components/UpdateProfile'
+import HotelDetails from './components/HotelDetails'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/" element={<Home user={user} />} />
           <Route path="/about" element={<About />} />
           <Route path="/hotels" element={<Hotels />} />
+          <Route path="/hotels/:id" element={<HotelDetails />} />
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/register" element={<CustomerRegistation />} />
           <Route
