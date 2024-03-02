@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-const HotelCard = ({ hotel, priceRange, checkedAmenities }) => {
+const HotelCard = ({ hotel }) => {
   let navigate = useNavigate()
 
   const basePrice = () => {

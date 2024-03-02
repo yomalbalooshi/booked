@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GetHotels } from '../services/Hotels'
-
+import { Pagination } from '@mui/material'
 import HotelCard from './HotelCard'
 
 const Hotels = () => {
@@ -94,14 +94,9 @@ const Hotels = () => {
     lastIndex - hotelPerPage,
     lastIndex
   )
-  let pagination = []
-  for (let i = 1; i <= totalPages; i++) {
-    pagination.push(
-      <button key={i} onClick={() => setPage(i)}>
-        {i}
-      </button>
-      //add conditional classname if i === page for styling selected page
-    )
+
+  const handlePageChange = (e, value) => {
+    setPage(value)
   }
 
   console.log('filtered ', filteredHotels)
@@ -149,8 +144,14 @@ const Hotels = () => {
             />
           </div>
         ))}
-        {pagination}
       </div>
+      <Pagination
+        count={totalPages}
+        onChange={handlePageChange}
+        size="small"
+        showFirstButton
+        showLastButton
+      />
     </div>
   )
 }
