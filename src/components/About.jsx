@@ -1,3 +1,56 @@
+import './About.css'
+import { render } from '@react-email/render'
+import axios from 'axios'
+// import nodemailer from 'nodemailer'
+// import TestEmail from './TestMail'
+// ----------------
+
+const handleSubmit = (event) => {
+  // const messageHtml = renderEmail(
+  //   <MyEmail name={this.state.name}>{this.state.feedback}</MyEmail>
+  // )
+
+  const messageHtml = 'test message html'
+
+  axios({
+    method: 'POST',
+    url: 'http://localhost:3000/mail/send',
+    data: {
+      name: 'Amir',
+      email: 'aamir@mail.com',
+      messageHtml: messageHtml
+    }
+  }).then((response) => {
+    if (response) {
+      console.log('response is ==> ', response)
+    }
+  })
+}
+
+//  ---------------------
+// handleSubmit(event)
+// const About = () => {
+//   const sendTestMail = async () => {
+//     var transport = nodemailer.createTransport({
+//       host: 'sandbox.smtp.mailtrap.io',
+//       port: 2525,
+//       auth: {
+//         user: 'bb03a9478dca66',
+//         pass: 'dbb6b2a1be929d'
+//       }
+//     })
+
+//     const emailHtml = render(<TestEmail url="https://example.com" />)
+
+//     const options = {
+//       from: 'you@example.com',
+//       to: 'user@gmail.com',
+//       subject: 'hello world',
+//       html: emailHtml
+//     }
+
+//     await transport.sendMail(options)
+// }
 const About = () => {
   return (
     <div>
@@ -31,14 +84,17 @@ const About = () => {
           <label htmlFor="name">Emai</label>
           <input type="text" id="email" name="email" placeholder="Email" />
           <label htmlFor="messsage">Message</label>
-          <texarea
+          <textarea
             type="text"
             id="message"
             name="message"
             placeholder="Message"
-          ></texarea>
+          ></textarea>
+          <button onClick={() => handleSubmit()}>Send</button>
         </div>
       </section>
     </div>
   )
 }
+
+export default About
