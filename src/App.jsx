@@ -25,7 +25,6 @@ import AddHotel from './components/AddHotel'
 import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
 
-
 const App = () => {
   const [user, setUser] = useState(null)
 
@@ -45,7 +44,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-  console.log(user)
+  // console.log(user)
   return (
     <div className="App">
       <header>

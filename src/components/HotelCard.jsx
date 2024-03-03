@@ -21,8 +21,10 @@ const HotelCard = ({ hotel }) => {
     <div>
       <h1>{hotel.name}</h1>
       <p>{hotel.description}</p>
-      <p>{hotel.location}</p>
-      <img src={hotel.img} alt={hotel.name}></img>
+      <p>
+        {hotel.city}, {hotel.country}
+      </p>
+      <img src={hotel.image} alt={hotel.name}></img>
       <h5>Amenities</h5>
       {hotel.amenities && hotel.amenities.length > 0 && (
         <ul>

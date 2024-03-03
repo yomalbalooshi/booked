@@ -145,13 +145,15 @@ const Hotels = () => {
           </div>
         ))}
       </div>
-      <Pagination
-        count={totalPages}
-        onChange={handlePageChange}
-        size="small"
-        showFirstButton
-        showLastButton
-      />
+      {totalPages > 1 && (
+        <Pagination
+          count={totalPages}
+          onChange={handlePageChange}
+          size="small"
+          showFirstButton
+          showLastButton
+        />
+      )}
     </div>
   )
 }

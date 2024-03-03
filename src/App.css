@@ -29,3 +29,6 @@ body {
 nav img {
   width: 250px;
 }
+#cal {
+  max-width: 400px;
+}
