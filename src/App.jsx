@@ -23,6 +23,7 @@ import CompanyProfile from './components/CompanyProfile'
 import AddHotel from './components/AddHotel'
 
 import HotelDetails from './components/HotelDetails'
+import Booking from './components/Booking'
 
 
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/hotels/:id" element={<HotelDetails />} />
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/register" element={<CustomerRegistation />} />
+          <Route path="/booking/:id" element={<Booking user={user} />} />
           <Route
             path="/login"
             element={<SignIn setUser={setUser} signin={SignInCustomer} />}
