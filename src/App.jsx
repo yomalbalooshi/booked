@@ -9,6 +9,8 @@ import Hotels from './components/Hotels'
 import Profile from './components/Profile'
 import CustomerRegistation from './components/CustomerRegistration'
 import UpdateHotel from './components/UpdateHotel'
+import CompanyViewHotel from './components/CompanyViewHotel'
+import AddRoom from './components/AddRoom'
 import {
   CheckSession,
   SignInCustomer,
@@ -88,6 +90,11 @@ const App = () => {
               />
             }
           />
+          <Route
+            path="/viewcompanyhotel/:id"
+            element={<CompanyViewHotel user={user} />}
+          />
+          <Route path="/addRoom/:id" element={<AddRoom user={user} />} />
           <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
         </Routes>
       </main>

@@ -27,6 +27,9 @@ const CompanyProfile = ({ user }) => {
   const handleUpdateHotel = async (e, hotel) => {
     navigate('/updatehotel', { state: { hotel: hotel } })
   }
+  const handleViewHotel = async (e, hotel) => {
+    navigate('/viewHotel', { state: { hotel: hotel } })
+  }
   return (
     <div>
       <div className="CompanyProfileInfoDiv">
@@ -45,12 +48,23 @@ const CompanyProfile = ({ user }) => {
         </div>
         <div className="CompanyProfileHotelsListDiv">
           {hotels?.map((hotel) => (
-            <div className="event-card" key={hotel._id}>
-              <h3 className="name">{hotel.name}</h3>
-              <button onClick={(e) => handleDeleteHotel(e, hotel)}>X</button>
-              <button onClick={(e) => handleUpdateHotel(e, hotel)}>
-                Update
+            <div className="companyhotelcard" key={hotel._id}>
+              <img src={hotel.image} alt={hotel.name} />
+              <h3 className="companyhotelcardname">{hotel.name}</h3>
+              <p>{hotel.description}</p>
+              <p>
+                {hotel.city}, {hotel.country}
+              </p>
+
+              <button
+                onClick={() => {
+                  navigate(`/viewcompanyhotel/${hotel._id}`)
+                }}
+              >
+                View Details
               </button>
+              <button onClick={(e) => handleDeleteHotel(e, hotel)}>X</button>
+              <button onClick={(e) => handleUpdateHotel(e, hotel)}>Edit</button>
             </div>
           ))}
         </div>
