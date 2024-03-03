@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { addCustomerBooking } from '../services/booking'
+import BookingContext from '../context/BookingContext'
 
 import dayjs from 'dayjs'
 
@@ -17,6 +18,7 @@ const Booking = ({ user }) => {
   const [earlyCheckIn, setEarlyCheckIn] = useState(false)
   const [lateCheckOut, setlateCheckOut] = useState(false)
   const [extraBed, setExtraBed] = useState(false)
+  const { updateBooking } = useContext(BookingContext)
   let booking
   if (Object.keys(hotel).length !== 0) {
     booking = {
@@ -76,6 +78,7 @@ const Booking = ({ user }) => {
 
     try {
       await addCustomerBooking(booking)
+      updateBooking()
       navigate('/profile')
     } catch (error) {
       console.log(error)

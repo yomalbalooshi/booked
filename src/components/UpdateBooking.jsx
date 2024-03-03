@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
@@ -8,11 +7,12 @@ import { ShowBooking, UpdateCustomerBooking } from '../services/booking'
 
 import dayjs from 'dayjs'
 
+import BookingContext from '../context/BookingContext'
+
 const Booking = ({ user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
   let [currentBooking, setCurrentBooking] = useState({})
-
   const [noOfrooms, setNoOfRooms] = useState()
   const [datevalue, setDateValue] = useState([dayjs(), dayjs().add(1, 'day')])
   const [earlyCheckIn, setEarlyCheckIn] = useState(false)
@@ -21,8 +21,11 @@ const Booking = ({ user }) => {
   const [adults, setAdults] = useState()
   const [children, setChildren] = useState()
   const [specialRequest, setSpecialRequest] = useState()
-  const [prevTotal, setPrevTotal] = useState()
   const [roomPrice, setRoomPrice] = useState()
+  const [maxAdults, setMaxAdults] = useState()
+  const [maxChildren, setMaxChildren] = useState()
+
+  const { updateBooking } = useContext(BookingContext)
 
   useEffect(() => {
     const getBookingDetails = async () => {
@@ -33,13 +36,13 @@ const Booking = ({ user }) => {
       setDateValue([dayjs(response.checkIn), dayjs(response.checkOut)])
       setAdults(response.adults)
       setChildren(response.children)
-
       setSpecialRequest(response.specialRequest)
       setlateCheckOut(response.lateCheckout)
       setEarlyCheckIn(response.earlyCheckIn)
       setExtraBed(response.extraBed)
-      setPrevTotal(response.totalCost)
       setRoomPrice(response.roomType.price)
+      setMaxAdults(response.roomType.maxAdults)
+      setMaxChildren(response.roomType.maxChildren)
       console.log(response)
     }
     getBookingDetails()
@@ -102,6 +105,7 @@ const Booking = ({ user }) => {
 
     try {
       await UpdateCustomerBooking(booking)
+      updateBooking()
       navigate('/profile')
     } catch (error) {
       throw error
@@ -166,7 +170,7 @@ const Booking = ({ user }) => {
             type="number"
             name="adults"
             value={adults || ''}
-            max={selectedRoom.maxAdults}
+            max={maxAdults}
             min="1"
             onChange={onChange}
             required
@@ -178,7 +182,7 @@ const Booking = ({ user }) => {
             type="number"
             name="children"
             value={children || ''}
-            max={selectedRoom.maxChildren}
+            max={maxChildren}
             min="1"
             onChange={onChange}
             required
