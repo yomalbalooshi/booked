@@ -24,6 +24,7 @@ import CompanyProfile from './components/CompanyProfile'
 import AddHotel from './components/AddHotel'
 import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
+import UpdateRoom from './components/UpdateRoom'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -96,6 +97,7 @@ const App = () => {
           />
           <Route path="/addRoom/:id" element={<AddRoom user={user} />} />
           <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
+          <Route path="/updateroom/:id" element={<UpdateRoom user={user} />} />
         </Routes>
       </main>
     </div>
