@@ -24,16 +24,21 @@ export const deleteBooking = async (data) => {
     throw error
   }
 }
-// export const UpdateCustomerBooking = async (data) => {
-//   try {
-//     const { id, amenities, ...restData } = data
-//     const res = await Client.put(`/hotels/${id}`, {
-//       ...restData,
-//       amenities: amenities.filter((amenity) => amenity.trim() !== '')
-//     })
-//     return res.data
-//   } catch (error) {
-//     console.error(error)
-//     throw error
-//   }
-// }
+
+export const ShowBooking = async (id) => {
+  try {
+    const res = await Client.get(`bookings/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const UpdateCustomerBooking = async (data) => {
+  try {
+    const res = await Client.put(`/bookings/${data.id}`, data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

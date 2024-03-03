@@ -54,6 +54,13 @@ const Profile = ({ user }) => {
               >
                 Cancel Booking
               </button>
+              <button
+                onClick={() => {
+                  navigate(`/updatebooking/${booking._id}`)
+                }}
+              >
+                Update Booking
+              </button>
             </div>
           ))}
       </div>
