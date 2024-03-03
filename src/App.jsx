@@ -44,7 +44,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-  console.log(user)
+  // console.log(user)
   return (
     <div className="App">
       <header>
