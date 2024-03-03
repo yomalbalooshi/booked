@@ -17,7 +17,7 @@ const Nav = ({ user, handleLogOut }) => {
     navOptions = (
       <div className="nav-links">
         <h6>Welcome {user.email}!</h6>
-        <NavLink to="/updatecompanyprofile">Profile</NavLink>
+        <NavLink to="/companyprofile">Profile</NavLink>
         <NavLink to="/Dashboard">Dashboard</NavLink>
         <NavLink onClick={handleLogOut} to="/">
           Sign Out
@@ -27,8 +27,6 @@ const Nav = ({ user, handleLogOut }) => {
   } else {
     navOptions = (
       <div className="nav-links">
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/hotels">Hotels</NavLink>
         <NavLink to="/login">Sign In</NavLink>
       </div>
     )
@@ -39,7 +37,11 @@ const Nav = ({ user, handleLogOut }) => {
       <NavLink to="/">
         <img src="" alt="logo" />
       </NavLink>
-      {navOptions}
+      <div className="nav-links">
+        {navOptions}
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/hotels">Hotels</NavLink>
+      </div>
     </nav>
   )
 }

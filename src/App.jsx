@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Hotels from './components/Hotels'
 import Profile from './components/Profile'
 import CustomerRegistation from './components/CustomerRegistration'
+import UpdateHotel from './components/UpdateHotel'
 import {
   CheckSession,
   SignInCustomer,
@@ -17,7 +18,13 @@ import {
 } from './services/Auth'
 import SignIn from './components/SignIn'
 import UpdateProfile from './components/UpdateProfile'
+
+import CompanyProfile from './components/CompanyProfile'
+import AddHotel from './components/AddHotel'
+
 import HotelDetails from './components/HotelDetails'
+import Booking from './components/Booking'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -38,7 +45,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-
+  console.log(user)
   return (
     <div className="App">
       <header>
@@ -52,6 +59,7 @@ const App = () => {
           <Route path="/hotels/:id" element={<HotelDetails />} />
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/register" element={<CustomerRegistation />} />
+          <Route path="/booking/:id" element={<Booking user={user} />} />
           <Route
             path="/login"
             element={<SignIn setUser={setUser} signin={SignInCustomer} />}
@@ -70,6 +78,11 @@ const App = () => {
             }
           />
           <Route
+            path="/companyprofile"
+            element={<CompanyProfile user={user} />}
+          />
+          <Route path="/addHotel" element={<AddHotel user={user} />} />
+          <Route
             path="/updatecompanyprofile"
             element={
               <UpdateProfile
@@ -78,6 +91,7 @@ const App = () => {
               />
             }
           />
+          <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
         </Routes>
       </main>
     </div>
