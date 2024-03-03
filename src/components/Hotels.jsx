@@ -1,18 +1,42 @@
 import { useEffect, useState } from 'react'
 import { GetHotels } from '../services/Hotels'
-
+import { Pagination } from '@mui/material'
 import HotelCard from './HotelCard'
 
 const Hotels = () => {
   const [hotels, setHotels] = useState([])
-  const [searchHotel, setSearchHotel] = useState([])
+  const [searchHotel, setSearchHotel] = useState('')
   const [priceRange, setPriceRange] = useState(0)
   const [checkedAmenities, setCheckedAmenities] = useState([])
+  const [page, setPage] = useState(1)
+  const hotelPerPage = 3
+
+  const calculateBasePricesForHotels = (hotels) => {
+    return hotels.map((hotel) => {
+      if (hotel.rooms.length > 0) {
+        let minPrice = hotel.rooms[0].price
+        hotel.rooms.forEach((room) => {
+          if (room.price < minPrice) {
+            minPrice = room.price
+          }
+        })
+        return {
+          ...hotel,
+          basePrice: minPrice
+        }
+      } else {
+        return {
+          ...hotel,
+          basePrice: 0
+        }
+      }
+    })
+  }
 
   useEffect(() => {
     const handleHotels = async () => {
       const data = await GetHotels()
-      setHotels(data)
+      setHotels(calculateBasePricesForHotels(data))
     }
     handleHotels()
   }, [])
@@ -45,7 +69,38 @@ const Hotels = () => {
     return amenities
   }
 
-  console.log(checkedAmenities)
+  const amenityFilter = (hotel) => {
+    if (checkedAmenities.length === 0) {
+      return true
+    }
+    let result = false
+    hotel.amenities.forEach((amenity) => {
+      if (checkedAmenities.includes(amenity)) {
+        result = true
+      }
+    })
+    return result
+  }
+  const filteredHotels = hotels.filter(
+    (hotel) =>
+      hotel.name.toLowerCase().includes(searchHotel) &&
+      hotel.basePrice >= parseInt(priceRange) &&
+      amenityFilter(hotel)
+  )
+
+  let totalPages = Math.ceil(filteredHotels.length) / hotelPerPage
+  const lastIndex = page * hotelPerPage
+  const displayedHotels = filteredHotels.slice(
+    lastIndex - hotelPerPage,
+    lastIndex
+  )
+
+  const handlePageChange = (e, value) => {
+    setPage(value)
+  }
+
+  console.log('filtered ', filteredHotels)
+  console.log(totalPages)
   return (
     <div>
       <div id="search">
@@ -80,19 +135,23 @@ const Hotels = () => {
         ))}
       </div>
       <div className="hotels">
-        {hotels.map(
-          (hotel) =>
-            hotel.name.toLowerCase().includes(searchHotel) && (
-              <div key={hotel._id}>
-                <HotelCard
-                  hotel={hotel}
-                  priceRange={priceRange}
-                  checkedAmenities={checkedAmenities}
-                />
-              </div>
-            )
-        )}
+        {displayedHotels.map((hotel) => (
+          <div key={hotel._id}>
+            <HotelCard
+              hotel={hotel}
+              priceRange={priceRange}
+              checkedAmenities={checkedAmenities}
+            />
+          </div>
+        ))}
       </div>
+      <Pagination
+        count={totalPages}
+        onChange={handlePageChange}
+        size="small"
+        showFirstButton
+        showLastButton
+      />
     </div>
   )
 }
