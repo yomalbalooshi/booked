@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
 import { useEffect, useState } from 'react'
 
 const HotelDetails = () => {
+  let navigate = useNavigate()
   let { id } = useParams()
   let [hotel, setHotel] = useState({})
 
@@ -71,6 +72,11 @@ const HotelDetails = () => {
               <p>{review.rating}</p>
             </div>
           ))}
+      </div>
+      <div id="book">
+        <button onClick={() => navigate(`/booking/${hotel._id}`)}>
+          Booking
+        </button>
       </div>
     </div>
   )
