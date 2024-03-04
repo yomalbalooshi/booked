@@ -29,6 +29,7 @@ const Nav = ({ user, handleLogOut }) => {
     navOptions = (
       <div className="nav-links">
         <NavLink to="/login">Sign In</NavLink>
+        <NavLink to="/register">Register</NavLink>
       </div>
     )
   }

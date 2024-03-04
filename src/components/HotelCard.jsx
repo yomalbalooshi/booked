@@ -16,32 +16,34 @@ const HotelCard = ({ hotel }) => {
       return 0
     }
   }
-
+  console.log(hotel)
   return (
-    <div>
-      <h1>{hotel.name}</h1>
-      <p>{hotel.description}</p>
-      <p>
-        {hotel.city}, {hotel.country}
-      </p>
-      <img src={hotel.image} alt={hotel.name}></img>
-      <h5>Amenities</h5>
-      {hotel.amenities && hotel.amenities.length > 0 && (
-        <ul>
-          {hotel.amenities.map((amenity, index) => (
-            <li key={index}>{amenity}</li>
-          ))}
-        </ul>
-      )}
-      <p>Price: {basePrice()}</p>
-      <button
-        onClick={() => {
-          navigate(`/hotels/${hotel._id}`)
-        }}
-      >
-        View Details
-      </button>
-    </div>
+    Object.keys(hotel).length !== 0 && (
+      <div>
+        <h1>{hotel.name}</h1>
+        <p>{hotel.description}</p>
+        <p>
+          {hotel.location.city}, {hotel.location.country}
+        </p>
+        <img src={hotel.image} alt={hotel.name}></img>
+        <h5>Amenities</h5>
+        {hotel.amenities && hotel.amenities.length > 0 && (
+          <ul>
+            {hotel.amenities.map((amenity, index) => (
+              <li key={index}>{amenity}</li>
+            ))}
+          </ul>
+        )}
+        <p>Price: {basePrice()}</p>
+        <button
+          onClick={() => {
+            navigate(`/hotels/${hotel._id}`)
+          }}
+        >
+          View Details
+        </button>
+      </div>
+    )
   )
 }
 export default HotelCard
