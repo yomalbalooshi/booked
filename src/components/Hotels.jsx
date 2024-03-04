@@ -59,16 +59,28 @@ const Hotels = () => {
       }
     }
   }
+  // const getAmenities = () => {
+  //   let amenities = []
+  //   hotels.map((hotel) =>
+  //     hotel.amenities.forEach((amenity) => {
+  //       amenities.push(amenity)
+  //     })
+  //   )
+  //   return amenities
+  // }
   const getAmenities = () => {
     let amenities = []
-    hotels.map((hotel) =>
+
+    hotels.forEach((hotel) => {
       hotel.amenities.forEach((amenity) => {
-        amenities.push(amenity)
+        if (!amenities.includes(amenity)) {
+          amenities.push(amenity)
+        }
       })
-    )
+    })
+
     return amenities
   }
-
   const amenityFilter = (hotel) => {
     if (checkedAmenities.length === 0) {
       return true
