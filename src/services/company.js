@@ -14,6 +14,14 @@ export const addCompanyHotel = async (data) => {
     return res.data
   } catch (error) {}
 }
+
+export const addCompanyHotelRoom = async (data) => {
+  try {
+    const res = Client.post('/rooms', data)
+    console.log(res)
+    return res.data
+  } catch (error) {}
+}
 export const deleteHotel = async (id) => {
   try {
     const res = await Client.delete(`/hotels/${id}`)

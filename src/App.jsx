@@ -9,6 +9,8 @@ import Hotels from './components/Hotels'
 import Profile from './components/Profile'
 import CustomerRegistation from './components/CustomerRegistration'
 import UpdateHotel from './components/UpdateHotel'
+import CompanyViewHotel from './components/CompanyViewHotel'
+import AddRoom from './components/AddRoom'
 import {
   CheckSession,
   SignInCustomer,
@@ -18,13 +20,10 @@ import {
 } from './services/Auth'
 import SignIn from './components/SignIn'
 import UpdateProfile from './components/UpdateProfile'
-
 import CompanyProfile from './components/CompanyProfile'
 import AddHotel from './components/AddHotel'
-
 import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
-
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -45,7 +44,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-  console.log(user)
+  // console.log(user)
   return (
     <div className="App">
       <header>
@@ -91,6 +90,11 @@ const App = () => {
               />
             }
           />
+          <Route
+            path="/viewcompanyhotel/:id"
+            element={<CompanyViewHotel user={user} />}
+          />
+          <Route path="/addRoom/:id" element={<AddRoom user={user} />} />
           <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
         </Routes>
       </main>

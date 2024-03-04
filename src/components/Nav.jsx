@@ -11,6 +11,7 @@ const Nav = ({ user, handleLogOut }) => {
         <NavLink onClick={handleLogOut} to="/">
           Sign Out
         </NavLink>
+        <NavLink to="/hotels">Hotels</NavLink>
       </div>
     )
   } else if (user && user.type === 'company') {
@@ -40,7 +41,6 @@ const Nav = ({ user, handleLogOut }) => {
       <div className="nav-links">
         {navOptions}
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/hotels">Hotels</NavLink>
       </div>
     </nav>
   )
