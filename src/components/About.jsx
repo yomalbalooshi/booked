@@ -1,5 +1,5 @@
 import './About.css'
-import { render } from '@react-email/render'
+// import { render } from '@react-email/render'
 import axios from 'axios'
 import MailSendForm from './MailSendForm'
 // import nodemailer from 'nodemailer'
