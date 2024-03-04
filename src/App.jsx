@@ -1,4 +1,5 @@
 import './App.css'
+
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
@@ -25,6 +26,8 @@ import AddHotel from './components/AddHotel'
 import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
 import UpdateRoom from './components/UpdateRoom'
+import Dashboard from './components/Dashboard'
+import { companyCreation } from './services/seeders'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -35,6 +38,7 @@ const App = () => {
   }
 
   useEffect(() => {
+    companyCreation()
     const token = localStorage.getItem('token')
     if (token) {
       checkToken()
@@ -98,6 +102,7 @@ const App = () => {
           <Route path="/addRoom/:id" element={<AddRoom user={user} />} />
           <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
           <Route path="/updateroom/:id" element={<UpdateRoom user={user} />} />
+          <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
         </Routes>
       </main>
     </div>

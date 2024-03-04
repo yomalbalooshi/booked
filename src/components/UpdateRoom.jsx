@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { UpdateCompanyHotelRoom } from '../services/company'
 import { ShowRoom } from '../services/company'
 const UpdateRoom = () => {
   let navigate = useNavigate()
-  const location = useLocation()
 
   let { id } = useParams()
 
@@ -59,7 +58,6 @@ const UpdateRoom = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log('form values before update:', formValues)
-    // console.log(`form vals: ${formValues}`)
     await UpdateCompanyHotelRoom({
       id: room._id,
       roomType: formValues.roomType,
