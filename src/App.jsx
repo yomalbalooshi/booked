@@ -27,7 +27,11 @@ import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
 import UpdateRoom from './components/UpdateRoom'
 import Dashboard from './components/Dashboard'
-import { companyCreation } from './services/seeders'
+// import { companyCreation } from './services/seeders'
+// import { customerCreation } from './services/seeders'
+// import { hotelCreation } from './services/seeders'
+// import { roomsCreation } from './services/seeders'
+import { bookingsCreation } from './services/seeders'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -38,7 +42,11 @@ const App = () => {
   }
 
   useEffect(() => {
-    companyCreation()
+    // companyCreation()
+    // customerCreation()
+    // hotelCreation()
+    // roomsCreation()
+    // bookingsCreation()
     const token = localStorage.getItem('token')
     if (token) {
       checkToken()
