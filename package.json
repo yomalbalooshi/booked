@@ -9,8 +9,12 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
+
+    "@mui/icons-material": "^5.15.11",
+
     "@headlessui/react": "^1.7.18",
     "@headlessui/tailwindcss": "^0.2.0",
+
     "@mui/material": "^5.15.11",
     "@mui/x-date-pickers": "^6.19.6",
     "@mui/x-date-pickers-pro": "^6.19.6",
@@ -20,8 +24,11 @@
     "@tremor/react": "^3.14.1",
     "axios": "^1.6.7",
     "dayjs": "^1.11.10",
+    "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-leaflet": "^4.2.1",
+    "react-leaflet-cluster": "^2.1.0",
     "react-router-dom": "^6.22.2"
   },
   "devDependencies": {

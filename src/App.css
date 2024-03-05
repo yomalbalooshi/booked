@@ -35,3 +35,10 @@ nav img {
 #cal {
   max-width: 400px;
 }
+
+.leaflet-container {
+  height: 100vh;
+  width: 50%;
+  overflow: hidden;
+  border: 1px solid black;
+}

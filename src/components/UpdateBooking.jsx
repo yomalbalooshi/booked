@@ -1,52 +1,66 @@
 import { useEffect, useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ShowHotel } from '../services/Hotels'
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { addCustomerBooking } from '../services/booking'
-import BookingContext from '../context/BookingContext'
+import { ShowBooking, UpdateCustomerBooking } from '../services/booking'
 
 import dayjs from 'dayjs'
 
+import BookingContext from '../context/BookingContext'
+
 const Booking = ({ user }) => {
   let navigate = useNavigate()
-  const [datevalue, setDateValue] = useState([dayjs(), dayjs().add(1, 'day')])
   let { id } = useParams()
-  let [hotel, setHotel] = useState({})
-  const [noOfrooms, setNoOfRooms] = useState(1)
+  let [currentBooking, setCurrentBooking] = useState({})
+  const [noOfrooms, setNoOfRooms] = useState()
+  const [datevalue, setDateValue] = useState([dayjs(), dayjs().add(1, 'day')])
   const [earlyCheckIn, setEarlyCheckIn] = useState(false)
   const [lateCheckOut, setlateCheckOut] = useState(false)
   const [extraBed, setExtraBed] = useState(false)
+  const [adults, setAdults] = useState()
+  const [children, setChildren] = useState()
+  const [specialRequest, setSpecialRequest] = useState()
+  const [roomPrice, setRoomPrice] = useState()
+  const [maxAdults, setMaxAdults] = useState()
+  const [maxChildren, setMaxChildren] = useState()
+
   const { updateBooking } = useContext(BookingContext)
-  let booking
-  if (Object.keys(hotel).length !== 0) {
-    booking = {
-      hotelId: hotel._id,
-      roomType: '',
-      checkIn: '',
-      checkOut: '',
-      noOfRooms: '',
-      adults: '',
-      children: '',
-      specialRequest: '',
-      lateCheckOut: '',
-      earlyCheckIn: '',
-      totalCost: '',
-      extraBed: '',
-      customerId: user.id
-    }
-  }
 
   useEffect(() => {
-    const getHotelDetails = async () => {
-      let response = await ShowHotel(id)
-      setHotel(response)
+    const getBookingDetails = async () => {
+      let response = await ShowBooking(id)
+
+      setCurrentBooking(response)
+      setNoOfRooms(response.noOfRooms)
+      setDateValue([dayjs(response.checkIn), dayjs(response.checkOut)])
+      setAdults(response.adults)
+      setChildren(response.children)
+      setSpecialRequest(response.specialRequest)
+      setlateCheckOut(response.lateCheckout)
+      setEarlyCheckIn(response.earlyCheckIn)
+      setExtraBed(response.extraBed)
+      setRoomPrice(response.roomType.price)
+      setMaxAdults(response.roomType.maxAdults)
+      setMaxChildren(response.roomType.maxChildren)
+      console.log(response)
     }
-    getHotelDetails()
+    getBookingDetails()
   }, [])
 
-  const [selectedRoom, setSelectedRoom] = useState('')
+  let booking = {
+    id: '',
+    checkIn: '',
+    checkOut: '',
+    noOfRooms: '',
+    adults: '',
+    children: '',
+    specialRequest: '',
+    lateCheckOut: '',
+    earlyCheckIn: '',
+    totalCost: '',
+    extraBed: ''
+  }
 
   const handleCheckboxes = (e) => {
     switch (e.target.name) {
@@ -61,10 +75,23 @@ const Booking = ({ user }) => {
         break
     }
   }
+  const onChange = (e) => {
+    switch (e.target.name) {
+      case 'adults':
+        setAdults(e.target.value)
+        break
+      case 'children':
+        setChildren(e.target.value)
+        break
+      case 'specialRequest':
+        setSpecialRequest(e.target.value)
+        break
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    booking.roomType = selectedRoom._id
+    booking.id = currentBooking._id
     booking.checkIn = datevalue[0].format('YYYY/MM/DD')
     booking.checkOut = datevalue[1].format('YYYY/MM/DD')
     booking.noOfRooms = e.target.noOfRooms.value
@@ -77,28 +104,23 @@ const Booking = ({ user }) => {
     booking.totalCost = totalPrice()
 
     try {
-      await addCustomerBooking(booking)
+      await UpdateCustomerBooking(booking)
       updateBooking()
       navigate('/profile')
     } catch (error) {
-      console.log(error)
+      throw error
     }
   }
 
-  const handleSelectedRoom = (e, room) => {
-    if (e.target.name === 'roomType') {
-      setSelectedRoom(room)
-    }
-  }
   const handleNumberOfRooms = (e) => {
     setNoOfRooms(e.target.value)
   }
 
   const totalPrice = () => {
-    let basePrice = selectedRoom.price
+    let basePrice = roomPrice
     let total = basePrice
     let dayDifference = datevalue[0].diff(datevalue[1], 'day') * -1
-    // let noOfRooms = e.target.noOfRooms
+
     if (lateCheckOut === true || earlyCheckIn === true) {
       total += basePrice / 2
     }
@@ -118,50 +140,14 @@ const Booking = ({ user }) => {
 
   return (
     <div>
-      <h2>{hotel.name}</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          {hotel.rooms &&
-            hotel.rooms.length > 0 &&
-            hotel.rooms.map((room) => (
-              <div key={room._id}>
-                <input
-                  type="radio"
-                  id={room.name}
-                  name="roomType"
-                  value={room._id}
-                  required
-                  onClick={(e) => handleSelectedRoom(e, room)}
-                ></input>
-                <label htmlFor="roomType">
-                  <p>Room Type: {room.roomType}</p>
-                  <p>Max Guests: {room.maxGuests}</p>
-                  <p>Price: {room.price} $</p>
-                  <h5>Amenities</h5>
-                  {room.amenities && room.amenities.length > 0 && (
-                    <ul>
-                      {room.amenities.map((amenity, index) => (
-                        <li key={index}>{amenity}</li>
-                      ))}
-                    </ul>
-                  )}
-                  {room.images && room.images.length > 0 && (
-                    <div>
-                      {room.images.map((image, index) => (
-                        <img key={index} src={image}></img>
-                      ))}
-                    </div>
-                  )}
-                </label>
-              </div>
-            ))}
-        </div>
         <div id="cal">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DateRangePicker
               minDate={dayjs()}
               localeText={{ start: 'Check-in', end: 'Check-out' }}
               datevalue={datevalue}
+              defaultValue={datevalue}
               onChange={(newDateValue) => setDateValue(newDateValue)}
             />
           </LocalizationProvider>
@@ -173,6 +159,7 @@ const Booking = ({ user }) => {
             type="number"
             name="noOfRooms"
             min="1"
+            value={noOfrooms || ''}
             required
             onChange={handleNumberOfRooms}
           />
@@ -182,8 +169,10 @@ const Booking = ({ user }) => {
           <input
             type="number"
             name="adults"
-            max={selectedRoom.maxAdults}
+            value={adults || ''}
+            max={maxAdults}
             min="1"
+            onChange={onChange}
             required
           />
         </div>
@@ -192,8 +181,10 @@ const Booking = ({ user }) => {
           <input
             type="number"
             name="children"
-            max={selectedRoom.maxChildren}
+            value={children || ''}
+            max={maxChildren}
             min="1"
+            onChange={onChange}
             required
           />
         </div>
@@ -205,7 +196,9 @@ const Booking = ({ user }) => {
             id="specialRequest"
             name="specialRequest"
             rows="3"
+            value={specialRequest || ''}
             cols="30"
+            onChange={onChange}
             placeholder="Special Requests..."
           ></textarea>
         </div>
@@ -215,7 +208,7 @@ const Booking = ({ user }) => {
             name="lateCheckOut"
             id="lateCheckOut"
             onChange={handleCheckboxes}
-            checked={lateCheckOut}
+            checked={lateCheckOut || ''}
           />
           <label htmlFor="lateCheckOut">Late Check Out</label>
         </div>
@@ -225,7 +218,7 @@ const Booking = ({ user }) => {
             name="earlyCheckIn"
             id="earlyCheckIn"
             onChange={handleCheckboxes}
-            checked={earlyCheckIn}
+            checked={earlyCheckIn || ''}
           />
           <label htmlFor="lateCheckOut">Early Check In</label>
         </div>
@@ -235,7 +228,7 @@ const Booking = ({ user }) => {
             name="extraBed"
             id="extraBed"
             onChange={handleCheckboxes}
-            checked={extraBed}
+            checked={extraBed || ''}
           />
           <label htmlFor="lateCheckOut">Extra Bed</label>
         </div>
@@ -244,7 +237,7 @@ const Booking = ({ user }) => {
             Total Price: <span id="price">$ {totalPrice()}</span>
           </h3>
         </div>
-        <button>Book</button>
+        <button>Update Booking</button>
       </form>
     </div>
   )
