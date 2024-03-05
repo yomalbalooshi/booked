@@ -1,23 +1,45 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
 import { useEffect, useState } from 'react'
+import ReviewForm from './ReviewForm'
 
-const HotelDetails = () => {
+const HotelDetails = ({ user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
   let [hotel, setHotel] = useState({})
+  let [updateReviews, setUpdateReviews] = useState(true)
+
+  const updateReviewsCallback = () => {
+    setUpdateReviews(!updateReviews)
+  }
 
   useEffect(() => {
     const getHotelDetails = async () => {
-      let response = await ShowHotel(id)
+      // console.log('feching hotel data ..')
+
+      const response = await ShowHotel(id)
+      // console.log('getHotelDetails () response ==> ', response)
+      // setHotel((prevState) => {
+      //   // Object.assign would also work
+      //   return { ...prevState, ...response }
+      // })
       setHotel(response)
     }
     getHotelDetails()
-  }, [])
+  }, [updateReviews])
 
-  console.log(hotel)
+  // useEffect(() => {
+  //   if (updateReviews) {
+  //     console.log('updating..')
+  //   } else {
+  //     console.log('not updating..')
+  //   }
+  // }, [updateReviews])
+
+  // console.log('user: ', user)
   return (
     <div>
+      {console.log('hotel details : ', hotel)}
       <div id="hotel-details">
         <h1>{hotel.name}</h1>
         <p>{hotel.description}</p>
@@ -67,12 +89,14 @@ const HotelDetails = () => {
           hotel.reviews.length > 0 &&
           hotel.reviews.map((review) => (
             <div key={review._id}>
-              <p>{review.feedback}</p>
-              <p>{review.creationDate}</p>
-              <p>{review.rating}</p>
+              <p>By:&nbsp;{review.customer[0].email}</p>
+              <p>Details:&nbsp;{review.feedback}</p>
+              <p>Date:&nbsp;{review.createdAt}</p>
+              <p>Rating:&nbsp;{review.rating}</p>
             </div>
           ))}
       </div>
+      <ReviewForm user={user} hotelId={id} callback={updateReviewsCallback} />
       <div id="book">
         <button onClick={() => navigate(`/booking/${hotel._id}`)}>
           Booking
