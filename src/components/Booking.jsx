@@ -6,8 +6,13 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { addCustomerBooking } from '../services/booking'
 import BookingContext from '../context/BookingContext'
-
 import dayjs from 'dayjs'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import TextField from '@mui/material/TextField'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import Carousel from 'react-material-ui-carousel'
 
 const Booking = ({ user }) => {
   let navigate = useNavigate()
@@ -117,42 +122,57 @@ const Booking = ({ user }) => {
   }
 
   return (
-    <div>
-      <h2>{hotel.name}</h2>
+    <div className="booking-form">
+      <h1> Hotel Booking</h1>
+      <h2>{hotel.name} </h2>
       <form onSubmit={handleSubmit}>
         <div>
           {hotel.rooms &&
             hotel.rooms.length > 0 &&
             hotel.rooms.map((room) => (
-              <div key={room._id}>
-                <input
-                  type="radio"
-                  id={room.name}
-                  name="roomType"
-                  value={room._id}
-                  required
-                  onClick={(e) => handleSelectedRoom(e, room)}
-                ></input>
-                <label htmlFor="roomType">
-                  <p>Room Type: {room.roomType}</p>
-                  <p>Max Guests: {room.maxGuests}</p>
-                  <p>Price: {room.price} $</p>
-                  <h5>Amenities</h5>
-                  {room.amenities && room.amenities.length > 0 && (
-                    <ul>
-                      {room.amenities.map((amenity, index) => (
-                        <li key={index}>{amenity}</li>
-                      ))}
-                    </ul>
-                  )}
-                  {room.images && room.images.length > 0 && (
+              <div key={room._id} className="room-card-container">
+                <h3>{room.roomType}</h3>
+                <div className="room-card">
+                  <input
+                    type="radio"
+                    id={room.name}
+                    name="roomType"
+                    value={room._id}
+                    required
+                    onClick={(e) => handleSelectedRoom(e, room)}
+                  ></input>
+                  <label htmlFor="roomType">
                     <div>
-                      {room.images.map((image, index) => (
-                        <img key={index} src={image}></img>
-                      ))}
+                      <h4>Features</h4>
+                      <p>Max Adults: {room.maxAdults}</p>
+                      <p>Max Children: {room.maxChildren}</p>
+                      <p>Price: {room.price} $</p>
                     </div>
-                  )}
-                </label>
+                  </label>
+                  <div className="amenities">
+                    <h4>Amenities</h4>
+                    {room.amenities && room.amenities.length > 0 && (
+                      <ul>
+                        {room.amenities.map((amenity, index) => (
+                          <li key={index}>{amenity}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                  <div className="carousel-container">
+                    {room.images && room.images.length > 0 && (
+                      <Carousel>
+                        {room.images.map((image, index) => (
+                          <img
+                            className="room-image"
+                            key={index}
+                            src={image}
+                          ></img>
+                        ))}
+                      </Carousel>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
         </div>
@@ -168,37 +188,56 @@ const Booking = ({ user }) => {
         </div>
 
         <div>
-          <label htmlFor="noOfRooms">No of Rooms</label>
-          <input
+          <TextField
             type="number"
             name="noOfRooms"
-            min="1"
-            required
+            InputProps={{ inputProps: { min: 0 } }}
             onChange={handleNumberOfRooms}
+            sx={{ mt: 2 }}
+            fullWidth
+            label="No of rooms"
           />
         </div>
         <div>
-          <label htmlFor="adults">Adults</label>
+          {/* <label htmlFor="adults">Adults</label>
           <input
             type="number"
             name="adults"
             max={selectedRoom.maxAdults}
             min="1"
             required
+          /> */}
+          <TextField
+            type="number"
+            name="adults"
+            InputProps={{ inputProps: { min: 0, max: selectedRoom.maxAdults } }}
+            sx={{ mt: 2 }}
+            fullWidth
+            label="No of Adults"
           />
         </div>
         <div>
-          <label htmlFor="children">Children</label>
+          {/* <label htmlFor="children">Children</label>
           <input
             type="number"
             name="children"
             max={selectedRoom.maxChildren}
             min="1"
             required
+          /> */}
+          <TextField
+            type="number"
+            name="children"
+            InputProps={{
+              inputProps: { min: 0, max: selectedRoom.maxChildren }
+            }}
+            sx={{ mt: 2 }}
+            fullWidth
+            label="No of Children"
           />
         </div>
         <div>
-          <p>
+          {/* <p>
             <label htmlFor="specialRequest">Special Requests</label>
           </p>
           <textarea
@@ -207,19 +246,69 @@ const Booking = ({ user }) => {
             rows="3"
             cols="30"
             placeholder="Special Requests..."
-          ></textarea>
+          ></textarea> */}
+          <TextField
+            type="text"
+            name="specialRequest"
+            sx={{ mt: 2 }}
+            fullWidth
+            label="Special Request"
+          />
         </div>
-        <div>
-          <input
+        <div className="booking-checkboxes">
+          {/* <input
             type="checkbox"
             name="lateCheckOut"
             id="lateCheckOut"
             onChange={handleCheckboxes}
             checked={lateCheckOut}
           />
-          <label htmlFor="lateCheckOut">Late Check Out</label>
+          <label htmlFor="lateCheckOut">Late Check Out</label> */}
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="lateCheckOut"
+                id="lateCheckOut"
+                checked={lateCheckOut}
+                color="success"
+                onChange={handleCheckboxes}
+                sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+              />
+            }
+            label={
+              <Typography sx={{ fontSize: 14 }}>Late Check Out</Typography>
+            }
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="earlyCheckIn"
+                id="earlyCheckIn"
+                checked={earlyCheckIn}
+                color="success"
+                onChange={handleCheckboxes}
+                sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+              />
+            }
+            label={
+              <Typography sx={{ fontSize: 14 }}>Early Check In</Typography>
+            }
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="extraBed"
+                id="extraBed"
+                checked={extraBed}
+                color="success"
+                onChange={handleCheckboxes}
+                sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+              />
+            }
+            label={<Typography sx={{ fontSize: 14 }}>Extra Bed</Typography>}
+          />
         </div>
-        <div>
+        {/* <div>
           <input
             type="checkbox"
             name="earlyCheckIn"
@@ -228,8 +317,8 @@ const Booking = ({ user }) => {
             checked={earlyCheckIn}
           />
           <label htmlFor="lateCheckOut">Early Check In</label>
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <input
             type="checkbox"
             name="extraBed"
@@ -238,13 +327,15 @@ const Booking = ({ user }) => {
             checked={extraBed}
           />
           <label htmlFor="lateCheckOut">Extra Bed</label>
-        </div>
-        <div>
+        </div> */}
+        <div className="fixed-bottom">
           <h3 id="totalPrice">
             Total Price: <span id="price">$ {totalPrice()}</span>
           </h3>
+          <Button type="submit" variant="contained" color="success">
+            Book
+          </Button>
         </div>
-        <button>Book</button>
       </form>
     </div>
   )

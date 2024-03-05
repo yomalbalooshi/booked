@@ -11,10 +11,12 @@ const CompanyProfile = ({ user }) => {
   useEffect(() => {
     const allHotels = async () => {
       let data = await getAllCompanyHotels(user.id)
+      console.log(data)
       setHotels(data)
     }
     allHotels()
   }, [])
+
   const handleDeleteHotel = async (e, hotel) => {
     try {
       const res = await deleteHotel(hotel._id)

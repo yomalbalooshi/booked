@@ -49,7 +49,7 @@ const App = () => {
   }
   // console.log(user)
   const theme = createTheme({
-    direction: 'rtl'
+    direction: 'ltr'
     // other theme properties
   })
   return (
