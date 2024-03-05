@@ -2,6 +2,7 @@ import './App.css'
 
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 import Nav from './components/Nav'
 import About from './components/About'
@@ -31,7 +32,9 @@ import Dashboard from './components/Dashboard'
 // import { customerCreation } from './services/seeders'
 // import { hotelCreation } from './services/seeders'
 // import { roomsCreation } from './services/seeders'
-import { bookingsCreation } from './services/seeders'
+// import { bookingsCreation } from './services/seeders'
+import UpdateBooking from './components/UpdateBooking'
+import Map from './components/Map'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -58,6 +61,10 @@ const App = () => {
     localStorage.clear()
   }
   // console.log(user)
+  const theme = createTheme({
+    direction: 'rtl'
+    // other theme properties
+  })
   return (
     <div className="App">
       <header>
@@ -109,8 +116,6 @@ const App = () => {
           />
           <Route path="/addRoom/:id" element={<AddRoom user={user} />} />
           <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
-          <Route path="/updateroom/:id" element={<UpdateRoom user={user} />} />
-          <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
         </Routes>
       </main>
     </div>

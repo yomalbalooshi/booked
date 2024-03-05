@@ -1,8 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import { getAllCutomerBookings, deleteBooking } from '../services/booking'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+
+import BookingContext from '../context/BookingContext'
+
 import dayjs from 'dayjs'
 const Profile = ({ user }) => {
+  const { bookingUpdate } = useContext(BookingContext)
+  console.log(bookingUpdate)
+
   const navigate = useNavigate()
 
   const [customerBookings, setCustomerBookings] = useState([])
@@ -14,7 +20,7 @@ const Profile = ({ user }) => {
       setCustomerBookings(data)
     }
     getCustomerBookings()
-  }, [user])
+  }, [user, bookingUpdate])
 
   const handleDeleteBooking = async (bookingId) => {
     try {
@@ -46,6 +52,7 @@ const Profile = ({ user }) => {
               <p>Hotel: {booking.hotelId.name}</p>
               <p>Room Type: {booking.roomType.roomType}</p>
               <p>No of Rooms: {booking.noOfRooms}</p>
+              <p>Special Request: {booking.specialRequest}</p>
               <p>Total Cost: {booking.totalCost} $</p>
               <button
                 onClick={() => {
@@ -53,6 +60,13 @@ const Profile = ({ user }) => {
                 }}
               >
                 Cancel Booking
+              </button>
+              <button
+                onClick={() => {
+                  navigate(`/updatebooking/${booking._id}`)
+                }}
+              >
+                Update Booking
               </button>
             </div>
           ))}
