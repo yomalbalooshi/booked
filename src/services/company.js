@@ -43,3 +43,24 @@ export const UpdateCompanyHotel = async (data) => {
     throw error
   }
 }
+export const UpdateCompanyHotelRoom = async (data) => {
+  try {
+    const { id, amenities, ...restData } = data
+    const res = await Client.put(`/rooms/${id}`, {
+      ...restData,
+      amenities: amenities.filter((amenity) => amenity.trim() !== '')
+    })
+    return res.data
+  } catch (error) {
+    console.error(error)
+    throw error
+  }
+}
+export const ShowRoom = async (id) => {
+  try {
+    const res = await Client.get(`/rooms/${id}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

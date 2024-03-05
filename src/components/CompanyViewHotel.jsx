@@ -16,6 +16,9 @@ const CompanyViewHotel = () => {
   }, [])
   console.log(hotel)
 
+  const handleUpdateRoom = async (e, room) => {
+    navigate(`../updateroom/${room._id}`)
+  }
   return (
     <div>
       <button
@@ -71,6 +74,7 @@ const CompanyViewHotel = () => {
                   ))}
                 </div>
               )}
+              <button onClick={(e) => handleUpdateRoom(e, room)}>Edit</button>
             </div>
           ))}
       </div>
