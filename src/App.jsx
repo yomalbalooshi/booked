@@ -28,13 +28,9 @@ import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
 import UpdateRoom from './components/UpdateRoom'
 import Dashboard from './components/Dashboard'
-// import { companyCreation } from './services/seeders'
-// import { customerCreation } from './services/seeders'
-// import { hotelCreation } from './services/seeders'
-// import { roomsCreation } from './services/seeders'
-// import { bookingsCreation } from './services/seeders'
 import UpdateBooking from './components/UpdateBooking'
 import Map from './components/Map'
+import AllBookings from './components/AllBookings'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -45,11 +41,6 @@ const App = () => {
   }
 
   useEffect(() => {
-    // companyCreation()
-    // customerCreation()
-    // hotelCreation()
-    // roomsCreation()
-    // bookingsCreation()
     const token = localStorage.getItem('token')
     if (token) {
       checkToken()
@@ -73,6 +64,7 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Home user={user} />} />
+          <Route path="/map" element={<Map />} />
           <Route path="/about" element={<About />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/hotels/:id" element={<HotelDetails />} />
@@ -116,6 +108,11 @@ const App = () => {
           />
           <Route path="/addRoom/:id" element={<AddRoom user={user} />} />
           <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
+          <Route path="/dashboard/:id" element={<Dashboard user={user} />} />
+          <Route
+            path="/allbookings/:id"
+            element={<AllBookings user={user} />}
+          />
         </Routes>
       </main>
     </div>

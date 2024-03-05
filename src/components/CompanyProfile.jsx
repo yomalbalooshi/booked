@@ -12,6 +12,7 @@ const CompanyProfile = ({ user }) => {
     const allHotels = async () => {
       let data = await getAllCompanyHotels(user.id)
       setHotels(data)
+      console.log(hotels)
     }
     allHotels()
   }, [])
@@ -53,7 +54,7 @@ const CompanyProfile = ({ user }) => {
               <h3 className="companyhotelcardname">{hotel.name}</h3>
               <p>{hotel.description}</p>
               <p>
-                {hotel.city}, {hotel.country}
+                {hotel.location.city}, {hotel.location.country}
               </p>
 
               <button

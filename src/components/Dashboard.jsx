@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { getAllCompanyHotels } from '../services/company'
 import HotelCharts from './HotelCharts'
+import { ShowHotel } from '../services/Hotels'
 
 const Dashboard = ({ user }) => {
   const [hotels, setHotels] = useState([])
+  const [selectedHotel, setselectedHotel] = useState({})
   // const dummyData = [
   //   {
   //     Hotel: 'Hotel1',
@@ -145,19 +147,31 @@ const Dashboard = ({ user }) => {
     }
     allHotels()
   }, [])
+  const handleClick = async (e) => {
+    let response = await ShowHotel(e.target.value)
+    setselectedHotel(response)
+    console.log(response)
+  }
+
   return (
     <div>
       <h1>Dashboard</h1>
       <div className="CompanyProfileHotelsListDiv">
         {hotels?.map((hotel) => (
-          <button className="companyhotelcardname" key={hotel._id}>
+          <button
+            key={hotel._id}
+            value={hotel._id}
+            onClick={(e) => handleClick(e)}
+          >
             {hotel.name}
           </button>
         ))}
       </div>
-      <div>
-        <HotelCharts data={dummyData} />
-      </div>
+      {selectedHotel && (
+        <div>
+          <HotelCharts selectedHotel={selectedHotel} />
+        </div>
+      )}
     </div>
   )
 }
