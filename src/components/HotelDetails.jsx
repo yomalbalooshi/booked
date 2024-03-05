@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
+import { getAllCutomerBookings } from '../services/booking'
 import { useEffect, useState } from 'react'
 import ReviewForm from './ReviewForm'
 
@@ -8,9 +9,22 @@ const HotelDetails = ({ user }) => {
   let { id } = useParams()
   let [hotel, setHotel] = useState({})
   let [updateReviews, setUpdateReviews] = useState(true)
+  const [customerBookings, setCustomerBookings] = useState([])
 
   const updateReviewsCallback = () => {
     setUpdateReviews(!updateReviews)
+  }
+
+  const userHasBookings = () => {
+    if (customerBookings) {
+      for (let i = 0; i < customerBookings.length; i++) {
+        if (customerBookings[i].hotelId._id === hotel._id) {
+          return true
+        }
+      }
+      return false
+    }
+    return false
   }
 
   useEffect(() => {
@@ -18,28 +32,26 @@ const HotelDetails = ({ user }) => {
       // console.log('feching hotel data ..')
 
       const response = await ShowHotel(id)
-      // console.log('getHotelDetails () response ==> ', response)
-      // setHotel((prevState) => {
-      //   // Object.assign would also work
-      //   return { ...prevState, ...response }
-      // })
       setHotel(response)
     }
     getHotelDetails()
   }, [updateReviews])
 
-  // useEffect(() => {
-  //   if (updateReviews) {
-  //     console.log('updating..')
-  //   } else {
-  //     console.log('not updating..')
-  //   }
-  // }, [updateReviews])
+  useEffect(() => {
+    const getCustomerBookings = async () => {
+      console.log('HotelDetails user ==> ', user)
+      const data = user ? await getAllCutomerBookings(user.id) : null
 
-  // console.log('user: ', user)
+      setCustomerBookings(data)
+    }
+    getCustomerBookings()
+  }, [user])
+
   return (
     <div>
       {console.log('hotel details : ', hotel)}
+      {console.log('bookings details : ', customerBookings)}
+      {console.log('customer has bookings : ', userHasBookings())}
       <div id="hotel-details">
         <h1>{hotel.name}</h1>
         <p>{hotel.description}</p>
@@ -96,7 +108,9 @@ const HotelDetails = ({ user }) => {
             </div>
           ))}
       </div>
-      <ReviewForm user={user} hotelId={id} callback={updateReviewsCallback} />
+      {userHasBookings() && (
+        <ReviewForm user={user} hotelId={id} callback={updateReviewsCallback} />
+      )}
       <div id="book">
         <button onClick={() => navigate(`/booking/${hotel._id}`)}>
           Booking
