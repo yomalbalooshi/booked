@@ -1,4 +1,5 @@
 import './App.css'
+
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
@@ -27,6 +28,14 @@ import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
 import UpdateBooking from './components/UpdateBooking'
 import Map from './components/Map'
+import UpdateRoom from './components/UpdateRoom'
+import Dashboard from './components/Dashboard'
+// import { companyCreation } from './services/seeders'
+// import { customerCreation } from './services/seeders'
+// import { hotelCreation } from './services/seeders'
+// import { roomsCreation } from './services/seeders'
+//import { bookingsCreation } from './services/seeders'
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -37,6 +46,11 @@ const App = () => {
   }
 
   useEffect(() => {
+    // companyCreation()
+    // customerCreation()
+    // hotelCreation()
+    // roomsCreation()
+    // bookingsCreation()
     const token = localStorage.getItem('token')
     if (token) {
       checkToken()
@@ -109,10 +123,12 @@ const App = () => {
               element={<UpdateBooking user={user} />}
             />
             <Route path="/map" element={<Map />} />
+               <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
           </Routes>
         </main>
       </div>
     </ThemeProvider>
+
   )
 }
 export default App

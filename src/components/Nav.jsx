@@ -19,7 +19,7 @@ const Nav = ({ user, handleLogOut }) => {
       <div className="nav-links">
         <h6>Welcome {user.email}!</h6>
         <NavLink to="/companyprofile">Profile</NavLink>
-        <NavLink to="/Dashboard">Dashboard</NavLink>
+        <NavLink to={`/Dashboard/${user.id}`}>Dashboard</NavLink>
         <NavLink onClick={handleLogOut} to="/">
           Sign Out
         </NavLink>
