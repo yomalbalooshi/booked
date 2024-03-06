@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './ReviewForm.css'
-import axios from 'axios'
+// import axios from 'axios'
 import { addHotelReview } from '../services/reviews'
 
 const ReviewForm = ({ user, hotelId, callback }) => {
@@ -48,6 +48,8 @@ const ReviewForm = ({ user, hotelId, callback }) => {
           <label htmlFor="rating">Rating</label>
           <input
             type="number"
+            min={0}
+            max={5}
             id="rating"
             name="rating"
             // placeholder="company name"

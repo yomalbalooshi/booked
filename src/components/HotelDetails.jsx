@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
 import { getAllCutomerBookings } from '../services/booking'
+import { deleteHotelReview } from '../services/reviews'
 import { useEffect, useState } from 'react'
 import ReviewForm from './ReviewForm'
 
@@ -13,6 +14,21 @@ const HotelDetails = ({ user }) => {
 
   const updateReviewsCallback = () => {
     setUpdateReviews(!updateReviews)
+  }
+
+  const isUserReview = (reviewCustomerId) => {
+    return user.id === reviewCustomerId
+  }
+
+  const deleteReview = (reviewId) => {
+    console.log(`Deleting review ${reviewId} ...`)
+    const deleteReview = async (hotelId, data) => {
+      await deleteHotelReview(hotelId, reviewId)
+      updateReviewsCallback()
+    }
+
+    deleteReview(hotel._id, reviewId)
+    // setFormState(initialState)
   }
 
   const userHasBookings = () => {
@@ -105,6 +121,9 @@ const HotelDetails = ({ user }) => {
               <p>Details:&nbsp;{review.feedback}</p>
               <p>Date:&nbsp;{review.createdAt}</p>
               <p>Rating:&nbsp;{review.rating}</p>
+              {isUserReview(review.customerId) && (
+                <button onClick={() => deleteReview(review._id)}>X</button>
+              )}
             </div>
           ))}
       </div>
