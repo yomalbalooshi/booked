@@ -23,7 +23,7 @@ const Hotels = () => {
   const [priceRange, setPriceRange] = useState(0)
   const [checkedAmenities, setCheckedAmenities] = useState([])
   const [page, setPage] = useState(1)
-  const hotelPerPage = 3
+  const hotelPerPage = 6
 
   const [value, setValue] = useState([0, 300])
 
