@@ -61,10 +61,10 @@ export default {
             emphasis: colors.gray[300]
           },
           border: {
-            DEFAULT: colors.gray[800]
+            DEFAULT: colors.gray[500]
           },
           ring: {
-            DEFAULT: colors.gray[800]
+            DEFAULT: colors.gray[50]
           },
           content: {
             subtle: colors.gray[600],
