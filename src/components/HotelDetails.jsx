@@ -35,7 +35,29 @@ const HotelDetails = ({ user }) => {
     if (customerBookings) {
       for (let i = 0; i < customerBookings.length; i++) {
         if (customerBookings[i].hotelId._id === hotel._id) {
-          return true
+          console.log(
+            'checkIn Date : ',
+            customerBookings[i].checkIn,
+            ', checkOut',
+            customerBookings[i].checkOut,
+            ' ,now: ',
+            Date.now
+          )
+          const checkIn = new Date(customerBookings[i].checkIn).getTime()
+          const checkOut = new Date(customerBookings[i].checkOut).getTime()
+          const now = Date.now()
+          console.log(
+            'checkIn : ',
+            checkIn,
+            ', checkOut',
+            checkOut,
+            ' ,now: ',
+            now
+          )
+
+          if (checkIn < now || checkOut < now) {
+            return true
+          }
         }
       }
       return false
