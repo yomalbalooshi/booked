@@ -44,9 +44,7 @@ const Home = ({ user }) => {
           style={({ height: '100%' }, { width: '100%' }, { opacity: 0.3 })}
         >
           <source
-            src={
-              'https://booking-pictures.s3.amazonaws.com/production_id_4069480+(2160p).mp4'
-            }
+            src={'https://booking-pictures.s3.amazonaws.com/landingpageVid.mp4'}
             type="video/mp4"
           />
         </video>
