@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import { getAllCompanyHotels } from '../services/company'
-import HotelCharts from './HotelCharts'
 import { ShowHotel } from '../services/Hotels'
-
-const Dashboard = ({ user }) => {
+import AllBookingsTable from './AllBookingsTable'
+const AllBookings = ({ user }) => {
   const [hotels, setHotels] = useState([])
   const [selectedHotel, setselectedHotel] = useState({})
-  
   useEffect(() => {
     const allHotels = async () => {
       let data = await getAllCompanyHotels(user.id)
@@ -19,12 +17,9 @@ const Dashboard = ({ user }) => {
     setselectedHotel(response)
     console.log(response)
   }
-
   return (
-    user &&
-    user.type === 'company' && (
     <div>
-      <h1>Dashboard</h1>
+      <h1>All Bookings</h1>
       <div className="CompanyProfileHotelsListDiv">
         {hotels?.map((hotel) => (
           <button
@@ -38,10 +33,10 @@ const Dashboard = ({ user }) => {
       </div>
       {selectedHotel && (
         <div>
-          <HotelCharts selectedHotel={selectedHotel} />
+          <AllBookingsTable hotel={selectedHotel} />
         </div>
       )}
-    </div>)
+    </div>
   )
 }
-export default Dashboard
+export default AllBookings

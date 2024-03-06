@@ -26,15 +26,12 @@ import CompanyProfile from './components/CompanyProfile'
 import AddHotel from './components/AddHotel'
 import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
-import UpdateBooking from './components/UpdateBooking'
-import Map from './components/Map'
+
 import UpdateRoom from './components/UpdateRoom'
 import Dashboard from './components/Dashboard'
-// import { companyCreation } from './services/seeders'
-// import { customerCreation } from './services/seeders'
-// import { hotelCreation } from './services/seeders'
-// import { roomsCreation } from './services/seeders'
-//import { bookingsCreation } from './services/seeders'
+import UpdateBooking from './components/UpdateBooking'
+import Map from './components/Map'
+import AllBookings from './components/AllBookings'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -46,11 +43,6 @@ const App = () => {
   }
 
   useEffect(() => {
-    // companyCreation()
-    // customerCreation()
-    // hotelCreation()
-    // roomsCreation()
-    // bookingsCreation()
     const token = localStorage.getItem('token')
     if (token) {
       checkToken()
@@ -133,10 +125,15 @@ const App = () => {
             />
             <Route path="/map" element={<Map />} />
             <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
+          <Route
+            path="/allbookings/:id"
+            element={<AllBookings user={user} />}
+          />
           </Routes>
         </main>
       </div>
     </ThemeProvider>
+
   )
 }
 export default App

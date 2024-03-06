@@ -14,6 +14,7 @@ const CompanyProfile = ({ user }) => {
       let data = await getAllCompanyHotels(user.id)
       console.log(data)
       setHotels(data)
+      console.log(hotels)
     }
     allHotels()
   }, [user, bookingUpdate])
@@ -46,20 +47,15 @@ const CompanyProfile = ({ user }) => {
             <NavLink to="../updatecompanyprofile">Update Pass</NavLink>
           </h3>
         </div>
-        <div className="CompanyProfileHotelsDiv">
-          <div className="CompanyProfileHotelsDivTitle">
-            <h2>Your Hotels</h2>
-            <NavLink to="../addHotel">Add a new Hotel</NavLink>
-          </div>
-          <div className="CompanyProfileHotelsListDiv">
-            {hotels?.map((hotel) => (
-              <div className="companyhotelcard" key={hotel._id}>
-                <img src={hotel.image} alt={hotel.name} />
-                <h3 className="companyhotelcardname">{hotel.name}</h3>
-                <p>{hotel.description}</p>
-                <p>
-                  {hotel.city}, {hotel.country}
-                </p>
+        <div className="CompanyProfileHotelsListDiv">
+          {hotels?.map((hotel) => (
+            <div className="companyhotelcard" key={hotel._id}>
+              <img src={hotel.image} alt={hotel.name} />
+              <h3 className="companyhotelcardname">{hotel.name}</h3>
+              <p>{hotel.description}</p>
+              <p>
+                {hotel.location.city}, {hotel.location.country}
+              </p>
 
                 <button
                   onClick={() => {

@@ -16,6 +16,7 @@ const Nav = ({ user, handleLogOut }) => {
   } else if (user && user.type === 'company') {
     navOptions = (
       <div>
+        <NavLink to={`/allbookings/${user.id}`}>All Bookings</NavLink>
         <NavLink to={`/Dashboard/${user.id}`}>Dashboard</NavLink>
         <NavLink to="/companyprofile">Profile</NavLink>
         <NavLink onClick={handleLogOut} to="/">

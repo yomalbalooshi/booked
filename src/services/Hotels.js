@@ -11,7 +11,8 @@ export const GetHotels = async () => {
 
 export const ShowHotel = async (id) => {
   try {
-    const res = await Client.get(`hotels/${id}`)
+    const res = await Client.get(`/hotels/${id}`)
+    // console.log(res)
     return res.data
   } catch (error) {
     throw error

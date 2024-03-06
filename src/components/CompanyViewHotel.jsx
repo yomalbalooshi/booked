@@ -20,6 +20,7 @@ const CompanyViewHotel = ({ user }) => {
     navigate(`../updateroom/${room._id}`)
   }
   return (
+    Object.keys(hotel).length !== 0 && (
     user &&
     user.type === 'company' && (
       <div>
@@ -35,8 +36,10 @@ const CompanyViewHotel = ({ user }) => {
           <h1>{hotel.name}</h1>
           <p>{hotel.description}</p>
           <p>
-            {hotel.city}, {hotel.country}
+            {hotel.location.city}, {hotel.location.country}
           </p>
+          {console.log(hotel)}
+
           <img src={hotel.image} alt={hotel.name}></img>
           <h5>Amenities</h5>
           {hotel.amenities && hotel.amenities.length > 0 && (
