@@ -145,77 +145,142 @@ const HotelCharts = ({ user, selectedHotel }) => {
     }
   ]
   return (
-    <div id="hotel">
-      {selectedHotel && <h1>Dashboard</h1>}
-      <h1>{selectedHotel._id}</h1>
+    dataPerMonth &&
+    dataPerMonth.length > 0 && (
+      <div id="hotel">
+        <h2 className="mt-10 font-normal text-xl ml-4  p-5 ">
+          Revenue Per Month Per Gender
+        </h2>
+        <div
+          style={{ height: '100%', width: '100%' }}
+          className="flex ml-4 mr-4 p-5 shadow-md "
+        >
+          {totalRevenuePerMonthPerGender &&
+            Object.keys(totalRevenuePerMonthPerGender).length > 0 && (
+              <BarChart
+                className="mt-6"
+                data={totalRevenuePerMonthPerGender}
+                index="Month"
+                categories={['Female', 'Male', 'Unknown']}
+                colors={['pink', 'sky', 'indigo']}
+                yAxisWidth={48}
+              />
+            )}
+        </div>
 
-      <h2>Revenue Per Month</h2>
-      <div style={{ height: '80%', width: '90%' }}>
-        {dataPerMonth && Object.keys(dataPerMonth).length > 0 && (
-          <AreaChart
-            className="mt-4"
-            data={dataPerMonth}
-            index="Month"
-            categories={['Revenue']}
-            colors={['indigo']}
-            yAxisWidth={60}
-            onValueChange={(v) => console.log(v)}
-          />
-        )}
-      </div>
-      <h2>Bookings Per Month</h2>
-      <div style={{ height: '80%', width: '90%' }}>
-        {dataPerMonth && Object.keys(dataPerMonth).length > 0 && (
-          <AreaChart
-            className="mt-4"
-            data={dataPerMonth}
-            index="Month"
-            categories={['Bookings']}
-            colors={['rose']}
-            yAxisWidth={60}
-            onValueChange={(v) => console.log(v)}
-          />
-        )}
-      </div>
-      <h2>Revenue Per Month Per Gender</h2>
-      <div style={{ height: '80%', width: '90%' }}>
-        {totalRevenuePerMonthPerGender &&
-          Object.keys(totalRevenuePerMonthPerGender).length > 0 && (
-            <BarChart
-              className="mt-6"
-              data={totalRevenuePerMonthPerGender}
-              index="Month"
-              categories={['Female', 'Male', 'Unknown']}
-              colors={['rose', 'indigo', 'amber']}
-              yAxisWidth={48}
-            />
-          )}
-      </div>
+        <div className="flex justify-center p-5 shadow-md">
+          <div>
+            <h2 className="mt-10 font-normal text-xl  mb-20 ">
+              Total Bookings Per Nationality
+            </h2>
+            <div style={{ height: '80%' }} className="grow">
+              {totalBookingsPerNationality &&
+                Object.keys(totalBookingsPerNationality).length > 0 && (
+                  <DonutChart
+                    style={{ borderColor: 'white' }}
+                    data={totalBookingsPerNationality}
+                    variant="pie"
+                    colors={[
+                      'stone',
+                      'red',
+                      'orange',
+                      'amber',
+                      'yellow',
+                      'lime',
+                      'green',
+                      'emerald',
+                      'teal',
+                      'cyan',
+                      'sky',
+                      'blue',
+                      'indigo',
+                      'violet',
+                      'purple',
+                      'fuchsia',
+                      'pink',
+                      'rose',
+                      'amber',
+                      'yellow',
+                      'lime',
+                      'green',
+                      'emerald',
+                      'teal',
+                      'cyan',
+                      'emerald',
+                      'teal',
+                      'cyan',
+                      'sky',
+                      'blue',
+                      'indigo',
+                      'violet',
+                      'pink'
+                    ]}
+                    onValueChange={(v) => console.log(v)}
+                  />
+                )}
+            </div>
+          </div>
+          <div className=" flex-grow">
+            <h2 className="mt-10 font-normal text-xl ml-10  ">
+              Revenue Per Month
+            </h2>
+            <div
+              style={{ height: '100%', width: '100%' }}
+              className="flex ml-5 mr-4h-lvh"
+            >
+              {dataPerMonth && Object.keys(dataPerMonth).length > 0 && (
+                <AreaChart
+                  className="mt-4"
+                  data={dataPerMonth}
+                  index="Month"
+                  categories={['Revenue']}
+                  colors={['indigo']}
+                  yAxisWidth={60}
+                  onValueChange={(v) => console.log(v)}
+                />
+              )}
+            </div>
+          </div>
+        </div>
 
-      <h2>Total of Each Gender for Bookings</h2>
-      <div style={{ height: '80%', width: '90%' }}>
-        {totalBookingsPerGender &&
-          Object.keys(totalBookingsPerGender).length > 0 && (
-            <DonutChart
-              data={totalBookingsPerGender}
-              variant="donut"
-              onValueChange={(v) => console.log(v)}
-            />
-          )}
+        <div className="flex justify-center p-5 shadow-md">
+          <div className="flex-grow">
+            <h2 className="mt-10 font-normal text-xl ml-10  ">
+              Bookings Per Month
+            </h2>
+            <div style={{ height: '100%', width: '100%' }}>
+              {dataPerMonth && Object.keys(dataPerMonth).length > 0 && (
+                <AreaChart
+                  className="mt-4"
+                  data={dataPerMonth}
+                  index="Month"
+                  categories={['Bookings']}
+                  colors={['rose']}
+                  yAxisWidth={60}
+                  onValueChange={(v) => console.log(v)}
+                />
+              )}
+            </div>
+          </div>
+          <div>
+            <h2 className="mt-10 font-normal text-xl mr-10 mb-20 ">
+              Total Bookings Per Gender
+            </h2>
+            <div style={{ height: '80%' }} className="grow">
+              {totalBookingsPerGender &&
+                Object.keys(totalBookingsPerGender).length > 0 && (
+                  <DonutChart
+                    data={totalBookingsPerGender}
+                    variant="donut"
+                    colors={['sky', 'pink']}
+                    onValueChange={(v) => console.log(v)}
+                  />
+                )}
+            </div>
+          </div>
+        </div>
       </div>
-
-      <h2>Total of Each Gender for Bookings</h2>
-      <div style={{ height: '80%', width: '90%' }}>
-        {totalBookingsPerNationality &&
-          Object.keys(totalBookingsPerNationality).length > 0 && (
-            <DonutChart
-              data={totalBookingsPerNationality}
-              variant="pie"
-              onValueChange={(v) => console.log(v)}
-            />
-          )}
-      </div>
-    </div>
+    )
   )
 }
 export default HotelCharts
