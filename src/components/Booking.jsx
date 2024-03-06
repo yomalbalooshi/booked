@@ -122,128 +122,110 @@ const Booking = ({ user }) => {
     }
   }
 
-  return (
-    user &&
-    user.type === 'customer' && (
-      <div className="booking-form shadow-2xl ">
-        <h1> Hotel Booking</h1>
-        <h2>{hotel.name} </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="rooms">
-            {hotel.rooms &&
-              hotel.rooms.length > 0 &&
-              hotel.rooms.map((room) => (
-                <div key={room._id} className="room-card-container">
-                  <h3 className="font-bold text-2xl">{room.roomType}</h3>
-                  <div className="room-card">
-                    <input
-                      type="radio"
-                      id={room.name}
-                      name="roomType"
-                      value={room._id}
-                      required
-                      onClick={(e) => handleSelectedRoom(e, room)}
-                    ></input>
-                    <label htmlFor="roomType">
-                      <div className="text-left">
-                        <h4 className="font-bold mb-5">Features</h4>
-                        <p className="pb-3">Max Adults: {room.maxAdults}</p>
-                        <p className="pb-3">Max Children: {room.maxChildren}</p>
-                        <p className="pb-3">Price: {room.price} $</p>
-                      </div>
-                    </label>
-                    <div className="amenities">
-                      <h4 className="font-bold">Amenities</h4>
-                      {room.amenities && room.amenities.length > 0 && (
-                        <ul className="list-disc ">
-                          {room.amenities.map((amenity, index) => (
-                            <li key={index}>{amenity}</li>
-                          ))}
-                        </ul>
-                      )}
+  return user && user.type === 'customer' ? (
+    <div className="booking-form shadow-2xl ">
+      <h1> Hotel Booking</h1>
+      <h2>{hotel.name} </h2>
+      <form onSubmit={handleSubmit}>
+        <div className="rooms">
+          {hotel.rooms &&
+            hotel.rooms.length > 0 &&
+            hotel.rooms.map((room) => (
+              <div key={room._id} className="room-card-container">
+                <h3 className="font-bold text-2xl">{room.roomType}</h3>
+                <div className="room-card">
+                  <input
+                    type="radio"
+                    id={room.name}
+                    name="roomType"
+                    value={room._id}
+                    required
+                    onClick={(e) => handleSelectedRoom(e, room)}
+                  ></input>
+                  <label htmlFor="roomType">
+                    <div className="text-left">
+                      <h4 className="font-bold mb-5">Features</h4>
+                      <p className="pb-3">Max Adults: {room.maxAdults}</p>
+                      <p className="pb-3">Max Children: {room.maxChildren}</p>
+                      <p className="pb-3">Price: {room.price} $</p>
                     </div>
-                    <div className="carousel-container">
-                      {room.images && room.images.length > 0 && (
-                        <Carousel>
-                          {room.images.map((image, index) => (
-                            <img
-                              className="room-image"
-                              key={index}
-                              src={image}
-                            ></img>
-                          ))}
-                        </Carousel>
-                      )}
-                    </div>
+                  </label>
+                  <div className="amenities">
+                    <h4 className="font-bold">Amenities</h4>
+                    {room.amenities && room.amenities.length > 0 && (
+                      <ul className="list-disc ">
+                        {room.amenities.map((amenity, index) => (
+                          <li key={index}>{amenity}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                  <div className="carousel-container">
+                    {room.images && room.images.length > 0 && (
+                      <Carousel>
+                        {room.images.map((image, index) => (
+                          <img
+                            className="room-image"
+                            key={index}
+                            src={image}
+                          ></img>
+                        ))}
+                      </Carousel>
+                    )}
                   </div>
                 </div>
-              ))}
-          </div>
-          <div id="cal">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateRangePicker
-                // minDate={dayjs()}
-                sx={{ mt: 2 }}
-                localeText={{ start: 'Check-in', end: 'Check-out' }}
-                datevalue={datevalue}
-                onChange={(newDateValue) => setDateValue(newDateValue)}
-              />
-            </LocalizationProvider>
-          </div>
-
-          <div>
-            <TextField
-              type="number"
-              name="noOfRooms"
-              InputProps={{ inputProps: { min: 0 } }}
-              onChange={handleNumberOfRooms}
+              </div>
+            ))}
+        </div>
+        <div id="cal">
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DateRangePicker
+              minDate={dayjs()}
               sx={{ mt: 2 }}
-              fullWidth
-              label="No of rooms"
+              localeText={{ start: 'Check-in', end: 'Check-out' }}
+              datevalue={datevalue}
+              onChange={(newDateValue) => setDateValue(newDateValue)}
             />
-          </div>
-          <div>
-            {/* <label htmlFor="adults">Adults</label>
-          <input
+          </LocalizationProvider>
+        </div>
+
+        <div>
+          <TextField
+            type="number"
+            name="noOfRooms"
+            InputProps={{ inputProps: { min: 0 } }}
+            onChange={handleNumberOfRooms}
+            sx={{ mt: 2 }}
+            fullWidth
+            label="No of rooms"
+          />
+        </div>
+        <div>
+          <TextField
             type="number"
             name="adults"
-            max={selectedRoom.maxAdults}
-            min="1"
-            required
-          /> */}
-            <TextField
-              type="number"
-              name="adults"
-              InputProps={{
-                inputProps: { min: 0, max: selectedRoom.maxAdults }
-              }}
-              sx={{ mt: 2 }}
-              fullWidth
-              label="No of Adults"
-            />
-          </div>
-          <div>
-            {/* <label htmlFor="children">Children</label>
-          <input
+            InputProps={{
+              inputProps: { min: 0, max: selectedRoom.maxAdults }
+            }}
+            sx={{ mt: 2 }}
+            fullWidth
+            label="No of Adults"
+          />
+        </div>
+        <div>
+          <TextField
             type="number"
             name="children"
-            max={selectedRoom.maxChildren}
-            min="1"
-            required
-          /> */}
-            <TextField
-              type="number"
-              name="children"
-              InputProps={{
-                inputProps: { min: 0, max: selectedRoom.maxChildren }
-              }}
-              sx={{ mt: 2 }}
-              fullWidth
-              label="No of Children"
-            />
-          </div>
-          <div>
-            {/* <p>
+            InputProps={{
+              inputProps: { min: 0, max: selectedRoom.maxChildren }
+            }}
+            sx={{ mt: 2 }}
+            fullWidth
+            label="No of Children"
+          />
+        </div>
+        <div>
+          {/* <p>
             <label htmlFor="specialRequest">Special Requests</label>
           </p>
           <textarea
@@ -253,16 +235,16 @@ const Booking = ({ user }) => {
             cols="30"
             placeholder="Special Requests..."
           ></textarea> */}
-            <TextField
-              type="text"
-              name="specialRequest"
-              sx={{ mt: 2 }}
-              fullWidth
-              label="Special Request"
-            />
-          </div>
-          <div className="booking-checkboxes">
-            {/* <input
+          <TextField
+            type="text"
+            name="specialRequest"
+            sx={{ mt: 2 }}
+            fullWidth
+            label="Special Request"
+          />
+        </div>
+        <div className="booking-checkboxes">
+          {/* <input
             type="checkbox"
             name="lateCheckOut"
             id="lateCheckOut"
@@ -270,51 +252,51 @@ const Booking = ({ user }) => {
             checked={lateCheckOut}
           />
           <label htmlFor="lateCheckOut">Late Check Out</label> */}
-            <FormControlLabel
-              control={
-                <Checkbox
-                  name="lateCheckOut"
-                  id="lateCheckOut"
-                  checked={lateCheckOut}
-                  color="success"
-                  onChange={handleCheckboxes}
-                  sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
-                />
-              }
-              label={
-                <Typography sx={{ fontSize: 14 }}>Late Check Out</Typography>
-              }
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  name="earlyCheckIn"
-                  id="earlyCheckIn"
-                  checked={earlyCheckIn}
-                  color="success"
-                  onChange={handleCheckboxes}
-                  sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
-                />
-              }
-              label={
-                <Typography sx={{ fontSize: 14 }}>Early Check In</Typography>
-              }
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  name="extraBed"
-                  id="extraBed"
-                  checked={extraBed}
-                  color="success"
-                  onChange={handleCheckboxes}
-                  sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
-                />
-              }
-              label={<Typography sx={{ fontSize: 14 }}>Extra Bed</Typography>}
-            />
-          </div>
-          {/* <div>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="lateCheckOut"
+                id="lateCheckOut"
+                checked={lateCheckOut}
+                color="success"
+                onChange={handleCheckboxes}
+                sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+              />
+            }
+            label={
+              <Typography sx={{ fontSize: 14 }}>Late Check Out</Typography>
+            }
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="earlyCheckIn"
+                id="earlyCheckIn"
+                checked={earlyCheckIn}
+                color="success"
+                onChange={handleCheckboxes}
+                sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+              />
+            }
+            label={
+              <Typography sx={{ fontSize: 14 }}>Early Check In</Typography>
+            }
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="extraBed"
+                id="extraBed"
+                checked={extraBed}
+                color="success"
+                onChange={handleCheckboxes}
+                sx={{ '& .MuiSvgIcon-root': { fontSize: 30 } }}
+              />
+            }
+            label={<Typography sx={{ fontSize: 14 }}>Extra Bed</Typography>}
+          />
+        </div>
+        {/* <div>
           <input
             type="checkbox"
             name="earlyCheckIn"
@@ -324,7 +306,7 @@ const Booking = ({ user }) => {
           />
           <label htmlFor="lateCheckOut">Early Check In</label>
         </div> */}
-          {/* <div>
+        {/* <div>
           <input
             type="checkbox"
             name="extraBed"
@@ -334,17 +316,27 @@ const Booking = ({ user }) => {
           />
           <label htmlFor="lateCheckOut">Extra Bed</label>
         </div> */}
-          <div className="fixed-bottom">
-            <h3 id="totalPrice">
-              Total Price: <span id="price">$ {totalPrice()}</span>
-            </h3>
-            <Button type="submit" variant="contained" color="success">
-              Book
-            </Button>
-          </div>
-        </form>
+        <div className="fixed-bottom">
+          <h3 id="totalPrice">
+            Total Price: <span id="price">$ {totalPrice()}</span>
+          </h3>
+          <Button type="submit" variant="contained" color="success">
+            Book
+          </Button>
+        </div>
+      </form>
+    </div>
+  ) : (
+    <div>
+      <div style={{ textAlign: 'center', marginTop: 15 }}>
+        <h1 className="text-4xl mb-10 mt-20">
+          Please sign in to make a booking
+        </h1>
+        <Button type="submit" variant="contained" color="success">
+          Sign in
+        </Button>
       </div>
-    )
+    </div>
   )
 }
 export default Booking

@@ -43,7 +43,6 @@ const Hotels = ({ user }) => {
     beforeChange = null
   }
 
-  console.log(value)
   const calculateBasePricesForHotels = (hotels) => {
     return hotels.map((hotel) => {
       if (hotel.rooms.length > 0) {

@@ -8,9 +8,7 @@ export const BookingProvider = ({ children }) => {
   const updateBooking = () => {
     setBookingUpdate((prev) => prev + 1)
   }
-  useEffect(() => {
-    console.log('context', bookingUpdate)
-  }, [bookingUpdate])
+  useEffect(() => {}, [bookingUpdate])
   return (
     <BookingContext.Provider value={{ bookingUpdate, updateBooking }}>
       {children}

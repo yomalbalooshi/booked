@@ -14,7 +14,6 @@ const CompanyViewHotel = ({ user }) => {
     }
     getHotelDetails()
   }, [])
-  console.log(hotel)
 
   const handleUpdateRoom = async (e, room) => {
     navigate(`../updateroom/${room._id}`)
@@ -39,7 +38,6 @@ const CompanyViewHotel = ({ user }) => {
           <p>
             {hotel.location.city}, {hotel.location.country}
           </p>
-          {console.log(hotel)}
 
           <img src={hotel.image} alt={hotel.name}></img>
           <h5>Amenities</h5>

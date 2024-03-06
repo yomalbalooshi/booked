@@ -14,9 +14,8 @@ const CompanyProfile = ({ user }) => {
   useEffect(() => {
     const allHotels = async () => {
       let data = await getAllCompanyHotels(user.id)
-      console.log(data)
+
       setHotels(data)
-      console.log(hotels)
     }
     allHotels()
   }, [user, bookingUpdate])

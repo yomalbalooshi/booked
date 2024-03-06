@@ -34,7 +34,7 @@ const SignIn = ({ setUser, signin }) => {
   }
   return (
     <div>
-      <div className="shadow-2xl max-w-xl mx-auto flex justify-center pb-36 mt-64 ">
+      <div className="shadow-2xl max-w-xl mx-auto flex justify-center pb-36 mt-32 ">
         <form onSubmit={handleSubmit}>
           <h1 className="mx-auto max-w-max font-bold font text-4xl pt-20">
             Sign In

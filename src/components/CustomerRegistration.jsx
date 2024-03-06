@@ -75,159 +75,163 @@ const CustomerRegistation = () => {
     event.preventDefault()
   }
 
-  console.log(formValues)
   return (
     <div>
-      <Box
-        sx={{
-          '& > :not(style)': {
-            mx: 'auto',
-            width: '25ch',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }
-        }}
-        autoComplete="off"
-      >
-        <form onSubmit={handleSubmit}>
-          <div>
-            <TextField
-              id="name"
-              name="name"
-              onChange={handleChange}
-              required
-              sx={{ width: 300, mt: 10, mb: 3 }}
-              label="Name"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <AccountCircle />
-                  </InputAdornment>
-                )
-              }}
-            />
-          </div>
-
-          <div>
-            <TextField
-              id="email"
-              name="email"
-              required
-              type={'email'}
-              onChange={handleChange}
-              sx={{ width: 300, mb: 3 }}
-              label="Email"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <MailIcon />
-                  </InputAdornment>
-                )
-              }}
-            />
-          </div>
-
-          <div>
-            <Autocomplete
-              disablePortal
-              options={['Female', 'Male']}
-              sx={{ width: 300, mb: 3 }}
-              onChange={(e, value) => setGender(value)}
-              required
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Gender"
-                  id="gender"
-                  name="gender"
-                />
-              )}
-            />
-          </div>
-          <div>
-            <Autocomplete
-              disablePortal
-              options={countries}
-              sx={{ width: 300, mb: 2 }}
-              onChange={(e, value) => setNationality(value)}
-              required
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Nationality"
-                  id="country"
-                  name="country"
-                />
-              )}
-            />
-          </div>
-          <div>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <OutlinedInput
-              sx={{ width: 300, mb: 2 }}
-              id="password"
-              name="password"
-              required
-              onChange={handleChange}
-              type={showPassword ? 'text' : 'password'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
-          </div>
-
-          <div>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <OutlinedInput
-              sx={{ width: 300, mb: 3 }}
-              id="confirmPassword"
-              name="confirmPassword"
-              required
-              onChange={handleChange}
-              type={showPassword ? 'text' : 'password'}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
-          </div>
-
-          <Button
-            type="submit"
-            variant="contained"
-            color="success"
-            disabled={
-              !formValues.name ||
-              !formValues.email ||
-              !formValues.password ||
-              !formValues.confirmPassword ||
-              formValues.password !== formValues.confirmPassword
+      <div className="shadow-2xl max-w-xl mx-auto flex justify-center pb-36 mt-32 ">
+        <Box
+          sx={{
+            '& > :not(style)': {
+              mx: 'auto',
+              width: '25ch',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
             }
-          >
-            Register
-          </Button>
-        </form>
-      </Box>
+          }}
+          autoComplete="off"
+        >
+          <form onSubmit={handleSubmit}>
+            <h1 className="mx-auto max-w-max font-bold font text-4xl pt-20">
+              Register
+            </h1>
+            <div>
+              <TextField
+                id="name"
+                name="name"
+                onChange={handleChange}
+                required
+                sx={{ width: 300, mt: 10, mb: 3 }}
+                label="Name"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle />
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </div>
+
+            <div>
+              <TextField
+                id="email"
+                name="email"
+                required
+                type={'email'}
+                onChange={handleChange}
+                sx={{ width: 300, mb: 3 }}
+                label="Email"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <MailIcon />
+                    </InputAdornment>
+                  )
+                }}
+              />
+            </div>
+
+            <div>
+              <Autocomplete
+                disablePortal
+                options={['Female', 'Male']}
+                sx={{ width: 300, mb: 3 }}
+                onChange={(e, value) => setGender(value)}
+                required
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Gender"
+                    id="gender"
+                    name="gender"
+                  />
+                )}
+              />
+            </div>
+            <div>
+              <Autocomplete
+                disablePortal
+                options={countries}
+                sx={{ width: 300, mb: 2 }}
+                onChange={(e, value) => setNationality(value)}
+                required
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Nationality"
+                    id="country"
+                    name="country"
+                  />
+                )}
+              />
+            </div>
+            <div>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <OutlinedInput
+                sx={{ width: 300, mb: 2 }}
+                id="password"
+                name="password"
+                required
+                onChange={handleChange}
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </div>
+
+            <div>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <OutlinedInput
+                sx={{ width: 300, mb: 3 }}
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+                onChange={handleChange}
+                type={showPassword ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Password"
+              />
+            </div>
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="success"
+              disabled={
+                !formValues.name ||
+                !formValues.email ||
+                !formValues.password ||
+                !formValues.confirmPassword ||
+                formValues.password !== formValues.confirmPassword
+              }
+            >
+              Register
+            </Button>
+          </form>
+        </Box>
+      </div>
     </div>
   )
 }

@@ -152,3 +152,6 @@ nav img {
 .update-hotel-form {
   min-width: 400px;
 }
+.hotel-card {
+  max-height: 400px;
+}
