@@ -17,13 +17,6 @@ const Home = ({ user }) => {
         ))}
       </Carousel> */}
       {!user && (
-        // <button
-        //   onClick={() => {
-        //     navigate('/companylogin')
-        //   }}
-        // >
-        //   company login
-        // </button>
         <div style={{ textAlign: 'center', marginTop: 15 }}>
           <Button
             onClick={() => {

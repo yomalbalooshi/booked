@@ -43,6 +43,7 @@ const UpdateHotel = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    navigate('/companyprofile')
     await UpdateCompanyHotel({
       id: hotel._id,
       name: formValues.name,
@@ -52,7 +53,7 @@ const UpdateHotel = ({ user }) => {
       ),
       companyId: user.id
     })
-    navigate('/companyprofile')
+
     updateBooking()
   }
 
