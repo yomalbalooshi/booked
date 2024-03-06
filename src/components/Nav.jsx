@@ -4,6 +4,7 @@ const Nav = ({ user, handleLogOut }) => {
   let navOptions
 
   if (user && user.type === 'customer') {
+    console.log('customer user data :', user)
     navOptions = (
       <div>
         <NavLink to="/hotels">Hotels</NavLink>

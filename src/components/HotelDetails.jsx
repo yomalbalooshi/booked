@@ -1,31 +1,102 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
+import { getAllCutomerBookings } from '../services/booking'
+import { deleteHotelReview } from '../services/reviews'
 import { useEffect, useState } from 'react'
+import ReviewForm from './ReviewForm'
 
-const HotelDetails = () => {
+const HotelDetails = ({ user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
   let [hotel, setHotel] = useState({})
+  let [updateReviews, setUpdateReviews] = useState(true)
+  const [customerBookings, setCustomerBookings] = useState([])
+
+  const updateReviewsCallback = () => {
+    setUpdateReviews(!updateReviews)
+  }
+
+  const isUserReview = (reviewCustomerId) => {
+    return user.id === reviewCustomerId
+  }
+
+  const deleteReview = (reviewId) => {
+    console.log(`Deleting review ${reviewId} ...`)
+    const deleteReview = async (hotelId, data) => {
+      await deleteHotelReview(hotelId, reviewId)
+      updateReviewsCallback()
+    }
+
+    deleteReview(hotel._id, reviewId)
+    // setFormState(initialState)
+  }
+
+  const userHasBookings = () => {
+    if (customerBookings) {
+      for (let i = 0; i < customerBookings.length; i++) {
+        if (customerBookings[i].hotelId._id === hotel._id) {
+          console.log(
+            'checkIn Date : ',
+            customerBookings[i].checkIn,
+            ', checkOut',
+            customerBookings[i].checkOut,
+            ' ,now: ',
+            Date.now
+          )
+          const checkIn = new Date(customerBookings[i].checkIn).getTime()
+          const checkOut = new Date(customerBookings[i].checkOut).getTime()
+          const now = Date.now()
+          console.log(
+            'checkIn : ',
+            checkIn,
+            ', checkOut',
+            checkOut,
+            ' ,now: ',
+            now
+          )
+
+          if (checkIn < now || checkOut < now) {
+            return true
+          }
+        }
+      }
+      return false
+    }
+    return false
+  }
 
   useEffect(() => {
     const getHotelDetails = async () => {
-      let response = await ShowHotel(id)
+      // console.log('feching hotel data ..')
+
+      const response = await ShowHotel(id)
       setHotel(response)
     }
     getHotelDetails()
-  }, [])
+  }, [updateReviews])
 
-  console.log(hotel)
+  useEffect(() => {
+    const getCustomerBookings = async () => {
+      console.log('HotelDetails user ==> ', user)
+      const data = user ? await getAllCutomerBookings(user.id) : null
+
+      setCustomerBookings(data)
+    }
+    getCustomerBookings()
+  }, [user])
+
   return (
     Object.keys(hotel).length !== 0 && (
       <div>
+        {console.log('hotel details : ', hotel)}
+        {console.log('bookings details : ', customerBookings)}
+        {console.log('customer has bookings : ', userHasBookings())}
         <div id="hotel-details">
           <h1>{hotel.name}</h1>
           <p>{hotel.description}</p>
           <p>
-            {hotel.location.city},{hotel.location.country}
+            {hotel.city}, {hotel.country}
           </p>
-
           <img src={hotel.image} alt={hotel.name}></img>
           <h5>Amenities</h5>
           {hotel.amenities && hotel.amenities.length > 0 && (
@@ -69,12 +140,23 @@ const HotelDetails = () => {
             hotel.reviews.length > 0 &&
             hotel.reviews.map((review) => (
               <div key={review._id}>
-                <p>{review.feedback}</p>
-                <p>{review.creationDate}</p>
-                <p>{review.rating}</p>
+                <p>By:&nbsp;{review.customer[0].email}</p>
+                <p>Details:&nbsp;{review.feedback}</p>
+                <p>Date:&nbsp;{review.createdAt}</p>
+                <p>Rating:&nbsp;{review.rating}</p>
+                {isUserReview(review.customerId) && (
+                  <button onClick={() => deleteReview(review._id)}>X</button>
+                )}
               </div>
             ))}
         </div>
+        {userHasBookings() && (
+          <ReviewForm
+            user={user}
+            hotelId={id}
+            callback={updateReviewsCallback}
+          />
+        )}
         <div id="book">
           <button onClick={() => navigate(`/booking/${hotel._id}`)}>
             Booking
