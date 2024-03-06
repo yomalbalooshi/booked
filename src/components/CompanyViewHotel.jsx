@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
 import { useEffect, useState } from 'react'
 
-const CompanyViewHotel = () => {
+const CompanyViewHotel = ({ user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
   let [hotel, setHotel] = useState({})

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { addCompanyHotel } from '../services/company'
 import BookingContext from '../context/BookingContext'
@@ -8,6 +8,7 @@ import Autocomplete from '@mui/material/Autocomplete'
 
 const AddHotel = ({ user }) => {
   let navigate = useNavigate()
+  const { updateBooking } = useContext(BookingContext)
   const [formValues, setFormValues] = useState({
     name: '',
     description: '',

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { addCompanyHotelRoom } from '../services/company'
 const AddRoom = () => {
   let navigate = useNavigate()
+  const { updateBooking } = useContext(BookingContext)
   let { id } = useParams()
   const [formValues, setFormValues] = useState({
     roomType: '',
@@ -31,6 +32,7 @@ const AddRoom = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
+    navigate('/companyprofile')
     await addCompanyHotelRoom({
       roomType: formValues.roomType,
       price: formValues.price,
@@ -41,9 +43,9 @@ const AddRoom = () => {
       ),
       hotelId: id
     })
-    navigate('/')
+    updateBooking()
   }
-  // console.log(id)
+
   return (
     user &&
     user.type === 'company' && (

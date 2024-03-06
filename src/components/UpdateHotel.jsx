@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { UpdateCompanyHotel } from '../services/company'
-import TextField from '@mui/material/TextField'
-import Autocomplete from '@mui/material/Autocomplete'
-import { GetCities } from '../services/city'
 import BookingContext from '../context/BookingContext'
 
 const UpdateHotel = ({ user }) => {
   let navigate = useNavigate()
+  const { updateBooking } = useContext(BookingContext)
   const location = useLocation()
   const [hotel, setHotel] = useState({})
   const [formValues, setFormValues] = useState({

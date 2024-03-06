@@ -4,7 +4,6 @@ import { useState, useEffect, useContext } from 'react'
 import BookingContext from '../context/BookingContext'
 
 const CompanyProfile = ({ user }) => {
-  console.log(user.id)
   const { bookingUpdate } = useContext(BookingContext)
   let navigate = useNavigate()
   const [hotels, setHotels] = useState([])
@@ -17,7 +16,7 @@ const CompanyProfile = ({ user }) => {
       setHotels(data)
     }
     allHotels()
-  }, [bookingUpdate])
+  }, [user, bookingUpdate])
 
   const handleDeleteHotel = async (e, hotel) => {
     try {
@@ -26,7 +25,6 @@ const CompanyProfile = ({ user }) => {
     } catch (error) {
       console.error('Error deleting hotel:', error)
     }
-    // setDeletedHotel(true) to redirect to same page
   }
   const handleUpdateHotel = async (e, hotel) => {
     navigate('/updatehotel', { state: { hotel: hotel } })
@@ -36,7 +34,8 @@ const CompanyProfile = ({ user }) => {
   }
   return (
     user &&
-    user.type === 'company' && (
+    user.type === 'company' &&
+    Object.keys(hotels).length !== 0 && (
       <div>
         <div className="CompanyProfileInfoDiv">
           <h1>Account</h1>
