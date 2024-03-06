@@ -20,7 +20,7 @@ const CompanyViewHotel = ({ user }) => {
     navigate(`../updateroom/${room._id}`)
   }
   return (
-    Object.keys(hotel).length !== 0 && (
+    Object.keys(hotel).length !== 0 &&
     user &&
     user.type === 'company' && (
       <div>
