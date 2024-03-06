@@ -11,11 +11,11 @@ const Home = ({ user }) => {
   ]
   return (
     <div>
-      {/* <Carousel>
+      <Carousel>
         {images.map((image, index) => (
           <img className="home-image" key={index} src={image}></img>
         ))}
-      </Carousel> */}
+      </Carousel>
       {!user && (
         <div style={{ textAlign: 'center', marginTop: 15 }}>
           <Button
