@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Carousel from 'react-material-ui-carousel'
 
-const Booking = ({ user, booked, setBooked }) => {
+const Booking = ({ user }) => {
   let navigate = useNavigate()
   const [datevalue, setDateValue] = useState([dayjs(), dayjs().add(1, 'day')])
   let { id } = useParams()
@@ -25,7 +25,7 @@ const Booking = ({ user, booked, setBooked }) => {
   const [extraBed, setExtraBed] = useState(false)
   const { updateBooking } = useContext(BookingContext)
   let booking
-  if (Object.keys(hotel).length !== 0) {
+  if (Object.keys(hotel).length !== 0 && user) {
     booking = {
       hotelId: hotel._id,
       roomType: '',

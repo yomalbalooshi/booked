@@ -145,7 +145,7 @@ const UpdateHotel = ({ user }) => {
                 >
                   Add Amenities
                 </Button>
-                <br />
+
                 <div className="flex justify-center mt-12">
                   <Button type="submit" variant="contained" color="success">
                     Update Hotel

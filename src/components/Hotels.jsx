@@ -17,7 +17,7 @@ function valuetext(value) {
 
 let beforeChange = null
 
-const Hotels = () => {
+const Hotels = ({ user }) => {
   const [hotels, setHotels] = useState([])
   const [searchHotel, setSearchHotel] = useState('')
   const [priceRange, setPriceRange] = useState(0)
@@ -137,8 +137,6 @@ const Hotels = () => {
     setPage(value)
   }
 
-  console.log('filtered ', filteredHotels)
-  console.log(totalPages)
   return (
     <div className="flex justify-around mt-12">
       <div className="filters">
@@ -147,7 +145,7 @@ const Hotels = () => {
             id="search"
             name="search"
             onChange={handleChange}
-            sx={{ width: 350, mb: 3, mt: 3 }}
+            sx={{ width: 350, mb: 3 }}
             label="Search Hotel"
             InputProps={{
               startAdornment: (
@@ -199,27 +197,15 @@ const Hotels = () => {
                 }
                 label={amenity}
               />
-              {/* <input
-                type="checkbox"
-                name="amenity"
-                id={amenity}
-                value={amenity}
-                onChange={handleChange}
-              ></input>
-              <label htmlFor="amenity"> {amenity}</label> */}
             </div>
           ))}
         </div>
       </div>
-      <div className="hotels">
+      <div>
         <div>
           {displayedHotels.map((hotel) => (
             <div key={hotel._id}>
-              <HotelCard
-                hotel={hotel}
-                priceRange={priceRange}
-                checkedAmenities={checkedAmenities}
-              />
+              <HotelCard hotel={hotel} user={user} />
             </div>
           ))}
         </div>
