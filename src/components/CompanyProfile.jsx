@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { getAllCompanyHotels, deleteHotel } from '../services/company'
 import { useState, useEffect, useContext } from 'react'
 import BookingContext from '../context/BookingContext'
@@ -19,20 +19,21 @@ const CompanyProfile = ({ user }) => {
     allHotels()
   }, [user, bookingUpdate])
 
-  const handleDeleteHotel = async (e, hotel) => {
+  const handleDeleteHotel = async (e, hotelId) => {
     try {
-      const res = await deleteHotel(hotel._id)
-      navigate('/')
+      await deleteHotel(hotelId)
+
+      const updatedHotels = hotels.filter((hotel) => hotel._id !== hotelId)
+      setHotels(updatedHotels)
     } catch (error) {
       console.error('Error deleting hotel:', error)
     }
   }
+
   const handleUpdateHotel = async (e, hotel) => {
     navigate('/updatehotel', { state: { hotel: hotel } })
   }
-  const handleViewHotel = async (e, hotel) => {
-    navigate('/viewHotel', { state: { hotel: hotel } })
-  }
+
   return (
     user &&
     user.type === 'company' &&
@@ -43,9 +44,21 @@ const CompanyProfile = ({ user }) => {
           <h2>Email </h2>
           <h3>{user.email}</h3>
           <h2>Password</h2>
-          <h3>
-            <NavLink to="../updatecompanyprofile">Update Pass</NavLink>
-          </h3>
+
+          <button
+            onClick={() => {
+              navigate('../updatecompanyprofile')
+            }}
+          >
+            Update Password
+          </button>
+          <button
+            onClick={() => {
+              navigate('../addHotel')
+            }}
+          >
+            Add Hotel
+          </button>
         </div>
         <div className="CompanyProfileHotelsListDiv">
           {hotels?.map((hotel) => (
@@ -63,7 +76,9 @@ const CompanyProfile = ({ user }) => {
               >
                 View Details
               </button>
-              <button onClick={(e) => handleDeleteHotel(e, hotel)}>X</button>
+              <button onClick={(e) => handleDeleteHotel(e, hotel._id)}>
+                X
+              </button>
               <button onClick={(e) => handleUpdateHotel(e, hotel)}>Edit</button>
             </div>
           ))}

@@ -110,6 +110,7 @@ const App = () => {
                 <UpdateProfile
                   setUser={setUser}
                   updateProfile={UpdateCompanyProfile}
+                  user={user}
                 />
               }
             />
@@ -125,15 +126,18 @@ const App = () => {
             />
             <Route path="/map" element={<Map />} />
             <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
-          <Route
-            path="/allbookings/:id"
-            element={<AllBookings user={user} />}
-          />
+            <Route
+              path="/allbookings/:id"
+              element={<AllBookings user={user} />}
+            />
+            <Route
+              path="/updateroom/:id"
+              element={<UpdateRoom user={user} />}
+            />
           </Routes>
         </main>
       </div>
     </ThemeProvider>
-
   )
 }
 export default App
