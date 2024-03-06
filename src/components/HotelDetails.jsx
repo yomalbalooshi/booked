@@ -1,5 +1,6 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
+import { getNearbyRestaurants } from '../services/restaurant'
 import { getAllCutomerBookings } from '../services/booking'
 import { deleteHotelReview } from '../services/reviews'
 import { useEffect, useState } from 'react'
@@ -14,6 +15,7 @@ const HotelDetails = ({ user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
   let [hotel, setHotel] = useState({})
+  let [restaurants, setRestaurants] = useState([])
   let [updateReviews, setUpdateReviews] = useState(true)
   const [customerBookings, setCustomerBookings] = useState([])
 
@@ -61,6 +63,18 @@ const HotelDetails = ({ user }) => {
     }
     getHotelDetails()
   }, [updateReviews])
+
+  useEffect(() => {
+    if (hotel) {
+      const getRestaurants = async () => {
+        const response = await getNearbyRestaurants(
+          hotel.location.city.toLowerCase()
+        )
+        setRestaurants(response)
+      }
+      getRestaurants()
+    }
+  }, [hotel])
 
   const basePrice = () => {
     if (hotel.rooms.length > 0) {
@@ -203,6 +217,45 @@ const HotelDetails = ({ user }) => {
             </div>
           ))}
         </div>
+        <h4 className="block mb-2 font-sans text-3xl antialiased font-semibold leading-snug tracking-normal  text-gray-700 text-center">
+          Nearby Restaurants
+        </h4>
+        {typeof restaurants !== 'string' && (
+          <div id="restaurants">
+            <div className="relative flex-column spa bg-clip-border rounded-xl bg-white text-gray-700 shadow-xl p-20  max-w-3xl max-h-96 flex-row mt-10 mb-8 m-auto ">
+              <Carousel
+                navButtonsAlwaysVisible={true}
+                navButtonsProps={{
+                  style: {
+                    backgroundColor: '#d1ded7',
+                    opacity: 0.4
+                  }
+                }}
+              >
+                {restaurants &&
+                  restaurants.length > 0 &&
+                  restaurants.map((restaurant) => (
+                    <div key={restaurant.restId} className="text-center ">
+                      <p className="text-3xl font-semibold mb-2 mt-6 ml-30 mr-30">
+                        <div className="flex justify-center items-center ">
+                          <img
+                            src={restaurant.avatar}
+                            className="max-w-24 rounded-lg mr-10"
+                          />
+                          <Link
+                            style={{ marginBottom: 20 }}
+                            to={`${restaurant.website}`}
+                          >
+                            {restaurant.name}
+                          </Link>
+                        </div>
+                      </p>
+                    </div>
+                  ))}
+              </Carousel>
+            </div>
+          </div>
+        )}
 
         {hotel.reviews && hotel.reviews.length > 0 && (
           <div id="reviews">
@@ -248,67 +301,6 @@ const HotelDetails = ({ user }) => {
           />
         )}
       </div>
-
-      // <div>
-      //   <div id="hotel-details">
-      //     <h1>{hotel.name}</h1>
-      //     <p>{hotel.description}</p>
-      //     <p>
-      //       {hotel.location.city},{hotel.location.country}
-      //     </p>
-
-      //     <img src={hotel.image} alt={hotel.name}></img>
-      //     <h5>Amenities</h5>
-      //     {hotel.amenities && hotel.amenities.length > 0 && (
-      //       <ul>
-      //         {hotel.amenities.map((amenity, index) => (
-      //           <li key={index}>{amenity}</li>
-      //         ))}
-      //       </ul>
-      //     )}
-      //   </div>
-      //   <div id="rooms">
-      //     <h2>Rooms</h2>
-      //     {hotel.rooms &&
-      //       hotel.rooms.length > 0 &&
-      //       hotel.rooms.map((room) => (
-      //         <div id="room" key={room._id}>
-      //           <p>Room Type: {room.roomType}</p>
-      //           <p>Max Guests: {room.maxGuests}</p>
-      //           <p>Price: {room.price} $</p>
-      //           <h5>Amenities</h5>
-      //           {room.amenities && room.amenities.length > 0 && (
-      //             <ul>
-      //               {room.amenities.map((amenity, index) => (
-      //                 <li key={index}>{amenity}</li>
-      //               ))}
-      //             </ul>
-      //           )}
-      //           {room.images && room.images.length > 0 && (
-      //             <div>
-      //               {room.images.map((image, index) => (
-      //                 <img key={index} src={image}></img>
-      //               ))}
-      //             </div>
-      //           )}
-      //         </div>
-      //       ))}
-      //   </div>
-      //   <div id="reviews">
-      //     <h2>Reviews</h2>
-      //     {hotel.reviews &&
-      //       hotel.reviews.length > 0 &&
-      //       hotel.reviews.map((review) => (
-      //         <div key={review._id}>
-      //           <p>{review.feedback}</p>
-      //           <p>{review.creationDate}</p>
-      //           <p>{review.rating}</p>
-      //         </div>
-      //       ))}
-      //   </div>
-      //   <div id="book">
-
-      // </div>
     )
   )
 }

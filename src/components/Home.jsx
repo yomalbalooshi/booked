@@ -4,31 +4,9 @@ import Button from '@mui/material/Button'
 import { Player } from 'video-react'
 const Home = ({ user }) => {
   let navigate = useNavigate()
-  const images = [
-    'https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1596436889106-be35e843f974?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-  ]
+
   return (
     <div style={{ position: 'relative' }}>
-      {/* <Carousel>
-        {images.map((image, index) => (
-          <img className="home-image" key={index} src={image}></img>
-        ))}
-      </Carousel>
-      {!user && (
-        <div style={{ textAlign: 'center', marginTop: 15 }}>
-          <Button
-            onClick={() => {
-              navigate('/companylogin')
-            }}
-            variant="contained"
-            color="success"
-          >
-            Company Log In
-          </Button>
-        </div>
-      )} */}
       <div
         style={
           ({ maxHeight: '100vh' },
@@ -62,7 +40,7 @@ const Home = ({ user }) => {
         }}
       >
         <p className="font-normal tracking-wider leading-loose text-stone-300 text-center">
-          <span className="text-8xl mb-32">Booked</span>
+          <span className="text-8xl mb-56">Booked</span>
           <br />
           <span className="text-2xl font-thin">
             Get Hooked on Booked – Turning Your Stays into Unforgettable

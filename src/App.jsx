@@ -124,7 +124,7 @@ const App = () => {
               path="/updatebooking/:id"
               element={<UpdateBooking user={user} />}
             />
-            <Route path="/map" element={<Map />} />
+            <Route path="/map" element={<Map user={user} />} />
             <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
             <Route
               path="/allbookings/:id"
