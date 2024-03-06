@@ -37,15 +37,17 @@ const Profile = ({ user }) => {
     }
   }
 
-  console.log(customerBookings)
+  // console.log('booking:', booking)
   return (
     user &&
     user.type === 'customer' && (
       <div>
         <div>
+          {console.log('customerBookings:', customerBookings)}
           {customerBookings.length > 0 &&
             customerBookings.map((booking) => (
               <div key={booking._id}>
+                {console.log('booking: ', booking)}
                 <p>Check In: {dayjs(booking.checkIn).format('DD/MM/YYYY')}</p>
                 <p>Check Out: {dayjs(booking.checkOut).format('DD/MM/YYYY')}</p>
                 <p>Adults: {booking.adults}</p>
@@ -54,7 +56,7 @@ const Profile = ({ user }) => {
                 <p>Late Check Out: {booking.lateCheckout ? 'Yes' : ' No'}</p>
                 <p>Extra Bed: {booking.extraBed ? 'Yes' : ' No'}</p>
                 <p>Hotel: {booking.hotelId.name}</p>
-                <p>Room Type: {booking.roomType.roomType}</p>
+                <p>Room Type: {booking.roomType?.roomType}</p>
                 <p>No of Rooms: {booking.noOfRooms}</p>
                 <p>Special Request: {booking.specialRequest}</p>
                 <p>Total Cost: {booking.totalCost} $</p>

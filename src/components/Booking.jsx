@@ -182,7 +182,7 @@ const Booking = ({ user }) => {
           <div id="cal">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DateRangePicker
-                minDate={dayjs()}
+                // minDate={dayjs()}
                 sx={{ mt: 2 }}
                 localeText={{ start: 'Check-in', end: 'Check-out' }}
                 datevalue={datevalue}

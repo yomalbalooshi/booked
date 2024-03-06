@@ -1,21 +1,82 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
+import { getAllCutomerBookings } from '../services/booking'
+import { deleteHotelReview } from '../services/reviews'
 import { useEffect, useState } from 'react'
 import HotelCard from './HotelCard'
 import Carousel from 'react-material-ui-carousel'
+import ReviewForm from './ReviewForm'
 
 const HotelDetails = ({ user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
   let [hotel, setHotel] = useState({})
+  let [updateReviews, setUpdateReviews] = useState(true)
+  const [customerBookings, setCustomerBookings] = useState([])
+
+  const updateReviewsCallback = () => {
+    setUpdateReviews(!updateReviews)
+  }
+
+  const isUserReview = (reviewCustomerId) => {
+    return user.id === reviewCustomerId
+  }
+
+  const deleteReview = (reviewId) => {
+    console.log(`Deleting review ${reviewId} ...`)
+    const deleteReview = async (hotelId, reviewId) => {
+      await deleteHotelReview({ hotelId: hotelId, reviewId: reviewId })
+      updateReviewsCallback()
+    }
+
+    deleteReview(hotel._id, reviewId)
+    // setFormState(initialState)
+  }
+
+  const userHasBookings = () => {
+    if (customerBookings) {
+      for (let i = 0; i < customerBookings.length; i++) {
+        if (customerBookings[i].hotelId._id === hotel._id) {
+          console.log(
+            'checkIn Date : ',
+            customerBookings[i].checkIn,
+            ', checkOut',
+            customerBookings[i].checkOut,
+            ' ,now: ',
+            Date.now
+          )
+          const checkIn = new Date(customerBookings[i].checkIn).getTime()
+          const checkOut = new Date(customerBookings[i].checkOut).getTime()
+          const now = Date.now()
+          console.log(
+            'checkIn : ',
+            checkIn,
+            ', checkOut',
+            checkOut,
+            ' ,now: ',
+            now
+          )
+
+          if (checkIn < now || checkOut < now) {
+            return true
+          }
+        }
+      }
+      return false
+    }
+    return false
+  }
 
   useEffect(() => {
     const getHotelDetails = async () => {
-      let response = await ShowHotel(id)
+      // console.log('feching hotel data ..')
+
+      const response = await ShowHotel(id)
       setHotel(response)
     }
     getHotelDetails()
-  }, [])
+  }, [updateReviews])
+
   const basePrice = () => {
     if (hotel.rooms.length > 0) {
       let minPrice = hotel.rooms[0].price
@@ -29,6 +90,17 @@ const HotelDetails = ({ user }) => {
       return 0
     }
   }
+
+  useEffect(() => {
+    const getCustomerBookings = async () => {
+      console.log('HotelDetails user ==> ', user)
+      const data = user ? await getAllCutomerBookings(user.id) : null
+
+      setCustomerBookings(data)
+    }
+    getCustomerBookings()
+  }, [user])
+  console.log(hotel)
   return (
     Object.keys(hotel).length !== 0 && (
       <div>
@@ -76,8 +148,11 @@ const HotelDetails = ({ user }) => {
           Rooms
         </h4>
         <div className="room flex justify-center">
-          {hotel.rooms.map((room) => (
-            <div className="relative flex spa bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-7xl max-h-fit flex-row mb-8 mr-10">
+          {hotel.rooms.map((room, index) => (
+            <div
+              key={index}
+              className="relative flex spa bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-7xl max-h-fit flex-row mb-8 mr-10"
+            >
               <div className="p-6 grow grid grid-cols-2">
                 <div>
                   <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
@@ -123,7 +198,33 @@ const HotelDetails = ({ user }) => {
               </div>
             </div>
           ))}
+          <button onClick={() => navigate(`/booking/${hotel._id}`)}>
+            Booking
+          </button>
         </div>
+        {hotel.reviews && hotel.reviews.length > 0 && (
+          <div id="reviews">
+            <h2>Reviews</h2>
+            {hotel.reviews.map((review) => (
+              <div key={review._id}>
+                {/* <p>By:&nbsp;{review.customer[0].email}</p> */}
+                <p>Details:&nbsp;{review.feedback}</p>
+                <p>Date:&nbsp;{review.createdAt}</p>
+                <p>Rating:&nbsp;{review.rating}</p>
+                {isUserReview(review.customerId) && (
+                  <button onClick={() => deleteReview(review._id)}>X</button>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+        {userHasBookings() && (
+          <ReviewForm
+            user={user}
+            hotelId={id}
+            callback={updateReviewsCallback}
+          />
+        )}
       </div>
 
       // <div>
@@ -184,10 +285,7 @@ const HotelDetails = ({ user }) => {
       //       ))}
       //   </div>
       //   <div id="book">
-      //     <button onClick={() => navigate(`/booking/${hotel._id}`)}>
-      //       Booking
-      //     </button>
-      //   </div>
+
       // </div>
     )
   )
