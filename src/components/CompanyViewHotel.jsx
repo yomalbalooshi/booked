@@ -31,6 +31,7 @@ const CompanyViewHotel = ({ user }) => {
         >
           Back to Profile
         </button>
+
         <h1>Hotel Info</h1>
         <div id="hotel-details">
           <h1>{hotel.name}</h1>

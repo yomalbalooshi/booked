@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { GetHotels, ShowHotel } from '../services/Hotels'
 
-import { latLng } from 'leaflet'
-
 const Map = () => {
   const [hotels, setHotels] = useState([])
-  // const [hotelId, setHotelId] = useState('')
+
   const [hotelDetails, setHotelDetails] = useState({})
 
   const randomnizeLatLng = (hotels) => {

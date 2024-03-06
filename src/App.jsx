@@ -69,6 +69,7 @@ const App = () => {
             <Route path="/" element={<Home user={user} />} />
             <Route path="/about" element={<About />} />
             <Route path="/hotels" element={<Hotels />} />
+            <Route path="/hotels/:id" element={<HotelDetails user={user} />} />
             <Route
               path="/hotels/:id"
               element={<HotelDetails user={user} booked={booked} />}
@@ -110,6 +111,7 @@ const App = () => {
                 <UpdateProfile
                   setUser={setUser}
                   updateProfile={UpdateCompanyProfile}
+                  user={user}
                 />
               }
             />
@@ -128,6 +130,10 @@ const App = () => {
             <Route
               path="/allbookings/:id"
               element={<AllBookings user={user} />}
+            />
+            <Route
+              path="/updateroom/:id"
+              element={<UpdateRoom user={user} />}
             />
           </Routes>
         </main>

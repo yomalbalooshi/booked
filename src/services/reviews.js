@@ -7,9 +7,9 @@ export const addHotelReview = async (hotelId, data) => {
   } catch (error) {}
 }
 
-export const deleteHotelReview = async (hotelId, reviewId) => {
+export const deleteHotelReview = async (data) => {
   try {
-    const res = await Client.delete(`/hotels/${hotelId}/reviews/${reviewId}`)
+    const res = await Client.delete(`/reviews/${data.reviewId}`, { data })
     console.log(res)
     return res.data
   } catch (error) {}

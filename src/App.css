@@ -11,17 +11,19 @@ body {
   align-items: center;
   font-size: 1.6em;
   background-color: #041301;
+  text-align: center;
 }
 
 .nav-links a {
   margin: 10px;
   color: #ffffff;
   text-decoration: none;
+  font-size: 2vh;
 }
 .nav-links {
   padding-top: 1%;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 .nav-links h6 {
   margin: 0;
@@ -52,7 +54,7 @@ nav img {
 
 .booking-form {
   margin: 30px auto;
-  max-width: 70vh;
+  max-width: 80vh;
   text-align: center;
 
   padding: 20px;
@@ -81,7 +83,7 @@ nav img {
 }
 .carousel-container {
   padding: 2%;
-  min-width: 22vh;
+  min-width: 30vh;
 }
 .room-card-container {
   border: 1px solid rgb(193, 182, 182);
@@ -129,7 +131,7 @@ nav img {
   min-width: 1000px;
 } */
 .filters {
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
 }
 .search-slider {
   border: 1px solid rgb(215, 208, 208);
@@ -147,3 +149,6 @@ nav img {
   overflow: scroll;
   scrollbar-width: thin;
 } */
+.update-hotel-form {
+  min-width: 400px;
+}
