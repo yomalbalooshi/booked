@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { ShowHotel } from '../services/Hotels'
 import { useEffect, useState } from 'react'
 
-const CompanyViewHotel = () => {
+const CompanyViewHotel = ({ user }) => {
   let navigate = useNavigate()
   let { id } = useParams()
   let [hotel, setHotel] = useState({})
@@ -21,6 +21,8 @@ const CompanyViewHotel = () => {
   }
   return (
     Object.keys(hotel).length !== 0 && (
+    user &&
+    user.type === 'company' && (
       <div>
         <button
           onClick={() => {
@@ -37,7 +39,7 @@ const CompanyViewHotel = () => {
             {hotel.location.city}, {hotel.location.country}
           </p>
           {console.log(hotel)}
-          {/* {console.log(hotel['bookings'].length)} */}
+
           <img src={hotel.image} alt={hotel.name}></img>
           <h5>Amenities</h5>
           {hotel.amenities && hotel.amenities.length > 0 && (

@@ -9,10 +9,30 @@ const Map = () => {
   // const [hotelId, setHotelId] = useState('')
   const [hotelDetails, setHotelDetails] = useState({})
 
+  const randomnizeLatLng = (hotels) => {
+    return hotels.map((hotel) => {
+      return {
+        ...hotel,
+        location: {
+          lat: Number(hotel.location.lat) + Math.random(),
+          lng: Number(hotel.location.lng) + Math.random()
+        }
+      }
+    })
+  }
+
   useEffect(() => {
     const handleHotels = async () => {
       const data = await GetHotels()
-      setHotels(data)
+      setHotels(randomnizeLatLng(data))
+    }
+
+    handleHotels()
+  }, [])
+  useEffect(() => {
+    const handleHotels = async () => {
+      const data = await GetHotels()
+      setHotels(randomnizeLatLng(data))
     }
 
     handleHotels()
@@ -27,6 +47,7 @@ const Map = () => {
   }
   console.log(hotels)
   console.log('details: ', hotelDetails)
+
   return (
     <div id="map-hotel-container">
       <div>
@@ -47,7 +68,10 @@ const Map = () => {
               eventHandlers={{
                 click: (e) => handleClick(hotel, e)
               }}
-              position={[hotel.location.lat, hotel.location.lng]}
+              position={[
+                Number(hotel.location.lat),
+                Number(hotel.location.lng)
+              ]}
             >
               <Popup>
                 <p>{hotel.name}</p>

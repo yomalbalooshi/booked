@@ -5,22 +5,20 @@ const Nav = ({ user, handleLogOut }) => {
 
   if (user && user.type === 'customer') {
     navOptions = (
-      <div className="nav-links">
-        <h6>Welcome {user.email}!</h6>
+      <div>
+        <NavLink to="/hotels">Hotels</NavLink>
         <NavLink to="/profile">Profile</NavLink>
         <NavLink onClick={handleLogOut} to="/">
           Sign Out
         </NavLink>
-        <NavLink to="/hotels">Hotels</NavLink>
       </div>
     )
   } else if (user && user.type === 'company') {
     navOptions = (
-      <div className="nav-links">
-        <h6>Welcome {user.email}!</h6>
-        <NavLink to="/companyprofile">Profile</NavLink>
+      <div>
         <NavLink to={`/allbookings/${user.id}`}>All Bookings</NavLink>
         <NavLink to={`/Dashboard/${user.id}`}>Dashboard</NavLink>
+        <NavLink to="/companyprofile">Profile</NavLink>
         <NavLink onClick={handleLogOut} to="/">
           Sign Out
         </NavLink>
@@ -28,9 +26,9 @@ const Nav = ({ user, handleLogOut }) => {
     )
   } else {
     navOptions = (
-      <div className="nav-links">
-        <NavLink to="/login">Sign In</NavLink>
+      <div>
         <NavLink to="/register">Register</NavLink>
+        <NavLink to="/login">Sign In</NavLink>
       </div>
     )
   }
@@ -41,8 +39,8 @@ const Nav = ({ user, handleLogOut }) => {
         <img src="" alt="logo" />
       </NavLink>
       <div className="nav-links">
-        {navOptions}
         <NavLink to="/about">About</NavLink>
+        {navOptions}
       </div>
     </nav>
   )

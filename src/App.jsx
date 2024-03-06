@@ -26,27 +26,16 @@ import CompanyProfile from './components/CompanyProfile'
 import AddHotel from './components/AddHotel'
 import HotelDetails from './components/HotelDetails'
 import Booking from './components/Booking'
-<<<<<<< HEAD
+
 import UpdateRoom from './components/UpdateRoom'
 import Dashboard from './components/Dashboard'
 import UpdateBooking from './components/UpdateBooking'
 import Map from './components/Map'
 import AllBookings from './components/AllBookings'
-=======
-import UpdateBooking from './components/UpdateBooking'
-import Map from './components/Map'
-import UpdateRoom from './components/UpdateRoom'
-import Dashboard from './components/Dashboard'
-// import { companyCreation } from './services/seeders'
-// import { customerCreation } from './services/seeders'
-// import { hotelCreation } from './services/seeders'
-// import { roomsCreation } from './services/seeders'
-//import { bookingsCreation } from './services/seeders'
-
->>>>>>> 7c576dbff015580f7c1037e9f1932907f6d10bbb
 
 const App = () => {
   const [user, setUser] = useState(null)
+  const [booked, setBooked] = useState(false)
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -66,71 +55,10 @@ const App = () => {
   }
   // console.log(user)
   const theme = createTheme({
-    direction: 'rtl'
+    direction: 'ltr'
     // other theme properties
   })
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <header>
-        <Nav user={user} handleLogOut={handleLogOut} />
-      </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home user={user} />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/hotels" element={<Hotels />} />
-          <Route path="/hotels/:id" element={<HotelDetails />} />
-          <Route path="/profile" element={<Profile user={user} />} />
-          <Route path="/register" element={<CustomerRegistation />} />
-          <Route path="/booking/:id" element={<Booking user={user} />} />
-          <Route
-            path="/login"
-            element={<SignIn setUser={setUser} signin={SignInCustomer} />}
-          />
-          <Route
-            path="/companylogin"
-            element={<SignIn setUser={setUser} signin={SignInCompany} />}
-          />
-          <Route
-            path="/updateprofile"
-            element={
-              <UpdateProfile
-                setUser={setUser}
-                updateProfile={UpdateCustomerProfile}
-              />
-            }
-          />
-          <Route
-            path="/companyprofile"
-            element={<CompanyProfile user={user} />}
-          />
-          <Route path="/addHotel" element={<AddHotel user={user} />} />
-          <Route
-            path="/updatecompanyprofile"
-            element={
-              <UpdateProfile
-                setUser={setUser}
-                updateProfile={UpdateCompanyProfile}
-              />
-            }
-          />
-          <Route
-            path="/viewcompanyhotel/:id"
-            element={<CompanyViewHotel user={user} />}
-          />
-          <Route path="/addRoom/:id" element={<AddRoom user={user} />} />
-          <Route path="/updatehotel" element={<UpdateHotel user={user} />} />
-          <Route path="/dashboard/:id" element={<Dashboard user={user} />} />
-          <Route
-            path="/allbookings/:id"
-            element={<AllBookings user={user} />}
-          />
-        </Routes>
-      </main>
-    </div>
-=======
     <ThemeProvider theme={theme}>
       <div className="App">
         <header>
@@ -142,9 +70,17 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/hotels" element={<Hotels />} />
             <Route path="/hotels/:id" element={<HotelDetails />} />
-            <Route path="/profile" element={<Profile user={user} />} />
+            <Route
+              path="/profile"
+              element={<Profile user={user} booked={booked} />}
+            />
             <Route path="/register" element={<CustomerRegistation />} />
-            <Route path="/booking/:id" element={<Booking user={user} />} />
+            <Route
+              path="/booking/:id"
+              element={
+                <Booking user={user} booked={booked} setBooked={setBooked} />
+              }
+            />
             <Route
               path="/login"
               element={<SignIn setUser={setUser} signin={SignInCustomer} />}
@@ -159,6 +95,7 @@ const App = () => {
                 <UpdateProfile
                   setUser={setUser}
                   updateProfile={UpdateCustomerProfile}
+                  user={user}
                 />
               }
             />
@@ -187,13 +124,16 @@ const App = () => {
               element={<UpdateBooking user={user} />}
             />
             <Route path="/map" element={<Map />} />
-               <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
+            <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
+          <Route
+            path="/allbookings/:id"
+            element={<AllBookings user={user} />}
+          />
           </Routes>
         </main>
       </div>
     </ThemeProvider>
 
->>>>>>> 7c576dbff015580f7c1037e9f1932907f6d10bbb
   )
 }
 export default App
