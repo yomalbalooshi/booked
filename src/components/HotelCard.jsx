@@ -60,7 +60,6 @@ const HotelCard = ({
           </div>
           <div className="flex justify-end">
             <p className="font-bold text-lg">
-              {' '}
               {(basePrice() && `${basePrice()} BHD`) || 'Unspecified price'}
             </p>
 
