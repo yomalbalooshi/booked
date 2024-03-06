@@ -22,7 +22,7 @@ const HotelCard = ({
       return 0
     }
   }
-  console.log(user)
+
   return (
     Object.keys(hotel).length !== 0 && (
       <div className="relative flex spa bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-full max-h-96 flex-row mb-8 mr-10">

@@ -43,8 +43,6 @@ const Map = () => {
     }
     getHotelDetails()
   }
-  console.log(hotels)
-  console.log('details: ', hotelDetails)
 
   return (
     <div id="map-hotel-container">

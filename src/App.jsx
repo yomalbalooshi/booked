@@ -53,10 +53,9 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-  // console.log(user)
+
   const theme = createTheme({
     direction: 'ltr'
-    // other theme properties
   })
   return (
     <ThemeProvider theme={theme}>

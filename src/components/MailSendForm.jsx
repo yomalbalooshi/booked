@@ -27,7 +27,6 @@ const MailSendForm = () => {
       }
     }).then((response) => {
       if (response) {
-        console.log('response is ==> ', response)
       }
     })
     setFormState(initialState)

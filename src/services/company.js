@@ -1,6 +1,5 @@
 import Client from './api'
 export const getAllCompanyHotels = async (userId) => {
-  console.log(userId)
   try {
     const res = await Client.get(`/hotels/companyprofile/${userId}`)
     return res.data
@@ -10,7 +9,7 @@ export const getAllCompanyHotels = async (userId) => {
 export const addCompanyHotel = async (data) => {
   try {
     const res = Client.post('/hotels', data)
-    console.log(res)
+
     return res.data
   } catch (error) {}
 }
@@ -18,7 +17,7 @@ export const addCompanyHotel = async (data) => {
 export const addCompanyHotelRoom = async (data) => {
   try {
     const res = Client.post('/rooms', data)
-    console.log(res)
+
     return res.data
   } catch (error) {}
 }
@@ -27,7 +26,7 @@ export const deleteHotel = async (id) => {
     const res = await Client.delete(`/hotels/${id}`)
     return res.data
   } catch (error) {
-    console.log(error)
+    throw error
   }
 }
 export const UpdateCompanyHotel = async (data) => {

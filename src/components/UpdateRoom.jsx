@@ -42,7 +42,6 @@ const UpdateRoom = ({ user }) => {
   }, [room])
 
   const handleChange = (e, index) => {
-    console.log('handleChange', e.target.name, e.target.value)
     const updatedAmenities = [...formValues.amenities]
     updatedAmenities[index] = e.target.value
     setFormValues({ ...formValues, amenities: updatedAmenities })

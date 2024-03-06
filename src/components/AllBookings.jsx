@@ -16,7 +16,6 @@ const AllBookings = ({ user }) => {
   const handleClick = async (e) => {
     let response = await ShowHotel(e.target.value)
     setselectedHotel(response)
-    console.log(response)
   }
   return (
     <div>

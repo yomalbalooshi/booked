@@ -43,7 +43,6 @@ const Booking = ({ user }) => {
       setRoomPrice(response.roomType.price)
       setMaxAdults(response.roomType.maxAdults)
       setMaxChildren(response.roomType.maxChildren)
-      console.log(response)
     }
     getBookingDetails()
   }, [])

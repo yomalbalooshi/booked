@@ -8,12 +8,9 @@ import dayjs from 'dayjs'
 const Profile = ({ user }) => {
   const { bookingUpdate } = useContext(BookingContext)
 
-  console.log(bookingUpdate)
-
   const navigate = useNavigate()
 
   const [customerBookings, setCustomerBookings] = useState([])
-  console.log(user)
 
   useEffect(() => {
     const getCustomerBookings = async () => {
@@ -37,17 +34,14 @@ const Profile = ({ user }) => {
     }
   }
 
-  // console.log('booking:', booking)
   return (
     user &&
     user.type === 'customer' && (
       <div>
         <div>
-          {console.log('customerBookings:', customerBookings)}
           {customerBookings.length > 0 &&
             customerBookings.map((booking) => (
               <div key={booking._id}>
-                {console.log('booking: ', booking)}
                 <p>Check In: {dayjs(booking.checkIn).format('DD/MM/YYYY')}</p>
                 <p>Check Out: {dayjs(booking.checkOut).format('DD/MM/YYYY')}</p>
                 <p>Adults: {booking.adults}</p>
