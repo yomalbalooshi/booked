@@ -1,9 +1,10 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import { getAllCompanyHotels, deleteHotel } from '../services/company'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import BookingContext from '../context/BookingContext'
 
 const CompanyProfile = ({ user }) => {
-  console.log(user.id)
+  const { bookingUpdate } = useContext(BookingContext)
   let navigate = useNavigate()
   const [hotels, setHotels] = useState([])
   // const [deletedHotel, setDeletedHotel] = useState(false) to redirect to same page
@@ -11,10 +12,13 @@ const CompanyProfile = ({ user }) => {
   useEffect(() => {
     const allHotels = async () => {
       let data = await getAllCompanyHotels(user.id)
+      console.log(data)
       setHotels(data)
+      console.log(hotels)
     }
     allHotels()
-  }, [])
+  }, [user, bookingUpdate])
+
   const handleDeleteHotel = async (e, hotel) => {
     try {
       const res = await deleteHotel(hotel._id)
@@ -22,7 +26,6 @@ const CompanyProfile = ({ user }) => {
     } catch (error) {
       console.error('Error deleting hotel:', error)
     }
-    // setDeletedHotel(true) to redirect to same page
   }
   const handleUpdateHotel = async (e, hotel) => {
     navigate('/updatehotel', { state: { hotel: hotel } })
@@ -31,20 +34,18 @@ const CompanyProfile = ({ user }) => {
     navigate('/viewHotel', { state: { hotel: hotel } })
   }
   return (
-    <div>
-      <div className="CompanyProfileInfoDiv">
-        <h1>Account</h1>
-        <h2>Email </h2>
-        <h3>{user.email}</h3>
-        <h2>Password</h2>
-        <h3>
-          <NavLink to="../updatecompanyprofile">Update Pass</NavLink>
-        </h3>
-      </div>
-      <div className="CompanyProfileHotelsDiv">
-        <div className="CompanyProfileHotelsDivTitle">
-          <h2>Your Hotels</h2>
-          <NavLink to="../addHotel">Add a new Hotel</NavLink>
+    user &&
+    user.type === 'company' &&
+    Object.keys(hotels).length !== 0 && (
+      <div>
+        <div className="CompanyProfileInfoDiv">
+          <h1>Account</h1>
+          <h2>Email </h2>
+          <h3>{user.email}</h3>
+          <h2>Password</h2>
+          <h3>
+            <NavLink to="../updatecompanyprofile">Update Pass</NavLink>
+          </h3>
         </div>
         <div className="CompanyProfileHotelsListDiv">
           {hotels?.map((hotel) => (
@@ -53,9 +54,8 @@ const CompanyProfile = ({ user }) => {
               <h3 className="companyhotelcardname">{hotel.name}</h3>
               <p>{hotel.description}</p>
               <p>
-                {hotel.city}, {hotel.country}
+                {hotel.location.city}, {hotel.location.country}
               </p>
-
               <button
                 onClick={() => {
                   navigate(`/viewcompanyhotel/${hotel._id}`)
@@ -69,7 +69,8 @@ const CompanyProfile = ({ user }) => {
           ))}
         </div>
       </div>
-    </div>
+    )
   )
 }
+
 export default CompanyProfile

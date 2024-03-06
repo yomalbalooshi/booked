@@ -1,0 +1,760 @@
+{
+  "data": [
+    {
+      "name": "Royal Palace",
+      "description": "A luxurious retreat with stunning views of the city.",
+      "companyId": "65e60591fb7dd1f71a39a158",
+      "location": "65e62852831a479d8806b9a8",
+      "amenities": ["Swimming Pool", "Spa", "Gourmet Dining"]
+    },
+    {
+      "name": "Majestic Suites",
+      "description": "Experience grandeur in the heart of the city.",
+      "companyId": "65e60591fb7dd1f71a39a158",
+      "location": "65e62852831a479d8806b9aa",
+      "amenities": ["Fitness Center", "Conference Rooms", "Fine Dining"]
+    },
+    {
+      "name": "Sapphire Residences",
+      "description": "Modern elegance in a prime location.",
+      "companyId": "65e60591fb7dd1f71a39a158",
+      "location": "65e62852831a479d8806b952",
+      "amenities": ["Free Wi-Fi", "Business Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Golden Gardens",
+      "description": "Serene surroundings and top-notch amenities.",
+      "companyId": "65e60591fb7dd1f71a39a158",
+      "location": "65e62852831a479d8806b95d",
+      "amenities": ["Gardens", "Outdoor Pool", "Spacious Rooms"]
+    },
+    {
+      "name": "Platinum Towers",
+      "description": "Stay in style with panoramic city views.",
+      "companyId": "65e60591fb7dd1f71a39a158",
+      "location": "65e62852831a479d8806bee0",
+      "amenities": ["Sky Lounge", "Concierge Service", "Valet Parking"]
+    },
+    {
+      "name": "Crystal Cove",
+      "description": "Coastal luxury with access to pristine beaches.",
+      "companyId": "65e60591fb7dd1f71a39a158",
+      "location": "65e62852831a479d8806b94c",
+      "amenities": ["Private Beach Access", "Waterfront Dining", "Fitness Spa"]
+    },
+    {
+      "name": "Opulent Oasis",
+      "description": "A luxurious escape with lavish amenities.",
+      "companyId": "65e60591fb7dd1f71a39a15a",
+      "location": "65e62852831a479d8806b955",
+      "amenities": ["Swimming Pool", "Fitness Center", "Spa Services"]
+    },
+    {
+      "name": "Serenity Suites",
+      "description": "Tranquil ambiance and personalized service.",
+      "companyId": "65e60591fb7dd1f71a39a15a",
+      "location": "65e62852831a479d8806c02b",
+      "amenities": ["Private Balconies", "Fitness Center", "Fine Dining"]
+    },
+    {
+      "name": "Grandeur Gardens",
+      "description": "Immerse yourself in a blend of nature and luxury.",
+      "companyId": "65e60591fb7dd1f71a39a15a",
+      "location": "65e62852831a479d8806c49b",
+      "amenities": ["Botanical Gardens", "Rooftop Bar", "Wellness Spa"]
+    },
+    {
+      "name": "Crystal Haven",
+      "description": "Elegance and comfort in a contemporary setting.",
+      "companyId": "65e60591fb7dd1f71a39a15a",
+      "location": "65e62852831a479d8806ba1e",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Business Center"]
+    },
+    {
+      "name": "Royal Retreat",
+      "description": "Experience opulence in a regal setting.",
+      "companyId": "65e60591fb7dd1f71a39a15a",
+      "location": "65e62852831a479d8806c032",
+      "amenities": ["Royal Suites", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Plaza Palace",
+      "description": "An exquisite blend of luxury and sophistication.",
+      "companyId": "65e60591fb7dd1f71a39a15c",
+      "location": "65e62852831a479d8806b955",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Skyline Suites",
+      "description": "Enjoy panoramic views in a contemporary setting.",
+      "companyId": "65e60591fb7dd1f71a39a15c",
+      "location": "65e62852831a479d8806c02b",
+      "amenities": ["Fitness Center", "Conference Rooms", "Rooftop Bar"]
+    },
+    {
+      "name": "Urban Retreat",
+      "description": "Modern elegance in the heart of the city.",
+      "companyId": "65e60591fb7dd1f71a39a15c",
+      "location": "65e62852831a479d8806c49b",
+      "amenities": ["Free Wi-Fi", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Majestic Plaza",
+      "description": "A majestic experience with top-notch amenities.",
+      "companyId": "65e60591fb7dd1f71a39a15c",
+      "location": "65e62852831a479d8806ba1e",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Tranquil Towers",
+      "description": "Serenity and comfort in a modern environment.",
+      "companyId": "65e60591fb7dd1f71a39a15c",
+      "location": "65e62852831a479d8806c032",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Regal Residences",
+      "description": "Experience regal living with premium amenities.",
+      "companyId": "65e60591fb7dd1f71a39a15c",
+      "location": "65e62852831a479d8806b9a8",
+      "amenities": ["Infinity Pool", "Gourmet Dining", "Spa Services"]
+    },
+    {
+      "name": "Celestial Suites",
+      "description": "Experience celestial comfort and luxury.",
+      "companyId": "65e60591fb7dd1f71a39a15e",
+      "location": "65e62852831a479d8806b955",
+      "amenities": ["Infinity Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Heavenly Hideaway",
+      "description": "A serene retreat in a heavenly setting.",
+      "companyId": "65e60591fb7dd1f71a39a15e",
+      "location": "65e62852831a479d8806c02b",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Divine Delights",
+      "description": "Indulge in divine luxury and top-notch amenities.",
+      "companyId": "65e60591fb7dd1f71a39a15e",
+      "location": "65e62852831a479d8806c49b",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Ethereal Elegance",
+      "description": "Elegance and comfort in an ethereal ambiance.",
+      "companyId": "65e60591fb7dd1f71a39a15e",
+      "location": "65e62852831a479d8806ba1e",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Seraphic Sanctuary",
+      "description": "A sanctuary of serenity and modern luxury.",
+      "companyId": "65e60591fb7dd1f71a39a15e",
+      "location": "65e62852831a479d8806c032",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Angelic Abode",
+      "description": "An abode of angelic tranquility and premium amenities.",
+      "companyId": "65e60591fb7dd1f71a39a15e",
+      "location": "65e62852831a479d8806b9a8",
+      "amenities": ["Infinity Pool", "Gourmet Dining", "Spa Services"]
+    },
+    {
+      "name": "Heavenly Heights",
+      "description": "Reach new heights of celestial luxury and comfort.",
+      "companyId": "65e60591fb7dd1f71a39a15e",
+      "location": "65e62852831a479d8806c4f7",
+      "amenities": ["Sky Lounge", "Conference Rooms", "Rooftop Bar"]
+    },
+    {
+      "name": "Golden Suites",
+      "description": "Experience luxury at its finest.",
+      "companyId": "65e60591fb7dd1f71a39a162",
+      "location": "65e62852831a479d8806b955",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Sunset Serenity",
+      "description": "Serenity with a view of the golden sunset.",
+      "companyId": "65e60591fb7dd1f71a39a162",
+      "location": "65e62852831a479d8806c02b",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Beachside Bliss",
+      "description": "Blissful moments by the golden sands.",
+      "companyId": "65e60591fb7dd1f71a39a162",
+      "location": "65e62852831a479d8806c49b",
+      "amenities": ["Beach Access", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Golden Getaway",
+      "description": "A getaway surrounded by golden landscapes.",
+      "companyId": "65e60591fb7dd1f71a39a162",
+      "location": "65e62852831a479d8806ba1e",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Golden Horizon",
+      "description": "Horizons of luxury and modern comfort.",
+      "companyId": "65e60591fb7dd1f71a39a162",
+      "location": "65e62852831a479d8806c032",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Golden Retreat",
+      "description": "A retreat into the golden realm of tranquility.",
+      "companyId": "65e60591fb7dd1f71a39a162",
+      "location": "65e62852831a479d8806b9a8",
+      "amenities": ["Infinity Pool", "Gourmet Dining", "Spa Services"]
+    },
+    {
+      "name": "Harmony Haven",
+      "description": "Find harmony in a haven of luxury.",
+      "companyId": "65e60591fb7dd1f71a39a164",
+      "location": "65e62852831a479d8806b955",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Tranquil Trails",
+      "description": "Explore tranquil trails in a serene setting.",
+      "companyId": "65e60591fb7dd1f71a39a164",
+      "location": "65e62852831a479d8806c02b",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Serenity Springs",
+      "description": "Discover serenity by the natural springs.",
+      "companyId": "65e60591fb7dd1f71a39a164",
+      "location": "65e62852831a479d8806c49b",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Harmonic Heights",
+      "description": "Elevate your experience to harmonic heights.",
+      "companyId": "65e60591fb7dd1f71a39a164",
+      "location": "65e62852831a479d8806ba1e",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Eco Harmony Retreat",
+      "description": "A retreat in harmony with nature.",
+      "companyId": "65e60591fb7dd1f71a39a164",
+      "location": "65e62852831a479d8806c032",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Harmony Hideaway",
+      "description": "Hide away in the harmonious blend of luxury.",
+      "companyId": "65e60591fb7dd1f71a39a164",
+      "location": "65e62852831a479d8806b9a8",
+      "amenities": ["Infinity Pool", "Gourmet Dining", "Spa Services"]
+    },
+    {
+      "name": "Majestic Suites",
+      "description": "Indulge in the splendor of majestic suites.",
+      "companyId": "65e60591fb7dd1f71a39a168",
+      "location": "65e62852831a479d8806b955",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Royal Retreat",
+      "description": "Experience a royal retreat in opulent surroundings.",
+      "companyId": "65e60591fb7dd1f71a39a168",
+      "location": "65e62852831a479d8806c02b",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Regal Residences",
+      "description": "Reside in regal residences with top-notch amenities.",
+      "companyId": "65e60591fb7dd1f71a39a168",
+      "location": "65e62852831a479d8806c49b",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Majestic Oasis",
+      "description": "Escape to an oasis of elegance and comfort.",
+      "companyId": "65e60591fb7dd1f71a39a168",
+      "location": "65e62852831a479d8806ba1e",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Grand Gardens",
+      "description": "Explore grand gardens in a luxurious setting.",
+      "companyId": "65e60591fb7dd1f71a39a168",
+      "location": "65e62852831a479d8806c032",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Majestic Serenity",
+      "description": "Discover serenity in the lap of majestic luxury.",
+      "companyId": "65e60591fb7dd1f71a39a168",
+      "location": "65e62852831a479d8806b9a8",
+      "amenities": ["Infinity Pool", "Gourmet Dining", "Spa Services"]
+    },
+    {
+      "name": "Royal Palace Suites",
+      "description": "Experience luxury fit for royalty.",
+      "companyId": "65e60591fb7dd1f71a39a16a",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Imperial Retreat",
+      "description": "Retreat in imperial elegance and comfort.",
+      "companyId": "65e60591fb7dd1f71a39a16a",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Crown Court Residences",
+      "description": "Reside in the grandeur of crown court residences.",
+      "companyId": "65e60591fb7dd1f71a39a16a",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Regal Oasis",
+      "description": "Escape to a regal oasis of luxury and tranquility.",
+      "companyId": "65e60591fb7dd1f71a39a16a",
+      "location": "65e62852831a479d8806b928",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Crown Heights",
+      "description": "Reach new heights of opulence at Crown Heights.",
+      "companyId": "65e60591fb7dd1f71a39a16a",
+      "location": "65e62852831a479d8806d4cf",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Pinnacle Palace",
+      "description": "Indulge in the pinnacle of luxury at Pinnacle Palace.",
+      "companyId": "65e60592fb7dd1f71a39a16e",
+      "location": "65e62852831a479d8806c0d2",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Serenity Springs Retreat",
+      "description": "Discover serenity at the springs of Pinnacle.",
+      "companyId": "65e60592fb7dd1f71a39a16e",
+      "location": "65e62852831a479d8806bace",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Elevated Escapes",
+      "description": "Escape to elevated luxury and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a16e",
+      "location": "65e62852831a479d8806d5ff",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Pinnacle Vista",
+      "description": "Experience breathtaking vistas at Pinnacle.",
+      "companyId": "65e60592fb7dd1f71a39a16e",
+      "location": "65e62852831a479d8806c6a1",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Tranquil Terrace",
+      "description": "Relax on the tranquil terrace overlooking the city.",
+      "companyId": "65e60592fb7dd1f71a39a16e",
+      "location": "65e62852831a479d8806de13",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Sapphire Sanctuary",
+      "description": "Discover a sanctuary of luxury at Sapphire Suites.",
+      "companyId": "65e60592fb7dd1f71a39a170",
+      "location": "65e62852831a479d8806c258",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Eternal Elegance",
+      "description": "Indulge in the eternal elegance of Sapphire.",
+      "companyId": "65e60592fb7dd1f71a39a170",
+      "location": "65e62852831a479d8806c9f1",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Azure Retreat",
+      "description": "Retreat into the azure beauty of Sapphire.",
+      "companyId": "65e60592fb7dd1f71a39a170",
+      "location": "65e62852831a479d8806c027",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Sapphire Serenity",
+      "description": "Experience serenity amidst the sapphire surroundings.",
+      "companyId": "65e60592fb7dd1f71a39a170",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Radiant Retreat",
+      "description": "Retreat to radiant luxury and comfort.",
+      "companyId": "65e60592fb7dd1f71a39a170",
+      "location": "65e62852831a479d8806d4cf",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Platinum Paradise",
+      "description": "Experience paradise at Platinum Palaces.",
+      "companyId": "65e60592fb7dd1f71a39a174",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Opulent Oasis",
+      "description": "Retreat to an opulent oasis of luxury.",
+      "companyId": "65e60592fb7dd1f71a39a174",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Radiant Residences",
+      "description": "Reside in radiant residences of Platinum Palaces.",
+      "companyId": "65e60592fb7dd1f71a39a174",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Platinum Heights",
+      "description": "Elevate your experience to platinum heights.",
+      "companyId": "65e60592fb7dd1f71a39a174",
+      "location": "65e62852831a479d8806b928",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Luxe Gardens",
+      "description": "Explore luxe gardens in a luxurious setting.",
+      "companyId": "65e60592fb7dd1f71a39a174",
+      "location": "65e62852831a479d8806d4cf",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Platinum Panorama",
+      "description": "Enjoy a panoramic view from Platinum Palaces.",
+      "companyId": "65e60592fb7dd1f71a39a174",
+      "location": "65e62852831a479d8806c0d2",
+      "amenities": ["Infinity Pool", "Gourmet Dining", "Spa Services"]
+    },
+    {
+      "name": "Sunrise Suites",
+      "description": "Wake up to luxury at Sunrise Suites.",
+      "companyId": "65e60592fb7dd1f71a39a176",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Radiant Retreat",
+      "description": "Experience radiant luxury and comfort.",
+      "companyId": "65e60592fb7dd1f71a39a176",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Sunrise Oasis",
+      "description": "Escape to the oasis of elegance at Sunrise.",
+      "companyId": "65e60592fb7dd1f71a39a176",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Sunny Heights",
+      "description": "Reach new heights of opulence at Sunny Heights.",
+      "companyId": "65e60592fb7dd1f71a39a176",
+      "location": "65e62852831a479d8806b928",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Sunrise Vista",
+      "description": "Experience breathtaking vistas at Sunrise Vista.",
+      "companyId": "65e60592fb7dd1f71a39a176",
+      "location": "65e62852831a479d8806d4cf",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Tranquil Towers",
+      "description": "Experience tranquility at its finest in Tranquil Towers.",
+      "companyId": "65e60592fb7dd1f71a39a17a",
+      "location": "65e62852831a479d8806c6a1",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Elevated Elegance",
+      "description": "Indulge in elevated elegance and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a17a",
+      "location": "65e62852831a479d8806de13",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Serenity Heights",
+      "description": "Reach new heights of serenity at Tranquil Towers.",
+      "companyId": "65e60592fb7dd1f71a39a17a",
+      "location": "65e62852831a479d8806bace",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Tranquil Retreat",
+      "description": "Escape to the tranquil retreat of Tranquil Towers.",
+      "companyId": "65e60592fb7dd1f71a39a17a",
+      "location": "65e62852831a479d8806c0d2",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Tranquil Views",
+      "description": "Enjoy panoramic views and tranquility at Tranquil Views.",
+      "companyId": "65e60592fb7dd1f71a39a17a",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Opulent Oasis Retreat",
+      "description": "Indulge in opulence at Opulent Oasis Retreat.",
+      "companyId": "65e60592fb7dd1f71a39a17c",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Luxe Paradise",
+      "description": "Experience paradise in luxury at Luxe Paradise.",
+      "companyId": "65e60592fb7dd1f71a39a17c",
+      "location": "65e62852831a479d8806d5ff",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Opulent Oasis Serenity",
+      "description": "Discover serenity amidst opulent surroundings.",
+      "companyId": "65e60592fb7dd1f71a39a17c",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Royal Residences",
+      "description": "Live like royalty at Royal Residences.",
+      "companyId": "65e60592fb7dd1f71a39a17c",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Opulent Oasis Panorama",
+      "description": "Experience panoramic views at Opulent Oasis Panorama.",
+      "companyId": "65e60592fb7dd1f71a39a17c",
+      "location": "65e62852831a479d8806c6a1",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Regal Retreats",
+      "description": "Experience regal luxury at Regal Retreats.",
+      "companyId": "65e60592fb7dd1f71a39a180",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Grand Elegance",
+      "description": "Indulge in grand elegance and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a180",
+      "location": "65e62852831a479d8806d5ff",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Regal Sanctuary",
+      "description": "Discover sanctuary amidst regal surroundings.",
+      "companyId": "65e60592fb7dd1f71a39a180",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Noble Residences",
+      "description": "Live nobly at Noble Residences.",
+      "companyId": "65e60592fb7dd1f71a39a180",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Regal Panorama",
+      "description": "Experience panoramic views at Regal Panorama.",
+      "companyId": "65e60592fb7dd1f71a39a180",
+      "location": "65e62852831a479d8806c6a1",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Diamond Delight",
+      "description": "Experience delight at Diamond Destinations.",
+      "companyId": "65e60592fb7dd1f71a39a182",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Eternal Elegance",
+      "description": "Indulge in eternal elegance and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a182",
+      "location": "65e62852831a479d8806de13",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Diamond Oasis",
+      "description": "Discover oasis-like luxury at Diamond Destinations.",
+      "companyId": "65e60592fb7dd1f71a39a182",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Royal Diamonds",
+      "description": "Live like royalty with Royal Diamonds.",
+      "companyId": "65e60592fb7dd1f71a39a182",
+      "location": "65e62852831a479d8806c0d2",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Diamond Views",
+      "description": "Enjoy breathtaking views at Diamond Views.",
+      "companyId": "65e60592fb7dd1f71a39a182",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Lavish Retreat",
+      "description": "Experience lavish retreat at Lavish Living Hotels.",
+      "companyId": "65e60592fb7dd1f71a39a186",
+      "location": "65e62852831a479d8806c0d2",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Luxurious Haven",
+      "description": "Indulge in luxurious haven and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a186",
+      "location": "65e62852831a479d8806bace",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Lavish Serenity",
+      "description": "Discover serenity amidst lavish surroundings.",
+      "companyId": "65e60592fb7dd1f71a39a186",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Royal Living",
+      "description": "Live like royalty with Royal Living.",
+      "companyId": "65e60592fb7dd1f71a39a186",
+      "location": "65e62852831a479d8806c6a1",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Lavish Panorama",
+      "description": "Experience panoramic views at Lavish Panorama.",
+      "companyId": "65e60592fb7dd1f71a39a186",
+      "location": "65e62852831a479d8806d5ff",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Emerald Getaway",
+      "description": "Experience a luxurious getaway with Emerald Escapes.",
+      "companyId": "65e60592fb7dd1f71a39a188",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Enchanting Emeralds",
+      "description": "Indulge in enchanting elegance and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a188",
+      "location": "65e62852831a479d8806bace",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Emerald Serenity",
+      "description": "Discover serenity amidst emerald surroundings.",
+      "companyId": "65e60592fb7dd1f71a39a188",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Royal Emeralds",
+      "description": "Live like royalty with Royal Emeralds.",
+      "companyId": "65e60592fb7dd1f71a39a188",
+      "location": "65e62852831a479d8806de13",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Emerald Views",
+      "description": "Enjoy breathtaking views at Emerald Views.",
+      "companyId": "65e60592fb7dd1f71a39a188",
+      "location": "65e62852831a479d8806c6a1",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Imperial Retreat",
+      "description": "Experience imperial luxury at Imperial Inns.",
+      "companyId": "65e60592fb7dd1f71a39a18c",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Majestic Elegance",
+      "description": "Indulge in majestic elegance and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a18c",
+      "location": "65e62852831a479d8806de13",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Imperial Serenity",
+      "description": "Discover serenity amidst imperial surroundings.",
+      "companyId": "65e60592fb7dd1f71a39a18c",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Royal Imperial",
+      "description": "Live like royalty with Royal Imperial.",
+      "companyId": "65e60592fb7dd1f71a39a18c",
+      "location": "65e62852831a479d8806c0d2",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Imperial Panorama",
+      "description": "Experience panoramic views at Imperial Panorama.",
+      "companyId": "65e60592fb7dd1f71a39a18c",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    },
+    {
+      "name": "Elite Enclave Retreat",
+      "description": "Experience an exclusive retreat at Elite Enclaves.",
+      "companyId": "65e60592fb7dd1f71a39a18e",
+      "location": "65e62852831a479d8806b8bb",
+      "amenities": ["Swimming Pool", "Fine Dining", "Spa Services"]
+    },
+    {
+      "name": "Exquisite Elegance",
+      "description": "Indulge in exquisite elegance and sophistication.",
+      "companyId": "65e60592fb7dd1f71a39a18e",
+      "location": "65e62852831a479d8806de13",
+      "amenities": ["Private Balconies", "Fitness Center", "Rooftop Bar"]
+    },
+    {
+      "name": "Elite Serenity",
+      "description": "Discover serenity amidst elite surroundings.",
+      "companyId": "65e60592fb7dd1f71a39a18e",
+      "location": "65e62852831a479d8806c7ea",
+      "amenities": ["Botanical Gardens", "Business Center", "Wellness Spa"]
+    },
+    {
+      "name": "Royal Enclaves",
+      "description": "Live like royalty with Royal Enclaves.",
+      "companyId": "65e60592fb7dd1f71a39a18e",
+      "location": "65e62852831a479d8806c0d2",
+      "amenities": ["Swimming Pool", "Chic Lounge", "Gourmet Cuisine"]
+    },
+    {
+      "name": "Elite Panorama",
+      "description": "Experience panoramic views at Elite Panorama.",
+      "companyId": "65e60592fb7dd1f71a39a18e",
+      "location": "65e62852831a479d8806b913",
+      "amenities": ["Spacious Rooms", "Fitness Center", "Culinary Delights"]
+    }
+  ]
+}

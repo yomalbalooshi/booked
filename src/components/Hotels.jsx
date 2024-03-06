@@ -1,7 +1,21 @@
 import { useEffect, useState } from 'react'
+
 import { GetHotels } from '../services/Hotels'
 import { Pagination } from '@mui/material'
 import HotelCard from './HotelCard'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import SearchIcon from '@mui/icons-material/Search'
+import TextField from '@mui/material/TextField'
+import InputAdornment from '@mui/material/InputAdornment'
+import Slider from '@mui/material/Slider'
+import Typography from '@mui/material/Typography'
+
+function valuetext(value) {
+  return `${value}°C`
+}
+
+let beforeChange = null
 
 const Hotels = () => {
   const [hotels, setHotels] = useState([])
@@ -11,6 +25,25 @@ const Hotels = () => {
   const [page, setPage] = useState(1)
   const hotelPerPage = 3
 
+  const [value, setValue] = useState([0, 300])
+
+  const handleChange2 = (event, newValue) => {
+    if (!beforeChange) {
+      beforeChange = [...value]
+    }
+
+    if (beforeChange[0] !== newValue[0] && beforeChange[1] !== newValue[1]) {
+      return
+    }
+
+    setValue(newValue)
+  }
+
+  const handleChangeCommitted = () => {
+    beforeChange = null
+  }
+
+  console.log(value)
   const calculateBasePricesForHotels = (hotels) => {
     return hotels.map((hotel) => {
       if (hotel.rooms.length > 0) {
@@ -59,16 +92,20 @@ const Hotels = () => {
       }
     }
   }
+
   const getAmenities = () => {
     let amenities = []
-    hotels.map((hotel) =>
+
+    hotels.forEach((hotel) => {
       hotel.amenities.forEach((amenity) => {
-        amenities.push(amenity)
+        if (!amenities.includes(amenity)) {
+          amenities.push(amenity)
+        }
       })
-    )
+    })
+
     return amenities
   }
-
   const amenityFilter = (hotel) => {
     if (checkedAmenities.length === 0) {
       return true
@@ -84,11 +121,12 @@ const Hotels = () => {
   const filteredHotels = hotels.filter(
     (hotel) =>
       hotel.name.toLowerCase().includes(searchHotel) &&
-      hotel.basePrice >= parseInt(priceRange) &&
+      hotel.basePrice >= parseInt(value[0]) &&
+      hotel.basePrice <= parseInt(value[1]) &&
       amenityFilter(hotel)
   )
 
-  let totalPages = Math.ceil(filteredHotels.length) / hotelPerPage
+  let totalPages = Math.round(filteredHotels.length / hotelPerPage)
   const lastIndex = page * hotelPerPage
   const displayedHotels = filteredHotels.slice(
     lastIndex - hotelPerPage,
@@ -102,58 +140,99 @@ const Hotels = () => {
   console.log('filtered ', filteredHotels)
   console.log(totalPages)
   return (
-    <div>
-      <div id="search">
-        <label htmlFor="search">Search for Hotels</label>
-        <input onChange={handleChange} type="text" name="search" id="search" />
-      </div>
-      <label htmlFor="priceRange">{priceRange}</label>
-      <div id="price-slider">
-        <input
-          type="range"
-          min="0"
-          max="1000"
-          id="priceRange"
-          name="priceRange"
-          value={priceRange}
-          step="5"
-          onChange={handleChange}
-        ></input>
-      </div>
-      <div id="amenities">
-        {getAmenities().map((amenity, index) => (
-          <div id="amenity" key={index}>
-            <input
-              type="checkbox"
-              name="amenity"
-              id={amenity}
-              value={amenity}
-              onChange={handleChange}
-            ></input>
-            <label htmlFor="amenity"> {amenity}</label>
+    <div className="flex justify-around mt-12">
+      <div className="filters">
+        <div className="search-hotels">
+          <TextField
+            id="search"
+            name="search"
+            onChange={handleChange}
+            sx={{ width: 350, mb: 3, mt: 3 }}
+            label="Search Hotel"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              )
+            }}
+          />
+        </div>
+
+        <div>
+          <div>
+            <h2 className="filter-title">Price Range</h2>
           </div>
-        ))}
+          <div
+            style={{ display: 'flex', alignItems: 'center' }}
+            className="search-slider"
+          >
+            <Typography sx={{ width: 10, pl: 0, pr: 2 }}>{value[0]}</Typography>
+            <Slider
+              value={value}
+              onChange={handleChange2}
+              onChangeCommitted={handleChangeCommitted}
+              sx={{ width: 250, ml: 1, mr: 1 }}
+              valueLabelDisplay="auto"
+              aria-labelledby="range-slider"
+              getAriaValueText={valuetext}
+              max={450}
+            />
+            <Typography sx={{ width: 10, pl: 1, pr: 1 }}>{value[1]}</Typography>
+          </div>
+        </div>
+        <div>
+          <h2 className="filter-title">Amenities</h2>
+        </div>
+        <div id="amenities" className="search-slider">
+          {getAmenities().map((amenity, index) => (
+            <div id="amenity" key={index}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="amenity"
+                    id={amenity}
+                    value={amenity}
+                    color="success"
+                    onChange={handleChange}
+                  />
+                }
+                label={amenity}
+              />
+              {/* <input
+                type="checkbox"
+                name="amenity"
+                id={amenity}
+                value={amenity}
+                onChange={handleChange}
+              ></input>
+              <label htmlFor="amenity"> {amenity}</label> */}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="hotels">
-        {displayedHotels.map((hotel) => (
-          <div key={hotel._id}>
-            <HotelCard
-              hotel={hotel}
-              priceRange={priceRange}
-              checkedAmenities={checkedAmenities}
-            />
-          </div>
-        ))}
+        <div>
+          {displayedHotels.map((hotel) => (
+            <div key={hotel._id}>
+              <HotelCard
+                hotel={hotel}
+                priceRange={priceRange}
+                checkedAmenities={checkedAmenities}
+              />
+            </div>
+          ))}
+        </div>
+        {totalPages > 1 && (
+          <Pagination
+            count={totalPages}
+            onChange={handlePageChange}
+            size="large"
+            showFirstButton
+            showLastButton
+          />
+        )}
       </div>
-      {totalPages > 1 && (
-        <Pagination
-          count={totalPages}
-          onChange={handlePageChange}
-          size="small"
-          showFirstButton
-          showLastButton
-        />
-      )}
     </div>
   )
 }

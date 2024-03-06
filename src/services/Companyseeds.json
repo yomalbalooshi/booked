@@ -1,0 +1,104 @@
+{
+  "data": [
+    {
+      "name": "Grand Plaza Hotels",
+      "email": "info@grandplaza-hotels.com",
+      "password": "123"
+    },
+    {
+      "name": "Elegant Suites & Resorts",
+      "email": "info@elegantsuites-resorts.com",
+      "password": "123"
+    },
+    {
+      "name": "Royal Residences International",
+      "email": "info@royalresidences-intl.com",
+      "password": "123"
+    },
+    {
+      "name": "Majestic Lodgings Group",
+      "email": "info@majesticlodgings-group.com",
+      "password": "123"
+    },
+    {
+      "name": "Pinnacle Suites & Spa",
+      "email": "info@pinnaclesuites-spa.com",
+      "password": "123"
+    },
+    {
+      "name": "Sunrise Hospitality Ltd.",
+      "email": "info@sunrise-hospitality.co",
+      "password": "123"
+    },
+    {
+      "name": "Celestial Inns Corporation",
+      "email": "info@celestialinns-corp.com",
+      "password": "123"
+    },
+    {
+      "name": "Golden Sands Hotels Inc.",
+      "email": "info@goldensands-hotels.net",
+      "password": "123"
+    },
+    {
+      "name": "Harmony Resorts Group",
+      "email": "info@harmonyresorts-group.com",
+      "password": "123"
+    },
+    {
+      "name": "Crown Jewel Hotels",
+      "email": "info@crownjewel-hotels.com",
+      "password": "123"
+    },
+    {
+      "name": "Sapphire Suites Corporation",
+      "email": "info@sapphiresuites-corp.com",
+      "password": "123"
+    },
+    {
+      "name": "Platinum Palaces Ltd.",
+      "email": "info@platinumpalaces.co",
+      "password": "123"
+    },
+    {
+      "name": "Opulent Oasis Resorts",
+      "email": "info@opulentoasis-resorts.com",
+      "password": "123"
+    },
+    {
+      "name": "Tranquil Towers Group",
+      "email": "info@tranquiltowers-group.com",
+      "password": "123"
+    },
+    {
+      "name": "Diamond Destinations Inc.",
+      "email": "info@diamonddestinations.net",
+      "password": "123"
+    },
+    {
+      "name": "Regal Retreats Ltd.",
+      "email": "info@regalretreats.co",
+      "password": "123"
+    },
+    {
+      "name": "Emerald Escapes Corporation",
+      "email": "info@emeraldescapes-corp.com",
+      "password": "123"
+    },
+    {
+      "name": "Lavish Living Hotels",
+      "email": "info@lavishliving-hotels.com",
+      "password": "123"
+    },
+    {
+      "name": "Elite Enclaves Group",
+      "email": "info@eliteenclaves-group.com",
+      "password": "123"
+    },
+    {
+      "name": "Imperial Inns Inc.",
+      "email": "info@imperialinns.net",
+      "password": "123"
+    }
+  ]
+}

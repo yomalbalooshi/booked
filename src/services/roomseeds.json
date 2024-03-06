@@ -1,0 +1,578 @@
+{
+  "data": [
+    {
+      "roomType": "Standard Room",
+      "price": 120,
+      "amenities": ["Free Wi-Fi", "TV", "Air Conditioning"],
+      "hotelId": "65e615fdfb7dd1f71a39a350",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.53.22+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.53.31+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.53.36+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.50.46+PM.png"
+      ]
+    },
+    {
+      "roomType": "Deluxe Room",
+      "price": 200,
+      "amenities": ["Free Wi-Fi", "Mini Bar", "Ocean View"],
+      "hotelId": "65e615fdfb7dd1f71a39a350",
+      "maxAdults": 3,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.51.13+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.51.18+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.51.24+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.52.53+PM.png"
+      ]
+    },
+    {
+      "roomType": "Suite",
+      "price": 300,
+      "amenities": ["Free Wi-Fi", "Jacuzzi", "Private Balcony"],
+      "hotelId": "65e615fdfb7dd1f71a39a350",
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.01+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.05+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.10+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.15+PM.png"
+      ]
+    },
+    {
+      "roomType": "Family Room",
+      "price": 250,
+      "amenities": ["Free Wi-Fi", "Kid's Play Area", "Kitchenette"],
+      "hotelId": "65e615fdfb7dd1f71a39a350",
+      "maxAdults": 2,
+      "maxChildren": 3,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.15+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.29+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.33+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.54.37+PM.png"
+      ]
+    },
+    {
+      "roomType": "Executive Suite",
+      "price": 400,
+      "amenities": ["Free Wi-Fi", "Conference Room Access", "City View"],
+      "hotelId": "65e615fdfb7dd1f71a39a350",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.55.52+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.55.48+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.55.44+PM.png",
+        "https://booking-pictures.s3.amazonaws.com/Screen+Shot+2024-03-04+at+9.55.56+PM.png"
+      ]
+    },
+    {
+      "roomType": "Royal Suite",
+      "price": 350,
+      "amenities": ["Free Wi-Fi", "Jacuzzi", "Ocean View"],
+      "hotelId": "65e615fdfb7dd1f71a39a34c",
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Deluxe Room",
+      "price": 220,
+      "amenities": ["Free Wi-Fi", "Mini Bar", "City View"],
+      "hotelId": "65e615fdfb7dd1f71a39a34c",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/royal_palace_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Executive Suite",
+      "price": 300,
+      "amenities": ["Free Wi-Fi", "Conference Room Access", "Mountain View"],
+      "hotelId": "65e615fdfb7dd1f71a39a34e",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Standard Room",
+      "price": 150,
+      "amenities": ["Free Wi-Fi", "TV", "Garden View"],
+      "hotelId": "65e615fdfb7dd1f71a39a34e",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/tranquil_towers_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Premium Suite",
+      "price": 400,
+      "amenities": ["Free Wi-Fi", "Private Pool", "Skyline View"],
+      "hotelId": "65e615fdfb7dd1f71a39a352",
+      "maxAdults": 3,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Family Room",
+      "price": 250,
+      "amenities": ["Free Wi-Fi", "Kid's Play Area", "City View"],
+      "hotelId": "65e615fdfb7dd1f71a39a352",
+      "maxAdults": 2,
+      "maxChildren": 3,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/celestial_suites_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Cozy Cabin",
+      "price": 180,
+      "amenities": ["Free Wi-Fi", "Fireplace", "Forest View"],
+      "hotelId": "65e615fdfb7dd1f71a39a354",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Nature Suite",
+      "price": 280,
+      "amenities": ["Free Wi-Fi", "Hiking Trail Access", "Lake View"],
+      "hotelId": "65e615fdfb7dd1f71a39a354",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_hideaway_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Elegant Retreat",
+      "price": 320,
+      "amenities": ["Free Wi-Fi", "Spa Services", "Garden View"],
+      "hotelId": "65e615fdfb7dd1f71a39a356",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Luxury Suite",
+      "price": 380,
+      "amenities": ["Free Wi-Fi", "Butler Service", "City View"],
+      "hotelId": "65e615fdfb7dd1f71a39a356",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/divine_delights_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Grand Suite",
+      "price": 450,
+      "amenities": ["Free Wi-Fi", "Penthouse Access", "Skyline View"],
+      "hotelId": "65e615fefb7dd1f71a39a364",
+      "maxAdults": 3,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Presidential Suite",
+      "price": 550,
+      "amenities": ["Free Wi-Fi", "Private Butler", "Panoramic View"],
+      "hotelId": "65e615fefb7dd1f71a39a364",
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/majestic_suites_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Premium Deluxe",
+      "price": 280,
+      "amenities": ["Free Wi-Fi", "Skyline View", "Jacuzzi"],
+      "hotelId": "65e615fefb7dd1f71a39a366",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Executive Suite",
+      "price": 350,
+      "amenities": ["Free Wi-Fi", "Cityscape View", "Private Lounge"],
+      "hotelId": "65e615fefb7dd1f71a39a366",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/ethereal_elegance_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Divine Suite",
+      "price": 400,
+      "amenities": ["Free Wi-Fi", "Panoramic View", "Private Spa"],
+      "hotelId": "65e615fefb7dd1f71a39a368",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Luxury Retreat",
+      "price": 320,
+      "amenities": ["Free Wi-Fi", "Garden View", "In-room Fireplace"],
+      "hotelId": "65e615fefb7dd1f71a39a368",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/seraphic_sanctuary_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Heavenly View",
+      "price": 250,
+      "amenities": ["Free Wi-Fi", "Mountain View", "Balcony"],
+      "hotelId": "65e615fefb7dd1f71a39a36a",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Tranquil Retreat",
+      "price": 180,
+      "amenities": ["Free Wi-Fi", "Forest View", "Relaxation Lounge"],
+      "hotelId": "65e615fefb7dd1f71a39a36a",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/angelic_abode_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Skyline Retreat",
+      "price": 300,
+      "amenities": ["Free Wi-Fi", "City View", "Private Terrace"],
+      "hotelId": "65e615fefb7dd1f71a39a36c",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Panoramic Suite",
+      "price": 380,
+      "amenities": ["Free Wi-Fi", "Floor-to-Ceiling Windows", "Sky Deck"],
+      "hotelId": "65e615fefb7dd1f71a39a36c",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/heavenly_heights_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Golden Suite",
+      "price": 450,
+      "amenities": ["Free Wi-Fi", "Penthouse Access", "Skyline View"],
+      "hotelId": "65e615fefb7dd1f71a39a371",
+      "maxAdults": 3,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Penthouse Suite",
+      "price": 550,
+      "amenities": ["Free Wi-Fi", "Private Butler", "Panoramic View"],
+      "hotelId": "65e615fefb7dd1f71a39a371",
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_suites_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Deluxe Ocean View",
+      "price": 300,
+      "amenities": ["Free Wi-Fi", "Balcony", "Oceanfront"],
+      "hotelId": "65e615fefb7dd1f71a39a37c",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Premium Beachfront Suite",
+      "price": 400,
+      "amenities": ["Free Wi-Fi", "Private Terrace", "Direct Beach Access"],
+      "hotelId": "65e615fefb7dd1f71a39a37c",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/sunset_serenity_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Opulent Suite",
+      "price": 350,
+      "amenities": ["Free Wi-Fi", "Garden View", "Private Pool"],
+      "hotelId": "65e615fefb7dd1f71a39a37e",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Luxury Beachfront Villa",
+      "price": 500,
+      "amenities": ["Free Wi-Fi", "Ocean View", "Private Beach Access"],
+      "hotelId": "65e615fefb7dd1f71a39a37e",
+      "maxAdults": 4,
+      "maxChildren": 2,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/opulent_oasis_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Beachside Retreat",
+      "price": 250,
+      "amenities": ["Free Wi-Fi", "Beach View", "Sunset Balcony"],
+      "hotelId": "65e615fefb7dd1f71a39a380",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Sunset Suite",
+      "price": 300,
+      "amenities": ["Free Wi-Fi", "Private Balcony", "Ocean Breeze"],
+      "hotelId": "65e615fefb7dd1f71a39a380",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/beachside_bliss_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Golden View",
+      "price": 280,
+      "amenities": ["Free Wi-Fi", "Cityscape View", "Golden Sunset"],
+      "hotelId": "65e615fefb7dd1f71a39a382",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Luxury Retreat",
+      "price": 350,
+      "amenities": ["Free Wi-Fi", "Penthouse Access", "Panoramic Sunset"],
+      "hotelId": "65e615fefb7dd1f71a39a382",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_getaway_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Golden Horizon Suite",
+      "price": 450,
+      "amenities": ["Free Wi-Fi", "Skyline View", "Private Terrace"],
+      "hotelId": "65e615fefb7dd1f71a39a384",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Elegant Retreat",
+      "price": 400,
+      "amenities": ["Free Wi-Fi", "Garden View", "Private Pool"],
+      "hotelId": "65e615fefb7dd1f71a39a384",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_horizon_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Golden Retreat",
+      "price": 380,
+      "amenities": ["Free Wi-Fi", "Cityscape View", "Luxury Lounge"],
+      "hotelId": "65e615fefb7dd1f71a39a388",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Luxury Lounge Suite",
+      "price": 420,
+      "amenities": ["Free Wi-Fi", "Panoramic View", "Exclusive Lounge Access"],
+      "hotelId": "65e615fefb7dd1f71a39a388",
+      "maxAdults": 3,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/golden_retreat_room2_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Harmony Haven Suite",
+      "price": 300,
+      "amenities": ["Free Wi-Fi", "Mountain View", "Tranquil Retreat"],
+      "hotelId": "65e615fefb7dd1f71a39a392",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room1_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room1_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room1_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room1_image4.jpg"
+      ]
+    },
+    {
+      "roomType": "Tranquil Escape",
+      "price": 250,
+      "amenities": ["Free Wi-Fi", "Forest View", "Peaceful Balcony"],
+      "hotelId": "65e615fefb7dd1f71a39a392",
+      "maxAdults": 2,
+      "maxChildren": 1,
+      "images": [
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room2_image1.jpg",
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room2_image2.jpg",
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room2_image3.jpg",
+        "https://booking-pictures.s3.amazonaws.com/harmony_haven_room2_image4.jpg"
+      ]
+    }
+  ]
+}
