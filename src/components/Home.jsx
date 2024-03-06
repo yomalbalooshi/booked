@@ -63,14 +63,15 @@ const Home = ({ user }) => {
           padding: '10%'
         }}
       >
-        <p className="text-2xl font-thin tracking-wider leading-loose text-stone-300">
-          Welcome to Book-A-Stay, your key to extraordinary travel experiences.
-          Dive into a carefully curated selection of hotels and resorts designed
-          to elevate your stay. Enjoy seamless booking, personalized service,
-          and a world of possibilities at your fingertips. Unwind, explore, and
-          make memories with Book-A-Stay – because every journey deserves a
-          touch of excellence. Your perfect getaway is just a reservation away.
+        <p className="font-normal tracking-wider leading-loose text-stone-300 text-center">
+          <span className="text-8xl mb-32">Booked</span>
+          <br />
+          <span className="text-2xl font-thin">
+            Get Hooked on Booked – Turning Your Stays into Unforgettable
+            Excitement!
+          </span>
         </p>
+
         <div
           style={{
             display: 'flex',
