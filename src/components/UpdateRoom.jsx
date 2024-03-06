@@ -60,7 +60,7 @@ const UpdateRoom = ({ user }) => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    navigate(`/viewcompanyhotel/${room.hotelId}`)
+    navigate(`/hotels/${room.hotelId}`)
     await UpdateCompanyHotelRoom({
       id: room._id,
       roomType: formValues.roomType,

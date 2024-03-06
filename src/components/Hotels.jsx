@@ -208,15 +208,17 @@ const Hotels = ({ user }) => {
             </div>
           ))}
         </div>
-        {totalPages > 1 && (
-          <Pagination
-            count={totalPages}
-            onChange={handlePageChange}
-            size="large"
-            showFirstButton
-            showLastButton
-          />
-        )}
+        <div className="flex justify-center">
+          {totalPages > 1 && (
+            <Pagination
+              count={totalPages}
+              onChange={handlePageChange}
+              size="large"
+              showFirstButton
+              showLastButton
+            />
+          )}
+        </div>
       </div>
     </div>
   )

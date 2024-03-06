@@ -40,7 +40,7 @@ const Home = ({ user }) => {
         }}
       >
         <p className="font-normal tracking-wider leading-loose text-stone-300 text-center">
-          <span className="text-8xl mb-56">Booked</span>
+          <span className="text-8xl mb-32">Booked</span>
           <br />
           <span className="text-2xl font-thin">
             Get Hooked on Booked – Turning Your Stays into Unforgettable
@@ -56,10 +56,20 @@ const Home = ({ user }) => {
             height: '100%'
           }}
         >
-          <button className="text-stone-200 hover:text-white border border-stone-300 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-thin rounded-lg text-2xl px-10 py-2.5 text-center me-2 mb-2 dark:border-stone-200 dark:text-stone-200 dark:hover:text-white dark:hover:bg-slate-950 dark:focus:ring-slate-950 mr-40">
+          <button
+            onClick={() => {
+              navigate('/hotels')
+            }}
+            className="text-stone-200 hover:text-white border border-stone-300 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-thin rounded-lg text-2xl px-10 py-2.5 text-center me-2 mb-2 dark:border-stone-200 dark:text-stone-200 dark:hover:text-white dark:hover:bg-slate-950 dark:focus:ring-slate-950 mr-40"
+          >
             Book Now
           </button>
-          <button className="text-stone-200 hover:text-white border border-stone-300 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-thin rounded-lg text-2xl px-10 py-2.5 text-center me-2 mb-2 dark:border-stone-200 dark:text-stone-200 dark:hover:text-white dark:hover:bg-slate-950 dark:focus:ring-slate-950">
+          <button
+            onClick={() => {
+              navigate('/map')
+            }}
+            className="text-stone-200 hover:text-white border border-stone-300 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-thin rounded-lg text-2xl px-10 py-2.5 text-center me-2 mb-2 dark:border-stone-200 dark:text-stone-200 dark:hover:text-white dark:hover:bg-slate-950 dark:focus:ring-slate-950"
+          >
             Discover
           </button>
         </div>
