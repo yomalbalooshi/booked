@@ -140,98 +140,99 @@ const Hotels = () => {
   console.log('filtered ', filteredHotels)
   console.log(totalPages)
   return (
-    <div>
-      <div id="search">
-        <TextField
-          id="search"
-          name="search"
-          onChange={handleChange}
-          sx={{ width: 350, mb: 3, mt: 3 }}
-          label="Search Hotel..."
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            )
-          }}
-        />
-      </div>
-      {/* <label htmlFor="priceRange">{priceRange}</label>
-      <div id="price-slider">
-        <input
-          type="range"
-          min="0"
-          max="1000"
-          id="priceRange"
-          name="priceRange"
-          value={priceRange}
-          step="5"
-          onChange={handleChange}
-        ></input>
-      </div> */}
-      <div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <Typography sx={{ width: 10, pl: 1, pr: 1 }}>{value[0]}</Typography>
-          <Slider
-            value={value}
-            onChange={handleChange2}
-            onChangeCommitted={handleChangeCommitted}
-            sx={{ width: 250, ml: 1, mr: 1 }}
-            valueLabelDisplay="auto"
-            aria-labelledby="range-slider"
-            getAriaValueText={valuetext}
-            max={450}
+    <div className="flex justify-around mt-12">
+      <div className="filters">
+        <div className="search-hotels">
+          <TextField
+            id="search"
+            name="search"
+            onChange={handleChange}
+            sx={{ width: 350, mb: 3, mt: 3 }}
+            label="Search Hotel"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              )
+            }}
           />
-          <Typography sx={{ width: 10, pl: 1, pr: 1 }}>{value[1]}</Typography>
+        </div>
+
+        <div>
+          <div>
+            <h2 className="filter-title">Price Range</h2>
+          </div>
+          <div
+            style={{ display: 'flex', alignItems: 'center' }}
+            className="search-slider"
+          >
+            <Typography sx={{ width: 10, pl: 0, pr: 2 }}>{value[0]}</Typography>
+            <Slider
+              value={value}
+              onChange={handleChange2}
+              onChangeCommitted={handleChangeCommitted}
+              sx={{ width: 250, ml: 1, mr: 1 }}
+              valueLabelDisplay="auto"
+              aria-labelledby="range-slider"
+              getAriaValueText={valuetext}
+              max={450}
+            />
+            <Typography sx={{ width: 10, pl: 1, pr: 1 }}>{value[1]}</Typography>
+          </div>
+        </div>
+        <div>
+          <h2 className="filter-title">Amenities</h2>
+        </div>
+        <div id="amenities" className="search-slider">
+          {getAmenities().map((amenity, index) => (
+            <div id="amenity" key={index}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="amenity"
+                    id={amenity}
+                    value={amenity}
+                    color="success"
+                    onChange={handleChange}
+                  />
+                }
+                label={amenity}
+              />
+              {/* <input
+                type="checkbox"
+                name="amenity"
+                id={amenity}
+                value={amenity}
+                onChange={handleChange}
+              ></input>
+              <label htmlFor="amenity"> {amenity}</label> */}
+            </div>
+          ))}
         </div>
       </div>
-      <div id="amenities">
-        {getAmenities().map((amenity, index) => (
-          <div id="amenity" key={index}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  name="amenity"
-                  id={amenity}
-                  value={amenity}
-                  color="success"
-                  onChange={handleChange}
-                />
-              }
-              label={amenity}
-            />
-            {/* <input
-              type="checkbox"
-              name="amenity"
-              id={amenity}
-              value={amenity}
-              onChange={handleChange}
-            ></input>
-            <label htmlFor="amenity"> {amenity}</label> */}
-          </div>
-        ))}
-      </div>
       <div className="hotels">
-        {displayedHotels.map((hotel) => (
-          <div key={hotel._id}>
-            <HotelCard
-              hotel={hotel}
-              priceRange={priceRange}
-              checkedAmenities={checkedAmenities}
-            />
-          </div>
-        ))}
+        <div>
+          {displayedHotels.map((hotel) => (
+            <div key={hotel._id}>
+              <HotelCard
+                hotel={hotel}
+                priceRange={priceRange}
+                checkedAmenities={checkedAmenities}
+              />
+            </div>
+          ))}
+        </div>
+        {totalPages > 1 && (
+          <Pagination
+            count={totalPages}
+            onChange={handlePageChange}
+            size="large"
+            showFirstButton
+            showLastButton
+          />
+        )}
       </div>
-      {totalPages > 1 && (
-        <Pagination
-          count={totalPages}
-          onChange={handlePageChange}
-          size="small"
-          showFirstButton
-          showLastButton
-        />
-      )}
     </div>
   )
 }

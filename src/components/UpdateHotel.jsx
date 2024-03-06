@@ -4,6 +4,7 @@ import { UpdateCompanyHotel } from '../services/company'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 import { GetCities } from '../services/city'
+import BookingContext from '../context/BookingContext'
 
 const UpdateHotel = ({ user }) => {
   let navigate = useNavigate()
@@ -53,74 +54,81 @@ const UpdateHotel = ({ user }) => {
       ),
       companyId: user.id
     })
-    navigate('/')
+    navigate('/companyprofile')
+    updateBooking()
   }
 
   return (
-    <div>
-      <h1>Update Hotel</h1>
-      {hotel && (
-        <div>
-          <p>{hotel.name}</p>
-          <section>
-            <form onSubmit={handleSubmit}>
-              <label>Hotel Name: </label>
-              <input
-                type="text"
-                name="name"
-                value={formValues.name || ''}
-                placeholder="Hotel Name"
-                onChange={(e) =>
-                  setFormValues({ ...formValues, name: e.target.value })
-                }
-                required
-              />
-              <br />
-              <label>Description: </label>
-              <input
-                type="text"
-                name="description"
-                value={formValues.description || ''}
-                placeholder="Hotel Description"
-                onChange={(e) =>
-                  setFormValues({
-                    ...formValues,
-                    description: e.target.value
-                  })
-                }
-                required
-              />
+    user &&
+    user.type === 'company' && (
+      <div>
+        <h1>Update Hotel</h1>
+        {hotel && (
+          <div>
+            <p>{hotel.name}</p>
+            <section>
+              <form onSubmit={handleSubmit}>
+                <label>Hotel Name: </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formValues.name || ''}
+                  placeholder="Hotel Name"
+                  onChange={(e) =>
+                    setFormValues({ ...formValues, name: e.target.value })
+                  }
+                  required
+                />
+                <br />
+                <label>Description: </label>
+                <input
+                  type="text"
+                  name="description"
+                  value={formValues.description || ''}
+                  placeholder="Hotel Description"
+                  onChange={(e) =>
+                    setFormValues({
+                      ...formValues,
+                      description: e.target.value
+                    })
+                  }
+                  required
+                />
 
-              <br />
+                <br />
 
-              <br />
-              <label>Amenities: </label>
-              {formValues.amenities.map((amenity, index) => (
-                <div key={index}>
-                  <input
-                    type="text"
-                    value={amenity}
-                    placeholder={`Amenity ${index + 1}`}
-                    onChange={(e) => handleChange(e, index)}
-                    required
-                  />
-                  {index > 0 && (
-                    <button type="button" onClick={() => removeAmenity(index)}>
-                      Remove
-                    </button>
-                  )}
-                </div>
-              ))}
-              <button type="button" onClick={addAmenity}>
-                Add More
-              </button>
-              <br />
-              <button type="submit">Update Hotel</button>
-            </form>
-          </section>
-        </div>
-      )}
-    </div>
+                <br />
+                <label>Amenities: </label>
+                {formValues.amenities.map((amenity, index) => (
+                  <div key={index}>
+                    <input
+                      type="text"
+                      value={amenity}
+                      placeholder={`Amenity ${index + 1}`}
+                      onChange={(e) => handleChange(e, index)}
+                      required
+                    />
+                    {index > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => removeAmenity(index)}
+                      >
+                        Remove
+                      </button>
+                    )}
+                  </div>
+                ))}
+                <button type="button" onClick={addAmenity}>
+                  Add More
+                </button>
+                <br />
+                <button type="submit">Update Hotel</button>
+              </form>
+            </section>
+          </div>
+        )}
+      </div>
+    )
   )
 }
 

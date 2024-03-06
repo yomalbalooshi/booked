@@ -146,19 +146,22 @@ const Dashboard = ({ user }) => {
     allHotels()
   }, [])
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <div className="CompanyProfileHotelsListDiv">
-        {hotels?.map((hotel) => (
-          <button className="companyhotelcardname" key={hotel._id}>
-            {hotel.name}
-          </button>
-        ))}
-      </div>
+    user &&
+    user.type === 'company' && (
       <div>
-        <HotelCharts data={dummyData} />
+        <h1>Dashboard</h1>
+        <div className="CompanyProfileHotelsListDiv">
+          {hotels?.map((hotel) => (
+            <button className="companyhotelcardname" key={hotel._id}>
+              {hotel.name}
+            </button>
+          ))}
+        </div>
+        <div>
+          <HotelCharts data={dummyData} />
+        </div>
       </div>
-    </div>
+    )
   )
 }
 export default Dashboard
