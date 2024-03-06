@@ -36,9 +36,9 @@ import Dashboard from './components/Dashboard'
 // import { roomsCreation } from './services/seeders'
 //import { bookingsCreation } from './services/seeders'
 
-
 const App = () => {
   const [user, setUser] = useState(null)
+  const [booked, setBooked] = useState(false)
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -63,7 +63,7 @@ const App = () => {
   }
   // console.log(user)
   const theme = createTheme({
-    direction: 'rtl'
+    direction: 'ltr'
     // other theme properties
   })
   return (
@@ -78,9 +78,17 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/hotels" element={<Hotels />} />
             <Route path="/hotels/:id" element={<HotelDetails />} />
-            <Route path="/profile" element={<Profile user={user} />} />
+            <Route
+              path="/profile"
+              element={<Profile user={user} booked={booked} />}
+            />
             <Route path="/register" element={<CustomerRegistation />} />
-            <Route path="/booking/:id" element={<Booking user={user} />} />
+            <Route
+              path="/booking/:id"
+              element={
+                <Booking user={user} booked={booked} setBooked={setBooked} />
+              }
+            />
             <Route
               path="/login"
               element={<SignIn setUser={setUser} signin={SignInCustomer} />}
@@ -95,6 +103,7 @@ const App = () => {
                 <UpdateProfile
                   setUser={setUser}
                   updateProfile={UpdateCustomerProfile}
+                  user={user}
                 />
               }
             />
@@ -123,12 +132,11 @@ const App = () => {
               element={<UpdateBooking user={user} />}
             />
             <Route path="/map" element={<Map />} />
-               <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
+            <Route path="/Dashboard/:id" element={<Dashboard user={user} />} />
           </Routes>
         </main>
       </div>
     </ThemeProvider>
-
   )
 }
 export default App

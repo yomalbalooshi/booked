@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { addCompanyHotelRoom } from '../services/company'
 const AddRoom = () => {
   let navigate = useNavigate()
+  const { updateBooking } = useContext(BookingContext)
   let { id } = useParams()
   const [formValues, setFormValues] = useState({
     roomType: '',
@@ -31,6 +32,7 @@ const AddRoom = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
+    navigate('/companyprofile')
     await addCompanyHotelRoom({
       roomType: formValues.roomType,
       price: formValues.price,
@@ -41,87 +43,90 @@ const AddRoom = () => {
       ),
       hotelId: id
     })
-    navigate('/')
+    updateBooking()
   }
-  // console.log(id)
+
   return (
-    <div>
-      <h1>Add a Room</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Room Type: </label>
-        <input
-          type="text"
-          name="roomType"
-          value={formValues.roomType}
-          placeholder="Room Type"
-          onChange={(e) =>
-            setFormValues({ ...formValues, roomType: e.target.value })
-          }
-          required
-        />
-        <br />
-        <label>Price per night: </label>
-        <input
-          type="number"
-          name="price"
-          value={formValues.price}
-          placeholder="Room Price"
-          onChange={(e) =>
-            setFormValues({ ...formValues, price: e.target.value })
-          }
-          required
-        />
-        <br />
-        <label>Amenities:</label>
-        {formValues.amenities.map((amenity, index) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={amenity}
-              placeholder={`Amenity ${index + 1}`}
-              onChange={(e) => handleChange(e, index)}
-              required
-            />
-            {index > 0 && (
-              <button type="button" onClick={() => removeAmenity(index)}>
-                Remove
-              </button>
-            )}
-          </div>
-        ))}
-        <button type="button" onClick={addAmenity}>
-          Add More
-        </button>
-        <br />
-        <label>Maximum Number of Adults </label>
-        <input
-          type="number"
-          min="1"
-          name="maxAdults"
-          value={formValues.maxAdults}
-          placeholder="Max Number of Adults"
-          onChange={(e) =>
-            setFormValues({ ...formValues, maxAdults: e.target.value })
-          }
-          required
-        />
-        <br />
-        <label>Maximum Number of Children </label>
-        <input
-          type="number"
-          min="0"
-          name="maxChildren"
-          value={formValues.maxChildren}
-          placeholder="Max Number of Children"
-          onChange={(e) =>
-            setFormValues({ ...formValues, maxChildren: e.target.value })
-          }
-          required
-        />
-        <br />
-        <button type="submit">Add Room</button>
-      </form>
-    </div>
+    user &&
+    user.type === 'company' && (
+      <div>
+        <h1>Add a Room</h1>
+        <form onSubmit={handleSubmit}>
+          <label>Room Type: </label>
+          <input
+            type="text"
+            name="roomType"
+            value={formValues.roomType}
+            placeholder="Room Type"
+            onChange={(e) =>
+              setFormValues({ ...formValues, roomType: e.target.value })
+            }
+            required
+          />
+          <br />
+          <label>Price per night: </label>
+          <input
+            type="number"
+            name="price"
+            value={formValues.price}
+            placeholder="Room Price"
+            onChange={(e) =>
+              setFormValues({ ...formValues, price: e.target.value })
+            }
+            required
+          />
+          <br />
+          <label>Amenities:</label>
+          {formValues.amenities.map((amenity, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                value={amenity}
+                placeholder={`Amenity ${index + 1}`}
+                onChange={(e) => handleChange(e, index)}
+                required
+              />
+              {index > 0 && (
+                <button type="button" onClick={() => removeAmenity(index)}>
+                  Remove
+                </button>
+              )}
+            </div>
+          ))}
+          <button type="button" onClick={addAmenity}>
+            Add More
+          </button>
+          <br />
+          <label>Maximum Number of Adults </label>
+          <input
+            type="number"
+            min="1"
+            name="maxAdults"
+            value={formValues.maxAdults}
+            placeholder="Max Number of Adults"
+            onChange={(e) =>
+              setFormValues({ ...formValues, maxAdults: e.target.value })
+            }
+            required
+          />
+          <br />
+          <label>Maximum Number of Children </label>
+          <input
+            type="number"
+            min="0"
+            name="maxChildren"
+            value={formValues.maxChildren}
+            placeholder="Max Number of Children"
+            onChange={(e) =>
+              setFormValues({ ...formValues, maxChildren: e.target.value })
+            }
+            required
+          />
+          <br />
+          <button type="submit">Add Room</button>
+        </form>
+      </div>
+    )
   )
 }
 export default AddRoom

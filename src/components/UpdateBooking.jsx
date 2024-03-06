@@ -139,107 +139,110 @@ const Booking = ({ user }) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div id="cal">
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateRangePicker
-              minDate={dayjs()}
-              localeText={{ start: 'Check-in', end: 'Check-out' }}
-              datevalue={datevalue}
-              defaultValue={datevalue}
-              onChange={(newDateValue) => setDateValue(newDateValue)}
-            />
-          </LocalizationProvider>
-        </div>
+    user &&
+    user.type === 'customer' && (
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div id="cal">
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateRangePicker
+                minDate={dayjs()}
+                localeText={{ start: 'Check-in', end: 'Check-out' }}
+                datevalue={datevalue}
+                defaultValue={datevalue}
+                onChange={(newDateValue) => setDateValue(newDateValue)}
+              />
+            </LocalizationProvider>
+          </div>
 
-        <div>
-          <label htmlFor="noOfRooms">No of Rooms</label>
-          <input
-            type="number"
-            name="noOfRooms"
-            min="1"
-            value={noOfrooms || ''}
-            required
-            onChange={handleNumberOfRooms}
-          />
-        </div>
-        <div>
-          <label htmlFor="adults">Adults</label>
-          <input
-            type="number"
-            name="adults"
-            value={adults || ''}
-            max={maxAdults}
-            min="1"
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="children">Children</label>
-          <input
-            type="number"
-            name="children"
-            value={children || ''}
-            max={maxChildren}
-            min="1"
-            onChange={onChange}
-            required
-          />
-        </div>
-        <div>
-          <p>
-            <label htmlFor="specialRequest">Special Requests</label>
-          </p>
-          <textarea
-            id="specialRequest"
-            name="specialRequest"
-            rows="3"
-            value={specialRequest || ''}
-            cols="30"
-            onChange={onChange}
-            placeholder="Special Requests..."
-          ></textarea>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            name="lateCheckOut"
-            id="lateCheckOut"
-            onChange={handleCheckboxes}
-            checked={lateCheckOut || ''}
-          />
-          <label htmlFor="lateCheckOut">Late Check Out</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            name="earlyCheckIn"
-            id="earlyCheckIn"
-            onChange={handleCheckboxes}
-            checked={earlyCheckIn || ''}
-          />
-          <label htmlFor="lateCheckOut">Early Check In</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            name="extraBed"
-            id="extraBed"
-            onChange={handleCheckboxes}
-            checked={extraBed || ''}
-          />
-          <label htmlFor="lateCheckOut">Extra Bed</label>
-        </div>
-        <div>
-          <h3 id="totalPrice">
-            Total Price: <span id="price">$ {totalPrice()}</span>
-          </h3>
-        </div>
-        <button>Update Booking</button>
-      </form>
-    </div>
+          <div>
+            <label htmlFor="noOfRooms">No of Rooms</label>
+            <input
+              type="number"
+              name="noOfRooms"
+              min="1"
+              value={noOfrooms || ''}
+              required
+              onChange={handleNumberOfRooms}
+            />
+          </div>
+          <div>
+            <label htmlFor="adults">Adults</label>
+            <input
+              type="number"
+              name="adults"
+              value={adults || ''}
+              max={maxAdults}
+              min="1"
+              onChange={onChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="children">Children</label>
+            <input
+              type="number"
+              name="children"
+              value={children || ''}
+              max={maxChildren}
+              min="1"
+              onChange={onChange}
+              required
+            />
+          </div>
+          <div>
+            <p>
+              <label htmlFor="specialRequest">Special Requests</label>
+            </p>
+            <textarea
+              id="specialRequest"
+              name="specialRequest"
+              rows="3"
+              value={specialRequest || ''}
+              cols="30"
+              onChange={onChange}
+              placeholder="Special Requests..."
+            ></textarea>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="lateCheckOut"
+              id="lateCheckOut"
+              onChange={handleCheckboxes}
+              checked={lateCheckOut || ''}
+            />
+            <label htmlFor="lateCheckOut">Late Check Out</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="earlyCheckIn"
+              id="earlyCheckIn"
+              onChange={handleCheckboxes}
+              checked={earlyCheckIn || ''}
+            />
+            <label htmlFor="lateCheckOut">Early Check In</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="extraBed"
+              id="extraBed"
+              onChange={handleCheckboxes}
+              checked={extraBed || ''}
+            />
+            <label htmlFor="lateCheckOut">Extra Bed</label>
+          </div>
+          <div>
+            <h3 id="totalPrice">
+              Total Price: <span id="price">$ {totalPrice()}</span>
+            </h3>
+          </div>
+          <button>Update Booking</button>
+        </form>
+      </div>
+    )
   )
 }
 export default Booking
