@@ -56,24 +56,21 @@ const CompanyProfile = ({ user }) => {
               <p>
                 {hotel.location.city}, {hotel.location.country}
               </p>
-
-                <button
-                  onClick={() => {
-                    navigate(`/viewcompanyhotel/${hotel._id}`)
-                  }}
-                >
-                  View Details
-                </button>
-                <button onClick={(e) => handleDeleteHotel(e, hotel)}>X</button>
-                <button onClick={(e) => handleUpdateHotel(e, hotel)}>
-                  Edit
-                </button>
-              </div>
-            ))}
-          </div>
+              <button
+                onClick={() => {
+                  navigate(`/viewcompanyhotel/${hotel._id}`)
+                }}
+              >
+                View Details
+              </button>
+              <button onClick={(e) => handleDeleteHotel(e, hotel)}>X</button>
+              <button onClick={(e) => handleUpdateHotel(e, hotel)}>Edit</button>
+            </div>
+          ))}
         </div>
       </div>
     )
   )
 }
+
 export default CompanyProfile
