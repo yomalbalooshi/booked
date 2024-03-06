@@ -56,7 +56,7 @@ const About = () => {
           budget-friendly to luxurious, ensuring there's something for every
           taste and budget.
         </p>
-        <p className="mt-1 font-light text-xl ml-5 leading-loose pl-6 pr-6 ">
+        <p className="mt-1 font-light text-xl ml-5 leading-loose pl-6 pr-6 pb-6 ">
           3. Secure Booking Process: Your privacy and security are our top
           priorities. Rest easy knowing that your personal information is
           handled with the utmost care through our secure booking process.
@@ -88,7 +88,6 @@ const About = () => {
           Want to Feature your hotels with us?
         </h2>
         <section>
-          <div>Contact Us</div>
           <MailSendForm />
         </section>
       </div>
