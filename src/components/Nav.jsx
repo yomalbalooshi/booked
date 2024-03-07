@@ -35,9 +35,12 @@ const Nav = ({ user, handleLogOut }) => {
   }
 
   return (
-    <nav className="navbar">
+    <nav className="navbar font-extralight text-2xl">
       <NavLink to="/">
-        <img src="" alt="logo" />
+        <div className="mt-10">
+          {' '}
+          <img src="images/logo.png" alt="logo" className="max-w-48 " />
+        </div>
       </NavLink>
       <div className="nav-links">
         <NavLink to="/about">About</NavLink>

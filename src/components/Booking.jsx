@@ -104,7 +104,7 @@ const Booking = ({ user }) => {
     let basePrice = selectedRoom.price
     let total = basePrice
     let dayDifference = datevalue[0].diff(datevalue[1], 'day') * -1
-    // let noOfRooms = e.target.noOfRooms
+
     if (lateCheckOut === true || earlyCheckIn === true) {
       total += basePrice / 2
     }
@@ -225,16 +225,6 @@ const Booking = ({ user }) => {
           />
         </div>
         <div>
-          {/* <p>
-            <label htmlFor="specialRequest">Special Requests</label>
-          </p>
-          <textarea
-            id="specialRequest"
-            name="specialRequest"
-            rows="3"
-            cols="30"
-            placeholder="Special Requests..."
-          ></textarea> */}
           <TextField
             type="text"
             name="specialRequest"
@@ -244,14 +234,6 @@ const Booking = ({ user }) => {
           />
         </div>
         <div className="booking-checkboxes">
-          {/* <input
-            type="checkbox"
-            name="lateCheckOut"
-            id="lateCheckOut"
-            onChange={handleCheckboxes}
-            checked={lateCheckOut}
-          />
-          <label htmlFor="lateCheckOut">Late Check Out</label> */}
           <FormControlLabel
             control={
               <Checkbox
@@ -296,26 +278,7 @@ const Booking = ({ user }) => {
             label={<Typography sx={{ fontSize: 14 }}>Extra Bed</Typography>}
           />
         </div>
-        {/* <div>
-          <input
-            type="checkbox"
-            name="earlyCheckIn"
-            id="earlyCheckIn"
-            onChange={handleCheckboxes}
-            checked={earlyCheckIn}
-          />
-          <label htmlFor="lateCheckOut">Early Check In</label>
-        </div> */}
-        {/* <div>
-          <input
-            type="checkbox"
-            name="extraBed"
-            id="extraBed"
-            onChange={handleCheckboxes}
-            checked={extraBed}
-          />
-          <label htmlFor="lateCheckOut">Extra Bed</label>
-        </div> */}
+
         <div className="fixed-bottom">
           <h3 id="totalPrice">
             Total Price: <span id="price">$ {totalPrice()}</span>
