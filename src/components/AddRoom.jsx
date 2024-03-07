@@ -50,7 +50,7 @@ const AddRoom = ({ user }) => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    navigate(`/viewcompanyhotel/${id}`)
+    navigate(`/hotels/${id}`)
     await addCompanyHotelRoom({
       roomType: formValues.roomType,
       price: formValues.price,

@@ -144,7 +144,7 @@ const AddHotel = ({ user }) => {
                     label={`Amenity ${index + 1}`}
                     InputLabelProps={{ shrink: true }}
                   />
-                  {index >= 0 && (
+                  {index > 0 && (
                     <Button
                       type="button"
                       variant="outlined"

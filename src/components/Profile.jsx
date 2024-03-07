@@ -349,14 +349,25 @@ const Profile = ({ user }) => {
                       </div>
                     </div>
                     <hr />
-                    <p className="text-lg mt-5">
-                      <span className="font-semibold mr-2 text-slate-700">
-                        Special Request:{' '}
-                      </span>
-                      {booking.specialRequest
-                        ? booking.specialRequest
-                        : '  None'}
-                    </p>
+                    <div className="flex justify-between mt-10">
+                      <p className="text-lg mt-5">
+                        <span className="font-semibold mr-2 text-slate-700">
+                          Special Request:{' '}
+                        </span>
+                        {booking.specialRequest
+                          ? booking.specialRequest
+                          : '  None'}
+                      </p>
+                      <Button
+                        onClick={() => {
+                          handleDeleteBooking(booking._id)
+                        }}
+                        variant="outlined"
+                        color="error"
+                      >
+                        Delete Booking
+                      </Button>
+                    </div>
                   </div>
                 ))}
             </div>

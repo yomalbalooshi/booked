@@ -3,8 +3,8 @@ import { ShowHotel } from '../services/Hotels'
 import { getNearbyRestaurants } from '../services/restaurant'
 import { getAllCutomerBookings } from '../services/booking'
 import { deleteHotelReview } from '../services/reviews'
-import { useEffect, useState } from 'react'
-
+import { useEffect, useState, useContext } from 'react'
+import BookingContext from '../context/BookingContext'
 import Carousel from 'react-material-ui-carousel'
 import ReviewForm from './ReviewForm'
 import Rating from '@mui/material/Rating'
@@ -18,6 +18,7 @@ const HotelDetails = ({ user }) => {
   let [restaurants, setRestaurants] = useState([])
   let [updateReviews, setUpdateReviews] = useState(true)
   const [customerBookings, setCustomerBookings] = useState([])
+  const { bookingUpdate } = useContext(BookingContext)
 
   const updateReviewsCallback = () => {
     setUpdateReviews(!updateReviews)
@@ -62,7 +63,7 @@ const HotelDetails = ({ user }) => {
       setHotel(response)
     }
     getHotelDetails()
-  }, [updateReviews])
+  }, [updateReviews, bookingUpdate])
 
   useEffect(() => {
     if (hotel) {
@@ -74,7 +75,7 @@ const HotelDetails = ({ user }) => {
       }
       getRestaurants()
     }
-  }, [hotel])
+  }, [hotel, bookingUpdate])
 
   const basePrice = () => {
     if (hotel.rooms.length > 0) {
@@ -97,7 +98,7 @@ const HotelDetails = ({ user }) => {
       setCustomerBookings(data)
     }
     getCustomerBookings()
-  }, [user])
+  }, [user, bookingUpdate])
 
   return (
     Object.keys(hotel).length !== 0 && (
@@ -140,13 +141,21 @@ const HotelDetails = ({ user }) => {
                 {(basePrice() && `${basePrice()} BHD`) || 'Unspecified price'}
               </p>
             </div>
-            {user && user.type === 'customer' && (
+            {user && user.type === 'customer' ? (
               <button
                 className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-2xl py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block max-w-full absolute bottom-10 right-5"
                 type="button"
                 onClick={() => navigate(`/booking/${hotel._id}`)}
               >
                 Make Booking
+              </button>
+            ) : (
+              <button
+                className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-2xl py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block max-w-full absolute bottom-10 right-5"
+                type="button"
+                onClick={() => navigate(`/addRoom/${hotel._id}`)}
+              >
+                Add Room
               </button>
             )}
           </div>
@@ -194,6 +203,17 @@ const HotelDetails = ({ user }) => {
                       ))}
                     </ul>
                   </div>
+                  {user && user.type === 'company' && (
+                    <div>
+                      <button
+                        className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-2xl py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none block max-w-full absolute bottom-10 left-5"
+                        type="button"
+                        onClick={() => navigate(`/updateroom/${room._id}`)}
+                      >
+                        Update Room
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 <div className=" col-span-1 relative  m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border  shrink-0 max-w-fit  ">
@@ -217,9 +237,12 @@ const HotelDetails = ({ user }) => {
             </div>
           ))}
         </div>
-        <h4 className="block mb-2 font-sans text-3xl antialiased font-semibold leading-snug tracking-normal  text-gray-700 text-center">
-          Nearby Restaurants
-        </h4>
+        {typeof restaurants !== 'string' && (
+          <h4 className="block mb-2 font-sans text-3xl antialiased font-semibold leading-snug tracking-normal  text-gray-700 text-center">
+            Nearby Restaurants
+          </h4>
+        )}
+
         {typeof restaurants !== 'string' && (
           <div id="restaurants">
             <div className="relative flex-column spa bg-clip-border rounded-xl bg-white text-gray-700 shadow-xl p-20  max-w-3xl max-h-96 flex-row mt-10 mb-8 m-auto ">
