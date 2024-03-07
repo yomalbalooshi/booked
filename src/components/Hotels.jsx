@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import { GetCities } from '../services/city'
 import { GetHotels } from '../services/Hotels'
 import { Pagination } from '@mui/material'
 import HotelCard from './HotelCard'
@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField'
 import InputAdornment from '@mui/material/InputAdornment'
 import Slider from '@mui/material/Slider'
 import Typography from '@mui/material/Typography'
-
+import Autocomplete from '@mui/material/Autocomplete'
 function valuetext(value) {
   return `${value}°C`
 }
@@ -20,13 +20,14 @@ let beforeChange = null
 const Hotels = ({ user }) => {
   const [hotels, setHotels] = useState([])
   const [searchHotel, setSearchHotel] = useState('')
+  const [location, setLocation] = useState('')
   const [priceRange, setPriceRange] = useState(0)
   const [checkedAmenities, setCheckedAmenities] = useState([])
   const [page, setPage] = useState(1)
-  const hotelPerPage = 6
+  const hotelPerPage = 4
 
   const [value, setValue] = useState([0, 300])
-
+  const [cities, setCities] = useState({})
   const handleChange2 = (event, newValue) => {
     if (!beforeChange) {
       beforeChange = [...value]
@@ -91,6 +92,21 @@ const Hotels = ({ user }) => {
       }
     }
   }
+  useEffect(() => {
+    const getAllCities = async () => {
+      let response = await GetCities()
+      setCities(response)
+    }
+    getAllCities()
+  }, [])
+  let countries = []
+  if (Object.keys(cities).length !== 0) {
+    cities.forEach((city) => {
+      if (!countries.includes(city.country)) {
+        countries.push(`${city.city}, ${city.country}`)
+      }
+    })
+  }
 
   const getAmenities = () => {
     let amenities = []
@@ -122,6 +138,10 @@ const Hotels = ({ user }) => {
       hotel.name.toLowerCase().includes(searchHotel) &&
       hotel.basePrice >= parseInt(value[0]) &&
       hotel.basePrice <= parseInt(value[1]) &&
+      (!location ||
+        location.trim() === '' ||
+        `${hotel.location.city.toLowerCase()}, ${hotel.location.country.toLowerCase()}` ===
+          location.toLowerCase()) &&
       amenityFilter(hotel)
   )
 
@@ -155,7 +175,23 @@ const Hotels = ({ user }) => {
             }}
           />
         </div>
-
+        <div>
+          <Autocomplete
+            disablePortal
+            options={countries}
+            sx={{ mb: 2 }}
+            onChange={(e, value) => setLocation(value)}
+            required
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Location"
+                id="country"
+                name="country"
+              />
+            )}
+          />
+        </div>
         <div>
           <div>
             <h2 className="filter-title">Price Range</h2>
