@@ -84,7 +84,6 @@ const Booking = ({ user }) => {
     try {
       navigate('/profile')
       await addCustomerBooking(booking)
-      // setBooked((prev) => !prev)
       updateBooking()
     } catch (error) {
       console.log(error)
