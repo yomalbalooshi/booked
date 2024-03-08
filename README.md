@@ -2,7 +2,7 @@
 
 ## About the Website
 
-The website serves as a comprehensive hotel booking system where customers can view hotel details and make hotel bookings according to their preferences. Additionally, companies can add hotels along with their details. Customers also have the ability to leave reviews on hotels.
+The website serves as a comprehensive hotel booking system where customers can view hotel details and make hotel bookings according to their preferences and leave reviews on their previously made bookings. Additionally, companies can add hotels along with their details and view analysis for the hotels they've added.
 
 ## Team
 
@@ -16,19 +16,26 @@ Development progress and tasks were managed using the following [Trello Board](h
 
 ## Deployed Link
 
-- [Hotel Booking System](#)
+- [Hotel Booking System](https://booked-ga.surge.sh/)
+  Note for Company Login:
+
+For company login, please use the following credentials:
+
+- **Email:** info@diamonddestinations.net
+- **Password:** 123
 
 ## Features
 
 ### User Features
 
 - **Hotel Booking**: Customers can make hotel bookings by selecting hotels, check-in and check-out dates, number of rooms, room types, and specifying the number of adults/children.
-- **View Hotel Details**: Users can view detailed information about hotels, including descriptions, available rooms, and amenities.
-- **Leave Reviews**: Customers have the ability to leave reviews and ratings for hotels they have visited.
+- **View Hotel Details**: Users can view detailed information about hotels, including descriptions, available rooms, and amenities either by navigating to the hotels and clicking on view details or through the discover option which displays the hotels on a clickable map.
+- **Leave Reviews**: Customers have the ability to leave reviews and ratings for hotels they have previously booked.
 
 ### Company Features
 
 - **Hotels**: Companies can add, delete, update hotels along with detailed descriptions, room options, amenities, and other relevant details to the system.
+- **Analysis**: Companies can view graphical analysis related to their hotels.
 
 ## Technologies Used
 
@@ -39,6 +46,58 @@ Development progress and tasks were managed using the following [Trello Board](h
 
 ## Screenshots
 
-## Future Updates
+### Home
 
-## Credits
+![Home](/public/images/home.png)
+
+### Register Form
+
+![Register](/public/images/register.png)
+
+### Log In form
+
+![Log in](/public/images/sign%20in.png)
+
+### Hotel List
+
+![hotel List](/public/images/hotel%20list.png)
+
+### Hotel Details
+
+![hotel details](/public/images/hotel%20details.png)
+
+### Booking Form
+
+![booking form](/public/images/booking%20form.png)
+
+### User profile
+
+![user profile](/public/images/user%20profile.png)
+
+### Company profile
+
+![company profile](/public/images/company%20profile.png)
+
+### Company All Bookings
+
+![All bookings](/public/images/all%20bookings.png)
+
+### Company Dashboard
+
+![dashboard](/public/images/dashboard.png)
+
+### Add Hotel Form
+
+![add hotel](/public/images/add%20hotel.png)
+
+### Update Hotel Form
+
+![update hotel form](/public/images/update%20hotel.png)
+
+### Add Room Form
+
+![add room](/public/images/add%20room.png)
+
+### Update Room Form
+
+![update room](/public/images/update%20room.png)
