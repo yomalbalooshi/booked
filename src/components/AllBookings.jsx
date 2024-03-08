@@ -4,19 +4,23 @@ import { ShowHotel } from '../services/Hotels'
 import AllBookingsTable from './AllBookingsTable'
 
 const AllBookings = ({ user }) => {
+  console.log(user)
   const [hotels, setHotels] = useState([])
   const [selectedHotel, setselectedHotel] = useState({})
   useEffect(() => {
     const allHotels = async () => {
-      let data = await getAllCompanyHotels(user.id)
-      setHotels(data)
+      if (user) {
+        let data = await getAllCompanyHotels(user.id)
+        setHotels(data)
+      }
     }
     allHotels()
-  }, [])
+  }, [user])
   const handleClick = async (e) => {
     let response = await ShowHotel(e.target.value)
     setselectedHotel(response)
   }
+
   return (
     <div>
       <div className="flex justify-center">
