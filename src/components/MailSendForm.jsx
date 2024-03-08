@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './MailSendForm.css'
 import axios from 'axios'
 
 const MailSendForm = () => {
