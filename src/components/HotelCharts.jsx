@@ -1,7 +1,7 @@
 // import { ResponsiveBar } from '@nivo/bar'
 import { AreaChart, BarChart, DonutChart } from '@tremor/react'
 import '../Dashboard.css'
-import './test.module.css'
+
 import { useEffect, useState } from 'react'
 const HotelCharts = ({ user, selectedHotel }) => {
   const months = [
