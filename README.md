@@ -17,6 +17,12 @@ Development progress and tasks were managed using the following [Trello Board](h
 ## Deployed Link
 
 - [Hotel Booking System](https://booked-ga.surge.sh/)
+  Note for Company Login:
+
+For company login, please use the following credentials:
+
+- **Email:** info@diamonddestinations.net
+- **Password:** 123
 
 ## Features
 
