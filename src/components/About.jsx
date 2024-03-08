@@ -1,4 +1,3 @@
-import './About.css'
 import axios from 'axios'
 import MailSendForm from './MailSendForm'
 
